@@ -28,6 +28,7 @@ if TYPE_CHECKING:  # pragma: no cover
 OK = 'ok'
 NOT_OK = 'not_ok'
 SKIP = 'skip'
+PLAN = 'plan'
 
 
 def _warn_format(
@@ -72,7 +73,7 @@ class TAP(ContextDecorator):
 
     _formatwarning = staticmethod(warnings.formatwarning)
     _showwarning = staticmethod(warnings.showwarning)
-    _count = Counter(ok=0, not_ok=0, skip=0)
+    _count = Counter(ok=0, not_ok=0, skip=0, plan=0)
 
     @classmethod
     def end(cls: type[Self], skip_reason: str = '') -> NoReturn:
@@ -83,30 +84,12 @@ class TAP(ContextDecorator):
         :return: Exits the diagnostic.
         :rtype: NoReturn
         """
-        try:
-            skip = cls._count.pop(SKIP)
-        except KeyError:  # pragma: no cover
-            TAP.diagnostic('Possible thread violation by TAP producer.')
-            skip = 0
-        count = cls._count.total()
-        match [count, skip_reason, skip]:
-            case [n, r, s] if r == '' and s > 0:  # type: ignore
-                TAP.diagnostic('items skipped', str(s))
-                sys.stdout.write(f'1..{n}\n')
-                sys.exit(0)
-            case [n, r, s] if r != '' and s > 0:  # type: ignore
-                TAP.diagnostic('items skipped', str(s))
-                sys.stdout.write(f'1..{n} # SKIP {r}\n')
-                sys.exit(0)
-            case [n, r, s] if r != '' and s == 0:
-                TAP.diagnostic('unnecessary argument "skip_reason" to TAP.end')
-                sys.stdout.write(f'1..{n}\n')
-                sys.exit(0)
-            case [n, r, s] if r == '' and s == 0:
-                sys.stdout.write(f'1..{n}\n')
-                sys.exit(0)
-            case _:  # pragma: no cover
-                TAP.bail_out('TAP.end failed due to invalid arguments.')
+        skip_count = cls.skip_count()
+        if skip_reason != '' and skip_count == 0:
+            TAP.diagnostic('unnecessary argument "skip_reason" to TAP.end')
+        if cls._count[PLAN] < 1:
+            TAP.plan(count=None, skip_reason=skip_reason, skip_count=skip_count)
+        exit(0)
 
     @staticmethod
     def diagnostic(*message: str) -> None:
@@ -127,6 +110,59 @@ class TAP(ContextDecorator):
         """
         print('Bail out!', *message, file=sys.stderr)
         sys.exit(1)
+
+    @classmethod
+    def skip_count(
+        cls: type[Self],
+    ) -> int:
+        """Get the current skip count.
+
+        :return: skip count
+        :rtype: int
+        """
+        try:
+            skip_count = cls._count.pop(SKIP)
+        except KeyError:  # pragma: no cover
+            TAP.diagnostic('Possible thread violation by TAP producer.')
+            skip_count = 0
+        return skip_count
+
+    @classmethod
+    def plan(  # noqa: C901
+        cls: type[Self],
+        count: int | None = None,
+        skip_reason: str = '',
+        skip_count: int | None = None,
+    ) -> None:
+        """Print a TAP test plan.
+
+        :param count: planned test count, defaults to None
+        :type count: int | None, optional
+        :param skip_reason: diagnostic to print, defaults to ''
+        :type skip_reason: str, optional
+        :param skip_count: number of tests skipped, defaults to None
+        :type skip_count: int | None, optional
+        """
+        count = cls._count.total() if count is None else count
+        if skip_count is None:
+            skip_count = cls.skip_count()
+        if skip_reason != '' and skip_count == 0:
+            TAP.diagnostic('unnecessary argument "skip_reason" to TAP.plan')
+        if cls._count[PLAN] < 1:
+            cls._count[PLAN] += 1
+            match [count, skip_reason, skip_count]:
+                case [n, r, s] if r == '' and s > 0:  # type: ignore
+                    TAP.diagnostic('items skipped', str(s))
+                    sys.stdout.write(f'1..{n}\n')
+                case [n, r, s] if r != '' and s > 0:  # type: ignore
+                    TAP.diagnostic('items skipped', str(s))
+                    sys.stdout.write(f'1..{n} # SKIP {r}\n')
+                case [n, r, s] if r == '' and s == 0:
+                    sys.stdout.write(f'1..{n}\n')
+                case _:  # pragma: no cover
+                    TAP.bail_out('TAP.plan failed due to invalid arguments.')
+        else:
+            TAP.diagnostic('TAP.plan called more than once during session.')
 
     @staticmethod
     @contextmanager
