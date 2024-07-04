@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import pytest
 
-from ozi.tap import TAP  # pyright: ignore
+from tap_producer import TAP  # pyright: ignore
 
 
 def test_end_skip() -> None:  # noqa: DC102, RUF100
