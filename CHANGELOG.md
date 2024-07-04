@@ -1,4 +1,26 @@
 # TAP-Producer CHANGELOG
+## 0.0.3 (2024-07-04)
+
+
+### Performance
+
+
+* perf: extract TAP.plan() from TAP.end() — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`f239b56`](https://github.com/OZI-Project/TAP-Producer/commit/f239b56110b42d34878d3aefeb0a7b04b77715da))
+
+
+### Unknown
+
+
+* Update pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`19e4bc9`](https://github.com/OZI-Project/TAP-Producer/commit/19e4bc9017bc0f1f2890187d6edd2ed029eecc33))
+
+* Update README — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`e8a7b2f`](https://github.com/OZI-Project/TAP-Producer/commit/e8a7b2fd49f95f4deed709c8e28d4ef306f369f5))
+
+* Update README — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`bb06608`](https://github.com/OZI-Project/TAP-Producer/commit/bb066085e63507008e78057389501b2c2209edab))
+
 ## 0.0.2 (2024-07-04)
 
 
