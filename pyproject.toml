@@ -255,6 +255,11 @@ match = "(main|master)"
 prerelease_token = "beta"
 prerelease = false
 
+[tool.semantic_release.branches."release/0.x"]
+match = "\\Arelease/0\\.\\d+\\Z"
+prerelease_token = "alpha"
+prerelease = false
+
 [tool.semantic_release.commit_parser_options]
 
 [tool.semantic_release.changelog]
