@@ -1,4 +1,19 @@
 # TAP-Producer CHANGELOG
+## 0.0.2 (2024-07-04)
+
+
+### 🐛 Fixed Bugs
+
+* update package metadata and add stubs — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`aaf531e`](https://github.com/OZI-Project/TAP-Producer/commit/aaf531e26a5d4f84ec1f3edec251131e94668c2d))
+
+
+### Performance
+
+
+* perf: update README description — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`80e7cf8`](https://github.com/OZI-Project/TAP-Producer/commit/80e7cf8c5ad09963c47525fc21f4a03a84ea0313))
+
 ## 0.0.1 (2024-07-04)
 
 
