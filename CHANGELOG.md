@@ -1,4 +1,35 @@
 # TAP-Producer CHANGELOG
+## 0.0.1 (2024-07-04)
+
+
+### 👷 Updated Continuous Integration
+
+* add release branch &#34;0.x&#34; to pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`8e6b5ce`](https://github.com/OZI-Project/TAP-Producer/commit/8e6b5ce9e1470bfd062636c2e5de1ded9bdf5fe4))
+
+
+### 🐛 Fixed Bugs
+
+* no cover and defers  — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`d977397`](https://github.com/OZI-Project/TAP-Producer/commit/d977397789bcad3c3d339433baba92bb14900a43))
+
+
+### Performance
+
+
+* perf: init repo
+([`9e1e940`](https://github.com/OZI-Project/TAP-Producer/commit/9e1e940b9df1799a11c09b3856f062fd0f9e2322))
+
+* perf: init repo
+([`e1e04b5`](https://github.com/OZI-Project/TAP-Producer/commit/e1e04b54be9608fc0e0dcb375ea77fd2caeb6ac9))
+
+
+### Unknown
+
+
+* Update pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`ec9a2b6`](https://github.com/OZI-Project/TAP-Producer/commit/ec9a2b6cee136e7b958842c0e06e3b823bf93209))
+
 
 ## 0.0.0 (2024-07-04)
 
