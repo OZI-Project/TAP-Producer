@@ -79,11 +79,11 @@ Home-page: https://www.oziproject.dev
 Author: Eden Ross Duff MSc
 Author-email: help@oziproject.dev
 License: @LICENSE@
-Download-URL: https://github.com//TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
+Download-URL: https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
 Requires-Python: >=3.10, <3.13
 Keywords: TAP
 Classifier: License :: OSI Approved :: Apache Software License
-Classifier: Development Status :: 1 - Planning
+Classifier: Development Status :: 3 - Alpha
 Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
@@ -220,6 +220,7 @@ ignore = [
     "TCH004",
     "UP",
     "PERF203",
+    "PYI021",
 ]
 # target-version = "@PYTHON_VERSION_DIST@"
 

@@ -3,7 +3,7 @@
 # See LICENSE.txt in the project root for details.
 # DO NOT EDIT BY HAND - This file was generated for use with OZI tools.
 # ozi-fix -> meson rewrite is the standard editing pipeline.
-source_files = ['__init__.py', 'py.typed']
+source_files = ['__init__.py', '__init__.pyi', 'py.typed']
 foreach file: source_files
     fs.copyfile(file)
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
