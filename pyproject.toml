@@ -256,7 +256,7 @@ prerelease_token = "beta"
 prerelease = false
 
 [tool.semantic_release.branches."release/0.x"]
-match = "\\Arelease/0\\.\\d+\\Z"
+match = "\\A0\\.\\d+\\Z"
 prerelease_token = "alpha"
 prerelease = false
 
