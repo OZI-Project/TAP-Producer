@@ -17,7 +17,7 @@ from typing import Generator
 from typing import NoReturn
 from typing import TextIO
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from typing import Any
 
     if sys.version_info >= (3, 11):
@@ -154,7 +154,7 @@ class TAP(ContextDecorator):
 
     @staticmethod
     @contextmanager
-    def strict() -> Generator[None, Any, None]:
+    def strict() -> Generator[None, Any, None]:  # pragma: defer to OZI
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
