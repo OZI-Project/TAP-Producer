@@ -9,6 +9,34 @@ import pytest
 from tap_producer import TAP  # pyright: ignore
 
 
+def test_plan_called_gt_once() -> None:  # noqa: DC102, RUF100
+    TAP.plan(count=1, skip_count=0)
+    TAP.ok('reason')
+    TAP.plan(count=1, skip_count=0)
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_plan() -> None:  # noqa: DC102, RUF100
+    TAP.plan(count=1, skip_count=0)
+    TAP.ok('reason')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_plan_no_skip_count() -> None:  # noqa: DC102, RUF100
+    TAP.plan(count=1, skip_count=None)
+    TAP.ok('reason')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
 def test_end_skip() -> None:  # noqa: DC102, RUF100
     with pytest.raises(SystemExit):
         TAP.end()

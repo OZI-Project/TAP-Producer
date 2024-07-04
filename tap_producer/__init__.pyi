@@ -51,6 +51,31 @@ class TAP(ContextDecorator):
         :type \*message: tuple[str]
         """
 
+    @classmethod
+    def skip_count(cls) -> int:
+        """Get the current skip count.
+
+        :return: skip count
+        :rtype: int
+        """
+
+    @classmethod
+    def plan(
+        cls,
+        count: int | None = None,
+        skip_reason: str = '',
+        skip_count: int | None = None,
+    ) -> None:
+        """Print a TAP test plan.
+
+        :param count: planned test count, defaults to None
+        :type count: int | None, optional
+        :param skip_reason: diagnostic to print, defaults to ''
+        :type skip_reason: str, optional
+        :param skip_count: number of tests skipped, defaults to None
+        :type skip_count: int | None, optional
+        """
+
     @staticmethod
     @contextmanager
     def suppress() -> Generator[None, Any, None]:
