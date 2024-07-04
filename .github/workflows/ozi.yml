@@ -1,0 +1,226 @@
+
+# Part of TAP-Producer.
+# See LICENSE.txt in the project root for details.
+# Additional copyright and license terms apply, see NOTICE for details.
+name: OZI
+
+on:
+  push:
+    branches:
+      - "v?[0-9].[0-9]*"
+      - "v?[1-9]+[0-9].[0-9]*"
+
+permissions:
+  contents: read
+
+jobs:
+
+
+  checkpoint-cp310-ubuntu-latest:
+    name: checkpoint (Python 3.10 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            api.github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@0.4.2
+        with:
+          python-version: "3.10"
+
+  checkpoint-cp311-ubuntu-latest:
+    name: checkpoint (Python 3.11 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            api.github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@0.4.2
+        with:
+          python-version: "3.11"
+
+  checkpoint-cp312-ubuntu-latest:
+    name: checkpoint (Python 3.12 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            api.github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@0.4.2
+        with:
+          python-version: "3.12"
+
+
+  checkpoint:
+    runs-on: ubuntu-latest
+    needs: [checkpoint-cp310-ubuntu-latest,checkpoint-cp311-ubuntu-latest,checkpoint-cp312-ubuntu-latest,]
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+
+
+  draft:
+    needs: checkpoint
+    runs-on: ubuntu-latest
+    concurrency: draft
+    strategy:
+      fail-fast: true
+    permissions:
+      contents: write
+      id-token: write
+    outputs:
+      drafted: ${{ steps.draft.outputs.drafted }}
+      tag: ${{ steps.draft.outputs.tag }}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+
+      - uses: OZI-Project/draft@0.3.3
+        id: draft
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+
+  release:
+    needs: [draft, checkpoint]
+    runs-on: ubuntu-latest
+    concurrency: release
+    strategy:
+      matrix:
+        py:
+          - security2
+          - security1
+          - bugfix
+          - prerelease
+      fail-fast: true
+      max-parallel: 1
+    outputs:
+      hashes: ${{ steps.release.outputs.hashes }}
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            fulcio.sigstore.dev:443
+            github.com:443
+            pypi.org:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+            oziproject.dev:443
+            www.oziproject.dev:443
+            objects.githubusercontent.com:443
+
+      - uses: OZI-Project/release@0.6.5
+        id: release
+        with:
+          python-dist: ${{ matrix.py }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ needs.draft.outputs.tag }}
+
+  generate-provenance:
+    needs: [draft, release]
+    name: Generate build provenance
+    permissions:
+      actions: read # To read the workflow path.
+      id-token: write # To sign the provenance.
+      contents: write # To add assets to a release.
+    # Currently this action needs to be referred by tag. More details at:
+    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
+    with:
+      provenance-name: provenance-${{ github.event.repository.name }}-${{ needs.draft.outputs.tag }}.intoto.jsonl
+      base64-subjects: "${{ needs.release.outputs.hashes }}"
+      upload-tag-name: "${{ needs.draft.outputs.tag }}"
+      upload-assets: true
+
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: [draft, release, generate-provenance]
+    if: needs.draft.outputs.drafted == 'true'
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+      with:
+        disable-sudo: true
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          upload.pypi.org:443
+          uploads.github.com:443
+
+    - uses: OZI-Project/publish@0.1.6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}

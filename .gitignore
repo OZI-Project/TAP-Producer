@@ -1,0 +1,25 @@
+# OZI packaging
+sig/
+subprojects/ozi/
+build*/
+/dist/
+temp/
+
+# Utility environments
+.hypothesis/
+.pytest_cache/
+.tox/
+.ruff_cache/
+
+# coverage files
+.coverage
+coverage.xml
+.coverage.*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
