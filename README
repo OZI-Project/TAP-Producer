@@ -15,7 +15,7 @@ Producer for Test Anything Protocol output in Python.
 Automatically counts test cases at call time.
 Supports plan, ok, not ok, diagnostic, and bail out functionality.
 
-TAP-Producer also includes an ``end`` convenience method as well as two decorators.
+TAP-Producer also includes an end convenience method as well as two decorators.
 A suppress decorator for suppressing diagnostic and bail out messages;
 a strict decorator for raising not ok test cases to Python errors.
 
