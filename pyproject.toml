@@ -80,6 +80,7 @@ Author: Eden Ross Duff MSc
 Author-email: help@oziproject.dev
 License: @LICENSE@
 Download-URL: https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
+Project-URL: Documentation, https://docs.oziproject.dev/en/stable/ozi.tap.html
 Requires-Python: >=3.10, <3.13
 Keywords: TAP
 Classifier: License :: OSI Approved :: Apache Software License
