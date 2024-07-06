@@ -1,4 +1,19 @@
 # TAP-Producer CHANGELOG
+## 0.1.0 (2024-07-06)
+
+
+### Feature
+
+
+* feat: implemented TAP version 13 and 14 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`f3b69d2`](https://github.com/OZI-Project/TAP-Producer/commit/f3b69d26573311a9959216670868c7aa34ffb02d))
+
+
+### 🐛 Fixed Bugs
+
+* add TAP 14 methods to stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`e1ad1d3`](https://github.com/OZI-Project/TAP-Producer/commit/e1ad1d3c1482b181b2b66719dabe4259c413e05e))
+
 ## 0.0.3 (2024-07-04)
 
 
