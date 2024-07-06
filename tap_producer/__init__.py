@@ -80,14 +80,14 @@ class TAP(ContextDecorator):
     _version = DEFAULT_TAP_VERSION
 
     @classmethod
-    def count(cls) -> int:
+    def count(cls: type[Self]) -> int:
         """Get the proper count of ok, not ok, and skipped."""
         return (
             cls._count.total() - cls._count[SUBTEST] - cls._count[VERSION] - cls._count[PLAN]
         )
 
     @classmethod
-    def version(cls, version: int = DEFAULT_TAP_VERSION) -> None:
+    def version(cls: type[Self], version: int = DEFAULT_TAP_VERSION) -> None:
         """Set the TAP version to use, defaults to 12, must be called first."""
         if cls._count[VERSION] < 1 and cls._count.total() < 1:
             cls._count[VERSION] += 1
@@ -124,7 +124,11 @@ class TAP(ContextDecorator):
 
     @classmethod
     def comment(cls: type[Self], *message: str) -> None:
-        r"""Print a diagnostic message.
+        r"""Print a message to the TAP stream.
+
+        .. note::
+
+           If using TAP version < 14, prints a diagnostic.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
@@ -133,28 +137,30 @@ class TAP(ContextDecorator):
             formatted = ' - '.join(message).strip()
             sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
         else:
-            TAP.diagnostic('TAP.comment used while TAP version < 14, using TAP.diagnostic.')
             TAP.diagnostic(*message)
 
     @classmethod
-    def diagnostic(cls: type[Self], *message: str, **kwargs: Any) -> None:
+    def diagnostic(cls: type[Self], *message: str, **kwargs: str | tuple[str, ...]) -> None:
         r"""Print a diagnostic message.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
+        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
+        :type \*\*kwargs: str | tuple[str, ...]
         """
         if cls._version == DEFAULT_TAP_VERSION:
+            message += tuple(f'{k}: {v}' for k, v in kwargs.items())
             formatted = ' - '.join(message).strip()
             sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
         else:
-            kwargs |= {'message': message}
+            kwargs |= {'message': ' - '.join(message).strip()}
             for i in yaml.dump(
                 kwargs,
                 indent=2,
                 explicit_start=True,
                 explicit_end=True,
             ).split('\n'):
-                sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}  {i}')
+                sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}  {i}\n')
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:

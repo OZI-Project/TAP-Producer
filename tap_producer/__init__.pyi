@@ -9,6 +9,12 @@ from typing import NoReturn
 OK = ...
 NOT_OK = ...
 SKIP = ...
+PLAN = ...
+VERSION = ...
+SUBTEST = ...
+INDENT = ...
+DEFAULT_TAP_VERSION = ...
+
 class TAP(ContextDecorator):
     """Test Anything Protocol warnings for TAP Producer APIs with a simple decorator.
 
@@ -25,6 +31,16 @@ class TAP(ContextDecorator):
     _formatwarning = ...
     _showwarning = ...
     _count = ...
+    _version = ...
+
+    @classmethod
+    def version(cls, version: int = ...) -> None:
+        """Set the TAP version to use, defaults to 12, must be called first."""
+
+    @classmethod
+    def count(cls) -> int:
+        """Get the proper count of ok, not ok, and skipped."""
+
     @classmethod
     def end(cls, skip_reason: str = ...) -> NoReturn:
         """End a TAP diagnostic.
@@ -35,12 +51,26 @@ class TAP(ContextDecorator):
         :rtype: NoReturn
         """
 
+    @classmethod
+    def comment(cls, *message: str) -> None:
+        r"""Print a message to the TAP stream.
+
+        .. note::
+
+           If using TAP version < 14, prints a diagnostic.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        """
+
     @staticmethod
-    def diagnostic(*message: str) -> None:
+    def diagnostic(*message: str, **kwargs: str | tuple[str, ...]) -> None:
         r"""Print a diagnostic message.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
+        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
+        :type \*\*kwargs: str | tuple[str, ...]
         """
 
     @staticmethod
@@ -75,6 +105,11 @@ class TAP(ContextDecorator):
         :param skip_count: number of tests skipped, defaults to None
         :type skip_count: int | None, optional
         """
+
+    @classmethod
+    @contextmanager
+    def subtest(cls, name: str | None = None) -> Generator[None, Any, None]:
+        """Start a TAP subtest document, name is optional."""
 
     @staticmethod
     @contextmanager
@@ -121,6 +156,3 @@ class TAP(ContextDecorator):
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """
-
-
-
