@@ -71,7 +71,7 @@ def test_plan_v14() -> None:  # noqa: DC102, RUF100
     with TAP.subtest('subtest2'):
         TAP.ok('ok')
 
-    with pytest.raises(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):  # noqa: PT012, RUF100
         with TAP.subtest('subtest3'):
             TAP.not_ok('not ok')
 
