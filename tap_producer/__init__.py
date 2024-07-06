@@ -321,7 +321,7 @@ class TAP(ContextDecorator):
         warnings.formatwarning = _warn_format
         warnings.showwarning = _warn  # type: ignore
         indent = INDENT * cls._count[SUBTEST]
-        sys.stdout.write(f'{indent}not ok {directive} {formatted}\n')  # pragma: no cover
+        sys.stdout.write(f'{indent}not ok {cls.count() - cls._count[SKIP]} {directive} {formatted}\n')  # pragma: no cover
         warnings.warn(
             f'{indent}# {cls.count() - cls._count[SKIP]} {directive} {formatted}',
             RuntimeWarning,
