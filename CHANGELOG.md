@@ -1,4 +1,19 @@
 # TAP-Producer CHANGELOG
+## 0.1.1 (2024-07-06)
+
+
+### 🐛 Fixed Bugs
+
+* not_ok() was missing counter — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`bcbdb40`](https://github.com/OZI-Project/TAP-Producer/commit/bcbdb4019cd6c854b4a39c8b6a2e757fc18349b8))
+
+
+### Unknown
+
+
+* run linters — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`f22c75a`](https://github.com/OZI-Project/TAP-Producer/commit/f22c75a6b3f506ca23adb8ec4269f67707f08bfb))
+
 ## 0.1.0 (2024-07-06)
 
 
