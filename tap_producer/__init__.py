@@ -17,6 +17,8 @@ from typing import Generator
 from typing import NoReturn
 from typing import TextIO
 
+import yaml
+
 if TYPE_CHECKING:  # pragma: no cover
     from typing import Any
 
@@ -29,6 +31,11 @@ OK = 'ok'
 NOT_OK = 'not_ok'
 SKIP = 'skip'
 PLAN = 'plan'
+VERSION = 'version'
+SUBTEST = 'subtest_level'
+
+INDENT = '    '
+DEFAULT_TAP_VERSION = 12
 
 
 def _warn_format(
@@ -39,7 +46,7 @@ def _warn_format(
     line: str | None = None,
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {category.__name__}\n'  # pragma: no cover
+    return f'{message} - {category.__name__}\n'  # pragma: no cover
 
 
 def _warn(
@@ -51,7 +58,6 @@ def _warn(
     stacklevel: int = 1,
 ) -> None:
     """emit a TAP formatted warning."""
-    sys.stdout.write(f'not ok {message}\n')  # pragma: no cover
     sys.stderr.write(  # pragma: no cover
         warnings.formatwarning(message, category, filename, lineno),
     )
@@ -65,15 +71,40 @@ class TAP(ContextDecorator):
     All TAP API calls reference the same thread context.
 
     .. note::
-        Subtests are not implemented.
-
-    .. note::
         Not known to be thread-safe.
     """
 
     _formatwarning = staticmethod(warnings.formatwarning)
     _showwarning = staticmethod(warnings.showwarning)
-    _count = Counter(ok=0, not_ok=0, skip=0, plan=0)
+    _count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
+    _version = DEFAULT_TAP_VERSION
+
+    @classmethod
+    def count(cls) -> int:
+        """Get the proper count of ok, not ok, and skipped."""
+        return (
+            cls._count.total() - cls._count[SUBTEST] - cls._count[VERSION] - cls._count[PLAN]
+        )
+
+    @classmethod
+    def version(cls, version: int = DEFAULT_TAP_VERSION) -> None:
+        """Set the TAP version to use, defaults to 12, must be called first."""
+        if cls._count[VERSION] < 1 and cls._count.total() < 1:
+            cls._count[VERSION] += 1
+            cls._version = version
+            if cls._version > 14 or cls._version < 12:
+                cls._version = DEFAULT_TAP_VERSION
+                TAP.diagnostic(f'Invalid TAP version: {cls._version}, using 12')
+                return
+            elif cls._version == DEFAULT_TAP_VERSION:
+                return
+            sys.stdout.write(f'TAP version {cls._version}\n')
+        else:
+            TAP.diagnostic(
+                'TAP.version called during a session',
+                'must be called first',
+                f'TAP version {cls._version}',
+            )
 
     @classmethod
     def end(cls: type[Self], skip_reason: str = '') -> NoReturn:
@@ -91,15 +122,39 @@ class TAP(ContextDecorator):
             TAP.plan(count=None, skip_reason=skip_reason, skip_count=skip_count)
         exit(0)
 
-    @staticmethod
-    def diagnostic(*message: str) -> None:
+    @classmethod
+    def comment(cls: type[Self], *message: str) -> None:
         r"""Print a diagnostic message.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         """
-        formatted = ' - '.join(message).strip()
-        sys.stderr.write(f'# {formatted}\n')
+        if cls._version == 14:
+            formatted = ' - '.join(message).strip()
+            sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
+        else:
+            TAP.diagnostic('TAP.comment used while TAP version < 14, using TAP.diagnostic.')
+            TAP.diagnostic(*message)
+
+    @classmethod
+    def diagnostic(cls: type[Self], *message: str, **kwargs: Any) -> None:
+        r"""Print a diagnostic message.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        """
+        if cls._version == DEFAULT_TAP_VERSION:
+            formatted = ' - '.join(message).strip()
+            sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
+        else:
+            kwargs |= {'message': message}
+            for i in yaml.dump(
+                kwargs,
+                indent=2,
+                explicit_start=True,
+                explicit_end=True,
+            ).split('\n'):
+                sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}  {i}')
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -143,7 +198,7 @@ class TAP(ContextDecorator):
         :param skip_count: number of tests skipped, defaults to None
         :type skip_count: int | None, optional
         """
-        count = cls._count.total() if count is None else count
+        count = cls.count() if count is None else count
         if skip_count is None:
             skip_count = cls.skip_count()
         if skip_reason != '' and skip_count == 0:
@@ -153,16 +208,42 @@ class TAP(ContextDecorator):
             match [count, skip_reason, skip_count]:
                 case [n, r, s] if r == '' and s > 0:  # type: ignore
                     TAP.diagnostic('items skipped', str(s))
-                    sys.stdout.write(f'1..{n}\n')
+                    sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n}\n')
                 case [n, r, s] if r != '' and s > 0:  # type: ignore
                     TAP.diagnostic('items skipped', str(s))
-                    sys.stdout.write(f'1..{n} # SKIP {r}\n')
+                    sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n} # SKIP {r}\n')
                 case [n, r, s] if r == '' and s == 0:
-                    sys.stdout.write(f'1..{n}\n')
+                    sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n}\n')
                 case _:  # pragma: no cover
                     TAP.bail_out('TAP.plan failed due to invalid arguments.')
         else:
             TAP.diagnostic('TAP.plan called more than once during session.')
+
+    @classmethod
+    @contextmanager
+    def subtest(cls: type[Self], name: str | None = None) -> Generator[None, Any, None]:
+        """Start a TAP subtest document, name is optional."""
+        comment = f'Subtest: {name}' if name else 'Subtest'
+        parent_count = cls._count.copy()
+        TAP.diagnostic(comment)
+        cls._count = Counter(
+            ok=0,
+            not_ok=0,
+            skip=0,
+            plan=0,
+            version=1,
+            subtest_level=parent_count[SUBTEST] + 1,
+        )
+        yield
+        if cls._count[PLAN] < 1:
+            TAP.plan(cls.count() - cls._count[SKIP])
+
+        if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
+            cls._count = parent_count
+            TAP.ok(name if name else 'Subtest')
+        elif cls._count[NOT_OK] > 0:  # pragma: no cover
+            cls._count = parent_count
+            TAP.not_ok(name if name else 'Subtest')
 
     @staticmethod
     @contextmanager
@@ -212,9 +293,10 @@ class TAP(ContextDecorator):
         cls._count[OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
-        formatted = ' - '.join(message).strip()
+        formatted = ' - '.join(message).strip().replace('#', r'\#')
+        indent = INDENT * cls._count[SUBTEST]
         sys.stdout.write(
-            f'ok {cls._count.total() - cls._count[SKIP]} {directive} {formatted}\n',
+            f'{indent}ok {cls.count() - cls._count[SKIP]} {directive} {formatted}\n',
         )
 
     @classmethod
@@ -229,11 +311,13 @@ class TAP(ContextDecorator):
         cls._count[NOT_OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
-        formatted = ' - '.join(message).strip()
+        formatted = ' - '.join(message).strip().replace('#', r'\#')
         warnings.formatwarning = _warn_format
         warnings.showwarning = _warn  # type: ignore
+        indent = INDENT * cls._count[SUBTEST]
+        sys.stdout.write(f'{indent}not ok {directive} {formatted}\n')  # pragma: no cover
         warnings.warn(
-            f'{cls._count.total() - cls._count[SKIP]} {directive} {formatted}',
+            f'{indent}# {cls.count() - cls._count[SKIP]} {directive} {formatted}',
             RuntimeWarning,
             stacklevel=2,
         )

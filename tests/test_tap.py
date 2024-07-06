@@ -28,6 +28,58 @@ def test_plan() -> None:  # noqa: DC102, RUF100
     TAP._count.clear()  # noqa: SLF001
 
 
+def test_plan_v_invalid() -> None:  # noqa: DC102, RUF100
+    TAP.version(11)
+    TAP.plan(count=1, skip_count=0)
+    TAP.ok('reason')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_plan_v12() -> None:  # noqa: DC102, RUF100
+    TAP.version(12)
+    TAP.comment('comment')
+    TAP.plan(count=1, skip_count=0)
+    TAP.ok('reason')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_plan_v13() -> None:  # noqa: DC102, RUF100
+    TAP.version(13)
+    TAP.comment('comment')
+    TAP.plan(count=1, skip_count=0)
+    TAP.ok('reason')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_plan_v14() -> None:  # noqa: DC102, RUF100
+    TAP.version(14)
+    TAP.version(14)
+    TAP.comment('comment')
+    TAP.plan(count=1, skip_count=0)
+    with TAP.subtest('subtest'):
+        TAP.plan(count=1, skip_count=0)
+        TAP.ok('ok')
+    with TAP.subtest('subtest2'):
+        TAP.ok('ok')
+
+    with pytest.raises(RuntimeWarning):
+        with TAP.subtest('subtest3'):
+            TAP.not_ok('not ok')
+
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
 def test_plan_no_skip_count() -> None:  # noqa: DC102, RUF100
     TAP.plan(count=1, skip_count=None)
     TAP.ok('reason')
