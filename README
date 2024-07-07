@@ -13,11 +13,16 @@ TAP-Producer
 
 Producer for Test Anything Protocol output in Python.
 Automatically counts test cases at call time.
-Supports plan, ok, not ok, diagnostic, and bail out functionality.
+Supports TAP version 12, 13, and 14.
+TAP version 12 supports plan, ok, not ok, diagnostic, and bail out functionality.
+TAP version 13 supports the aforementioned as well as subtest context manager
+and YAML diagnostic output.
+TAP version 14 supports all prior version features but separates the API
+for comments output from YAML diagnostics.
 
 TAP-Producer also includes an end convenience method as well as two decorators.
-A suppress decorator for suppressing diagnostic and bail out messages;
-a strict decorator for raising not ok test cases to Python errors.
+A suppress context manager for suppressing diagnostic and bail out messages;
+a strict context manager for raising not ok test cases to Python errors.
 
 Licensed Apache-2.0 WITH LLVM-exception, see LICENSE.txt for more information.
 
