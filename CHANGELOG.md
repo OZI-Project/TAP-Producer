@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 0.1.2 (2024-07-07)
+
+
+### Performance
+
+
+* perf: update metadata for PyPI — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`67757ce`](https://github.com/OZI-Project/TAP-Producer/commit/67757ce11788e41c3fae43cc55fa8e9b669b997c))
+
 ## 0.1.1 (2024-07-06)
 
 
