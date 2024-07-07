@@ -80,7 +80,7 @@ Author: Eden Ross Duff MSc
 Author-email: help@oziproject.dev
 License: @LICENSE@
 Download-URL: https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
-Project-URL: Documentation, https://docs.oziproject.dev/en/stable/ozi.tap.html
+Project-URL: Documentation, https://docs.oziproject.dev/en/stable/tap_producer.html
 Requires-Python: >=3.10, <3.13
 Keywords: TAP
 Classifier: License :: OSI Approved :: Apache Software License
@@ -90,10 +90,12 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Testing
 Classifier: Typing :: Typed
-Classifier: Environment :: Other Environment
+Classifier: Environment :: Console
 Description-Content-Type: text/x-rst
 @REQUIREMENTS_IN@
 
