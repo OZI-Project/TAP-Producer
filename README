@@ -12,8 +12,7 @@ TAP-Producer
 ============
 
 Producer for Test Anything Protocol output in Python.
-Automatically counts test cases at call time.
-Supports TAP version 12, 13, and 14.
+Automatically counts test points at call time for TAP version 12, 13, and 14.
 TAP version 12 supports plan, ok, not ok, diagnostic, and bail out functionality.
 TAP version 13 supports the aforementioned as well as subtest context manager
 and YAML diagnostic output.
