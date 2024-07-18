@@ -1,4 +1,12 @@
 # TAP-Producer CHANGELOG
+## 0.1.3 (2024-07-18)
+
+
+### 🐛 Fixed Bugs
+
+* wheel tags corrected with OZI.build&gt;=0.0.27 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`90f2de9`](https://github.com/OZI-Project/TAP-Producer/commit/90f2de9e4af4a9a71277c948f26132b422b990d0))
+
 ## 0.1.2 (2024-07-07)
 
 
