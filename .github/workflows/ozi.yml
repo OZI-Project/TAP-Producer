@@ -179,7 +179,7 @@ jobs:
             www.oziproject.dev:443
             objects.githubusercontent.com:443
 
-      - uses: OZI-Project/release@0.6.5
+      - uses: OZI-Project/release@0.7.3
         id: release
         with:
           python-dist: ${{ matrix.py }}
