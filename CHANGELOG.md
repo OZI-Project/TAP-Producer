@@ -1,4 +1,96 @@
 # TAP-Producer CHANGELOG
+## 0.1.4 (2024-07-18)
+
+
+### Build
+
+
+* (deps): bump OZI-Project/draft from 0.3.3 to 0.3.6
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.3 to 0.3.6.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/0.3.3...0.3.6)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`141eab7`](https://github.com/OZI-Project/TAP-Producer/commit/141eab74b52bd8bc0785c6ac9516e448dfdd705c))
+
+* (deps): bump OZI-Project/publish from 0.1.6 to 0.1.8
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.6 to 0.1.8.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/0.1.6...0.1.8)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`d4fdb6a`](https://github.com/OZI-Project/TAP-Producer/commit/d4fdb6a9741326db7fd9e20e4a3784a112f793a1))
+
+* (deps): bump OZI-Project/checkpoint from 0.4.2 to 0.5.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.2 to 0.5.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/0.4.2...0.5.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`55f4874`](https://github.com/OZI-Project/TAP-Producer/commit/55f4874d40c9042b2ec4c0033a5c51338c474daf))
+
+* (deps): bump OZI-Project/release from 0.6.5 to 0.7.3
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.6.5 to 0.7.3.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0.6.5...0.7.3)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`9757591`](https://github.com/OZI-Project/TAP-Producer/commit/97575910b115dc2d1b984a400614906e36e9ccc2))
+
+* (deps): bump step-security/harden-runner from 2.8.0 to 2.9.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.8.0 to 2.9.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/v2.8.0...0d381219ddf674d61a7572ddd19d7941e271515c)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`0fbeaeb`](https://github.com/OZI-Project/TAP-Producer/commit/0fbeaeb87a2c92bf43e490c0a16f7179b81f3176))
+
+
+### Performance
+
+
+* perf: Merge pull request #18 from OZI-Project/0.1
+
+0.1
+([`576bd92`](https://github.com/OZI-Project/TAP-Producer/commit/576bd928b40e62db95c928ff13ef711d4acc5635))
+
+
+### Unknown
+
+
+* Create dependabot.yml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`c7f449b`](https://github.com/OZI-Project/TAP-Producer/commit/c7f449be1bcdb97353e5149711f45629afa59882))
+
 ## 0.1.3 (2024-07-18)
 
 
@@ -34,6 +126,24 @@
 ## 0.1.0 (2024-07-06)
 
 
+### 🐛 Fixed Bugs
+
+* add TAP 14 methods to stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`e1ad1d3`](https://github.com/OZI-Project/TAP-Producer/commit/e1ad1d3c1482b181b2b66719dabe4259c413e05e))
+
+## 0.0.3 (2024-07-04)
+
+## 0.0.2 (2024-07-04)
+
+## 0.0.1 (2024-07-04)
+
+
+### 👷 Updated Continuous Integration
+
+* add release branch &#34;0.x&#34; to pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`8e6b5ce`](https://github.com/OZI-Project/TAP-Producer/commit/8e6b5ce9e1470bfd062636c2e5de1ded9bdf5fe4))
+
+
 ### Feature
 
 
@@ -43,10 +153,11 @@
 
 ### 🐛 Fixed Bugs
 
-* add TAP 14 methods to stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`e1ad1d3`](https://github.com/OZI-Project/TAP-Producer/commit/e1ad1d3c1482b181b2b66719dabe4259c413e05e))
+* update package metadata and add stubs — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`aaf531e`](https://github.com/OZI-Project/TAP-Producer/commit/aaf531e26a5d4f84ec1f3edec251131e94668c2d))
 
-## 0.0.3 (2024-07-04)
+* no cover and defers  — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`d977397`](https://github.com/OZI-Project/TAP-Producer/commit/d977397789bcad3c3d339433baba92bb14900a43))
 
 
 ### Performance
@@ -54,6 +165,15 @@
 
 * perf: extract TAP.plan() from TAP.end() — rjdbcm &lt;rjdbcm@outlook.com&gt;
 ([`f239b56`](https://github.com/OZI-Project/TAP-Producer/commit/f239b56110b42d34878d3aefeb0a7b04b77715da))
+
+* perf: update README description — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`80e7cf8`](https://github.com/OZI-Project/TAP-Producer/commit/80e7cf8c5ad09963c47525fc21f4a03a84ea0313))
+
+* perf: init repo
+([`9e1e940`](https://github.com/OZI-Project/TAP-Producer/commit/9e1e940b9df1799a11c09b3856f062fd0f9e2322))
+
+* perf: init repo
+([`e1e04b5`](https://github.com/OZI-Project/TAP-Producer/commit/e1e04b54be9608fc0e0dcb375ea77fd2caeb6ac9))
 
 
 ### Unknown
@@ -67,49 +187,6 @@
 
 * Update README — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
 ([`bb06608`](https://github.com/OZI-Project/TAP-Producer/commit/bb066085e63507008e78057389501b2c2209edab))
-
-## 0.0.2 (2024-07-04)
-
-
-### 🐛 Fixed Bugs
-
-* update package metadata and add stubs — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`aaf531e`](https://github.com/OZI-Project/TAP-Producer/commit/aaf531e26a5d4f84ec1f3edec251131e94668c2d))
-
-
-### Performance
-
-
-* perf: update README description — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`80e7cf8`](https://github.com/OZI-Project/TAP-Producer/commit/80e7cf8c5ad09963c47525fc21f4a03a84ea0313))
-
-## 0.0.1 (2024-07-04)
-
-
-### 👷 Updated Continuous Integration
-
-* add release branch &#34;0.x&#34; to pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
-([`8e6b5ce`](https://github.com/OZI-Project/TAP-Producer/commit/8e6b5ce9e1470bfd062636c2e5de1ded9bdf5fe4))
-
-
-### 🐛 Fixed Bugs
-
-* no cover and defers  — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
-([`d977397`](https://github.com/OZI-Project/TAP-Producer/commit/d977397789bcad3c3d339433baba92bb14900a43))
-
-
-### Performance
-
-
-* perf: init repo
-([`9e1e940`](https://github.com/OZI-Project/TAP-Producer/commit/9e1e940b9df1799a11c09b3856f062fd0f9e2322))
-
-* perf: init repo
-([`e1e04b5`](https://github.com/OZI-Project/TAP-Producer/commit/e1e04b54be9608fc0e0dcb375ea77fd2caeb6ac9))
-
-
-### Unknown
-
 
 * Update pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
 ([`ec9a2b6`](https://github.com/OZI-Project/TAP-Producer/commit/ec9a2b6cee136e7b958842c0e06e3b823bf93209))
