@@ -1,4 +1,12 @@
 # TAP-Producer CHANGELOG
+## 0.1.6 (2024-07-20)
+
+
+### 🐛 Fixed Bugs
+
+* remove private method from stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`0584182`](https://github.com/OZI-Project/TAP-Producer/commit/0584182e8d32275fd5c787b686f2e245c8fa927e))
+
 ## 0.1.5 (2024-07-20)
 
 
