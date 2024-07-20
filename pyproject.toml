@@ -81,7 +81,8 @@ Author-email: help@oziproject.dev
 License: @LICENSE@
 Download-URL: https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
 Project-URL: Documentation, https://docs.oziproject.dev/en/stable/tap_producer.html
-Requires-Python: >=3.10, <3.13
+Project-URL: Source, https://github.com/OZI-Project/TAP-Producer
+Requires-Python: >=3.10, <3.14
 Keywords: TAP
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Development Status :: 3 - Alpha
@@ -89,6 +90,7 @@ Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
