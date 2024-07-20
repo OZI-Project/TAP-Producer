@@ -1,4 +1,12 @@
 # TAP-Producer CHANGELOG
+## 0.1.7 (2024-07-20)
+
+
+### 🐛 Fixed Bugs
+
+* syncronize stub docstrings — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`3046190`](https://github.com/OZI-Project/TAP-Producer/commit/3046190019f542649f03258dda787f69ea382f13))
+
 ## 0.1.6 (2024-07-20)
 
 
