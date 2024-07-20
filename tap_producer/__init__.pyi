@@ -38,10 +38,6 @@ class TAP(ContextDecorator):
         """Set the TAP version to use, defaults to 12, must be called first."""
 
     @classmethod
-    def count(cls) -> int:
-        """Get the proper count of ok, not ok, and skipped."""
-
-    @classmethod
     def end(cls, skip_reason: str = ...) -> NoReturn:
         """End a TAP diagnostic.
 
