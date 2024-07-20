@@ -23,15 +23,16 @@ class TAP(ContextDecorator):
     All TAP API calls reference the same thread context.
 
     .. note::
-        Subtests are not implemented.
-
-    .. note::
         Not known to be thread-safe.
+
+    .. versionchanged:: 0.1.5
+        Added a __lock to counter calls. However, use in a threaded environment untested.
     """
     _formatwarning = ...
     _showwarning = ...
     _count = ...
     _version = ...
+    __lock = ...
 
     @classmethod
     def version(cls, version: int = ...) -> None:
@@ -75,14 +76,6 @@ class TAP(ContextDecorator):
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
-        """
-
-    @classmethod
-    def skip_count(cls) -> int:
-        """Get the current skip count.
-
-        :return: skip count
-        :rtype: int
         """
 
     @classmethod
