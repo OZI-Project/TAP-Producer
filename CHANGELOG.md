@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 0.1.5 (2024-07-20)
+
+
+### Performance
+
+
+* perf: add ``threading.Lock()`` to static class — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`055bce0`](https://github.com/OZI-Project/TAP-Producer/commit/055bce08b33e156ec4915acb7f580855b52e7dc4))
+
 ## 0.1.4 (2024-07-18)
 
 
