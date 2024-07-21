@@ -1,28 +1,11 @@
 # TAP-Producer CHANGELOG
+## 0.2.0 (2024-07-21)
+
 ## 0.1.7 (2024-07-20)
-
-
-### 🐛 Fixed Bugs
-
-* syncronize stub docstrings — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`3046190`](https://github.com/OZI-Project/TAP-Producer/commit/3046190019f542649f03258dda787f69ea382f13))
 
 ## 0.1.6 (2024-07-20)
 
-
-### 🐛 Fixed Bugs
-
-* remove private method from stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`0584182`](https://github.com/OZI-Project/TAP-Producer/commit/0584182e8d32275fd5c787b686f2e245c8fa927e))
-
 ## 0.1.5 (2024-07-20)
-
-
-### Performance
-
-
-* perf: add ``threading.Lock()`` to static class — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`055bce0`](https://github.com/OZI-Project/TAP-Producer/commit/055bce08b33e156ec4915acb7f580855b52e7dc4))
 
 ## 0.1.4 (2024-07-18)
 
@@ -101,8 +84,27 @@ updated-dependencies:
 ([`0fbeaeb`](https://github.com/OZI-Project/TAP-Producer/commit/0fbeaeb87a2c92bf43e490c0a16f7179b81f3176))
 
 
+### Feature
+
+
+* feat: TAP class properly functioning as a decorator — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`d658ad8`](https://github.com/OZI-Project/TAP-Producer/commit/d658ad8cd91d667b5ee586ac84edf7bc67b28585))
+
+
+### 🐛 Fixed Bugs
+
+* syncronize stub docstrings — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`3046190`](https://github.com/OZI-Project/TAP-Producer/commit/3046190019f542649f03258dda787f69ea382f13))
+
+* remove private method from stub — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`0584182`](https://github.com/OZI-Project/TAP-Producer/commit/0584182e8d32275fd5c787b686f2e245c8fa927e))
+
+
 ### Performance
 
+
+* perf: add ``threading.Lock()`` to static class — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`055bce0`](https://github.com/OZI-Project/TAP-Producer/commit/055bce08b33e156ec4915acb7f580855b52e7dc4))
 
 * perf: Merge pull request #18 from OZI-Project/0.1
 
