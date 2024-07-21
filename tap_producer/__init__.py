@@ -15,6 +15,7 @@ from pathlib import Path
 from threading import Lock
 from typing import TYPE_CHECKING
 from typing import Generator
+from typing import Literal
 from typing import NoReturn
 from typing import TextIO
 
@@ -83,6 +84,20 @@ class TAP(ContextDecorator):
     _count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
     _version = DEFAULT_TAP_VERSION
     __lock = Lock()
+
+    def __init__(self: TAP, plan: int | None = None, version: int | None = None) -> None:
+        self.__plan = plan
+        self.__version = version
+
+    def __enter__(self: Self) -> Self:
+        if self.__version:
+            type(self).version(self.__version)
+        if self.__plan:
+            type(self).plan(self.__plan)
+        return self
+
+    def __exit__(self: Self, *exc: object) -> Literal[False]:
+        return False
 
     @classmethod
     def version(cls: type[Self], version: int = DEFAULT_TAP_VERSION) -> None:

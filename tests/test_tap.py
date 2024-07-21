@@ -28,6 +28,50 @@ def test_plan() -> None:  # noqa: DC102, RUF100
     TAP._count.clear()  # noqa: SLF001
 
 
+def test_contextdecorator_all_kwargs() -> None:  # noqa: DC102, RUF100
+    @TAP(plan=1, version=14)
+    def f() -> None:
+        TAP.ok('reason')
+
+    f()
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_contextdecorator_plan() -> None:  # noqa: DC102, RUF100
+    @TAP(plan=1)
+    def f() -> None:
+        TAP.ok('reason')
+
+    f()
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_contextdecorator_version() -> None:  # noqa: DC102, RUF100
+    @TAP(version=14)
+    def f() -> None:
+        TAP.ok('reason')
+
+    f()
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
+def test_contextdecorator() -> None:  # noqa: DC102, RUF100
+    @TAP()
+    def f() -> None:
+        TAP.ok('reason')
+
+    f()
+    with pytest.raises(SystemExit):
+        TAP.end()
+    TAP._count.clear()  # noqa: SLF001
+
+
 def test_plan_v_invalid() -> None:  # noqa: DC102, RUF100
     TAP.version(11)
     TAP.plan(count=1, skip_count=0)
