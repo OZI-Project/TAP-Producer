@@ -245,7 +245,7 @@ class TAP(ContextDecorator):
                 explicit_start=True,
                 explicit_end=True,
             ).split('\n'):
-                sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}  {i}\n')
+                sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}  {i}\n')
 
     @classmethod
     @contextmanager
