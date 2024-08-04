@@ -1,4 +1,22 @@
 # TAP-Producer CHANGELOG
+## 0.2.2 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+* release revision typo ed — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
+
+* print YAMLish diagnostics to stdout — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
+
+
+### Performance
+
+
+* perf: set ozi.wrap revision 1.17 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`cd00c53`](https://github.com/OZI-Project/TAP-Producer/commit/cd00c536995dd01b51944717ac039578ea698cdf))
+
 ## 0.2.1 (2024-07-28)
 
 
