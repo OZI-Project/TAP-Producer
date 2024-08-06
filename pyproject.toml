@@ -85,7 +85,7 @@ Project-URL: Source, https://github.com/OZI-Project/TAP-Producer
 Requires-Python: >=3.10, <3.14
 Keywords: TAP
 Classifier: License :: OSI Approved :: Apache Software License
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 5 - Production/Stable
 Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
