@@ -1,4 +1,23 @@
 # TAP-Producer CHANGELOG
+## 1.0.0 (2024-08-06)
+
+
+### Breaking
+
+
+* feat: PyYAML~=6.0
+
+
+BREAKING CHANGE: version 1.0 — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`9cd7b52`](https://github.com/OZI-Project/TAP-Producer/commit/9cd7b522877818d758d6e497f8caa373ee38dd1a))
+
+
+### Chore
+
+
+* ``major_on_zero = true`` — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`b38e956`](https://github.com/OZI-Project/TAP-Producer/commit/b38e956e8c0211c83210fa9222e1b600cbc0b001))
+
 ## 0.3.0 (2024-08-06)
 
 
