@@ -1,23 +1,38 @@
 # TAP-Producer CHANGELOG
+## 0.3.0 (2024-08-06)
+
+
+### Chore
+
+
+* Update pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`5d853df`](https://github.com/OZI-Project/TAP-Producer/commit/5d853dfd221a2a21a50017b34c53dc3fa569148d))
+
+* Update ozi.yml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`1080555`](https://github.com/OZI-Project/TAP-Producer/commit/1080555a38e617136ddab69994d0cc6128671a89))
+
+* Update pyproject.toml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`72de05b`](https://github.com/OZI-Project/TAP-Producer/commit/72de05b6890f07115e7ca544087040f847a9cccd))
+
+
+### Unknown
+
+
+* Update ozi.yml — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`f2743f3`](https://github.com/OZI-Project/TAP-Producer/commit/f2743f35f6e2215573aff629275905141d06b007))
+
 ## 0.2.2 (2024-08-04)
 
-
-### 🐛 Fixed Bugs
-
-* release revision typo ed — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
-
-* print YAMLish diagnostics to stdout — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
-
-
-### Performance
-
-
-* perf: set ozi.wrap revision 1.17 — rjdbcm &lt;rjdbcm@outlook.com&gt;
-([`cd00c53`](https://github.com/OZI-Project/TAP-Producer/commit/cd00c536995dd01b51944717ac039578ea698cdf))
-
 ## 0.2.1 (2024-07-28)
+
+
+### Breaking
+
+
+* chore: stable release
+
+BREAKING CHANGE: stable release TAP-Producer-1.0.0 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`425fd7d`](https://github.com/OZI-Project/TAP-Producer/commit/425fd7dc6a894ba5eff75b690c6fedf5cd55dc2f))
 
 
 ### Build
@@ -54,10 +69,23 @@ updated-dependencies:
 
 ### 🐛 Fixed Bugs
 
+* release revision typo ed — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
+
+* print YAMLish diagnostics to stdout — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
+
 * Merge pull request #29 from OZI-Project/0.2
 
 Merge pull request #28 from OZI-Project/main
 ([`7a8a484`](https://github.com/OZI-Project/TAP-Producer/commit/7a8a48405d983cfc34cc2c04f3da241a93011321))
+
+
+### Performance
+
+
+* perf: set ozi.wrap revision 1.17 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`cd00c53`](https://github.com/OZI-Project/TAP-Producer/commit/cd00c536995dd01b51944717ac039578ea698cdf))
 
 ## 0.2.0 (2024-07-21)
 
