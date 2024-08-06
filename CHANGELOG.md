@@ -1,4 +1,64 @@
 # TAP-Producer CHANGELOG
+## 0.2.2 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+* release revision typo ed — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
+
+* print YAMLish diagnostics to stdout — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
+
+
+### Performance
+
+
+* perf: set ozi.wrap revision 1.17 — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`cd00c53`](https://github.com/OZI-Project/TAP-Producer/commit/cd00c536995dd01b51944717ac039578ea698cdf))
+
+## 0.2.1 (2024-07-28)
+
+
+### Build
+
+
+* (deps): bump OZI-Project/draft from 0.3.6 to 0.3.7
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.6 to 0.3.7.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/0.3.6...0.3.7)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`964f9fd`](https://github.com/OZI-Project/TAP-Producer/commit/964f9fdbcd4653168547fa79a4b3c18fe7549107))
+
+* (deps): bump OZI-Project/publish from 0.1.8 to 0.1.9
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.8 to 0.1.9.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/0.1.8...0.1.9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`0143750`](https://github.com/OZI-Project/TAP-Producer/commit/01437509551f6ef247c95ffcdd4a3b5760f16329))
+
+
+### 🐛 Fixed Bugs
+
+* Merge pull request #29 from OZI-Project/0.2
+
+Merge pull request #28 from OZI-Project/main
+([`7a8a484`](https://github.com/OZI-Project/TAP-Producer/commit/7a8a48405d983cfc34cc2c04f3da241a93011321))
+
 ## 0.2.0 (2024-07-21)
 
 ## 0.1.7 (2024-07-20)
