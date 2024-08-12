@@ -178,8 +178,11 @@ jobs:
             oziproject.dev:443
             www.oziproject.dev:443
             objects.githubusercontent.com:443
+            quay.io:443
+            cdn03.quay.io:443
+            downloads.python.org:443
 
-      - uses: OZI-Project/release@0.8.4
+      - uses: OZI-Project/release@0.8.5
         id: release
         with:
           python-dist: ${{ matrix.py }}
