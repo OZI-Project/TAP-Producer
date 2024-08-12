@@ -1,4 +1,30 @@
 # TAP-Producer CHANGELOG
+## 1.0.4 (2024-08-12)
+
+
+### Build
+
+
+* (deps): bump OZI-Project/release from 0.8.5 to 0.8.9
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.5 to 0.8.9.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0.8.5...0.8.9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`5bd6dc6`](https://github.com/OZI-Project/TAP-Producer/commit/5bd6dc6ddeb76f99e78f4dbf13e21f9da6eb6904))
+
+
+### 🐛 Fixed Bugs
+
+* YAML diagnostic dumps with ``sort_keys=False`` — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`e4e4178`](https://github.com/OZI-Project/TAP-Producer/commit/e4e41781574ebde47fab9c2eb4605362d276a6eb))
+
 ## 1.0.3 (2024-08-12)
 
 
