@@ -1,4 +1,129 @@
 # TAP-Producer CHANGELOG
+## 1.0.4 (2024-08-12)
+
+
+### Build
+
+
+* (deps): bump OZI-Project/release from 0.8.5 to 0.8.9
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.5 to 0.8.9.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0.8.5...0.8.9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`5bd6dc6`](https://github.com/OZI-Project/TAP-Producer/commit/5bd6dc6ddeb76f99e78f4dbf13e21f9da6eb6904))
+
+
+### 🐛 Fixed Bugs
+
+* YAML diagnostic dumps with ``sort_keys=False`` — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`e4e4178`](https://github.com/OZI-Project/TAP-Producer/commit/e4e41781574ebde47fab9c2eb4605362d276a6eb))
+
+## 1.0.3 (2024-08-12)
+
+
+### 🐛 Fixed Bugs
+
+* update ozi.yml allowed_endpoints — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`853ce57`](https://github.com/OZI-Project/TAP-Producer/commit/853ce57f9f2feaa1fb89c3f410f5b54581ca97d9))
+
+* (TAP.diagnostic): no longer prints a blank ``message:`` key if args are empty. — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`97c38a0`](https://github.com/OZI-Project/TAP-Producer/commit/97c38a0e3551c695e0bd46eb9a532b2982ad50a3))
+
+## 1.0.2 (2024-08-10)
+
+
+### Build
+
+
+* (deps): bump OZI-Project/release from 0.7.4 to 0.8.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.7.4 to 0.8.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0.7.4...0.8.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`af0ee69`](https://github.com/OZI-Project/TAP-Producer/commit/af0ee69953aa70ea3be972a189ca98cd7ece6bfa))
+
+## 1.0.1 (2024-08-06)
+
+
+### Build
+
+
+* (deps): bump step-security/harden-runner from 2.9.0 to 2.9.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.9.0 to 2.9.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0d381219ddf674d61a7572ddd19d7941e271515c...5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`d35233a`](https://github.com/OZI-Project/TAP-Producer/commit/d35233a4959b4d5a8456035c76c0e935f07f66de))
+
+* (deps): bump OZI-Project/draft from 0.3.7 to 0.3.8
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.7 to 0.3.8.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/0.3.7...0.3.8)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`c07ccd5`](https://github.com/OZI-Project/TAP-Producer/commit/c07ccd5fa0db28560b8f468c51e81a7fe16a2b5c))
+
+* (deps): bump OZI-Project/checkpoint from 0.5.0 to 0.5.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.5.0 to 0.5.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/0.5.0...0.5.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`55add36`](https://github.com/OZI-Project/TAP-Producer/commit/55add364ab450f44cdcf43b293286190de8a0519))
+
+* (deps): bump OZI-Project/release from 0.7.3 to 0.7.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.7.3 to 0.7.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0.7.3...0.7.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`0b0674e`](https://github.com/OZI-Project/TAP-Producer/commit/0b0674e092587ee4972a9b215357ba45de4c1dfb))
+
+
+### 🐛 Fixed Bugs
+
+* add ``build`` to ``tool.semantic_release.commit_parser_options:patch_tags`` — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`b2b7854`](https://github.com/OZI-Project/TAP-Producer/commit/b2b7854018ec909dc9ac3be338714ce31f05cdda))
+
 ## 1.0.0 (2024-08-06)
 
 
