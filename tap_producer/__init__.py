@@ -238,7 +238,7 @@ class TAP(ContextDecorator):
             formatted = ' - '.join(message).strip()
             sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
         else:
-            kwargs |= {'message': ' - '.join(message).strip()}
+            kwargs |= {'message': ' - '.join(message).strip()} if len(message) > 0 else {}
             for i in yaml.dump(
                 kwargs,
                 indent=2,
