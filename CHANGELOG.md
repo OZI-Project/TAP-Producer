@@ -1,4 +1,15 @@
 # TAP-Producer CHANGELOG
+## 1.0.3 (2024-08-12)
+
+
+### 🐛 Fixed Bugs
+
+* update ozi.yml allowed_endpoints — Eden Ross Duff, MSc &lt;rjdbcm@outlook.com&gt;
+([`853ce57`](https://github.com/OZI-Project/TAP-Producer/commit/853ce57f9f2feaa1fb89c3f410f5b54581ca97d9))
+
+* (TAP.diagnostic): no longer prints a blank ``message:`` key if args are empty. — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`97c38a0`](https://github.com/OZI-Project/TAP-Producer/commit/97c38a0e3551c695e0bd46eb9a532b2982ad50a3))
+
 ## 1.0.2 (2024-08-10)
 
 
