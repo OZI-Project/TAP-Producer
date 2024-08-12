@@ -244,6 +244,7 @@ class TAP(ContextDecorator):
                 indent=2,
                 explicit_start=True,
                 explicit_end=True,
+                sort_keys=False,
             ).split('\n'):
                 sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}  {i}\n')
 
