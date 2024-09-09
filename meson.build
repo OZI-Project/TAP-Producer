@@ -28,8 +28,6 @@ root_files = [
     'README',
     'CHANGELOG.md',
     'LICENSE.txt',
-    'requirements.in',
-    'requirements.in',
     'pyproject.toml',
     '.gitignore',
 ]
@@ -55,27 +53,7 @@ pyproject_config.set(
     'PYTHON_VERSION_DIST',
     'py'+''.join(python.language_version().split('.'))
 )
-pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-pyproject_config.set('PROJECT_NAME', project_name)
-pyproject_config.set('README_TEXT', fs.read('README'))
-pyproject_config.set('REQUIREMENTS_IN', 
-    run_command(
-        python, ['-c', '''import os;import pathlib
-requirements = (
-    r.partition('\u0023')[0]
-    for r in filter(
-        lambda r: not (r.startswith('\u0023') or r == '\n'),
-        pathlib.Path('./requirements.in').read_text('utf-8').splitlines(),
-    )
-)
-for req in requirements:
-    if len(req) > 0:
-        print(f'Requires-Dist: {req}')
-'''], check: true
-    ).stdout().strip()
-)
-pyproject_config.set('LICENSE', meson.project_license()[0])
 configure_file(
     input: 'pyproject.toml',
     output: 'pyproject.toml',
