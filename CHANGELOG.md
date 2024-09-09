@@ -120,6 +120,9 @@ updated-dependencies:
 
 ### 🐛 Fixed Bugs
 
+* remove --ozi arg — rjdbcm &lt;rjdbcm@outlook.com&gt;
+([`b70b2f3`](https://github.com/OZI-Project/TAP-Producer/commit/b70b2f3dc4af39671c22a3e0b37df52b18091316))
+
 * cleanup for ruff — rjdbcm &lt;rjdbcm@outlook.com&gt;
 ([`bcbaa18`](https://github.com/OZI-Project/TAP-Producer/commit/bcbaa187c1f34091f0e9e89b4bac005b713bd7fa))
 
