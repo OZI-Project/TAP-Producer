@@ -1,23 +1,45 @@
 # Part of TAP-Producer.
 # See LICENSE.txt in the project root for details.
 [project]
-dynamic = ["dependencies", "version"]
 license = {file = "LICENSE.txt"}
+dependencies = [
+    'PyYAML~=6.0',
+    'typing_extensions;python_version<"3.11"',
+]
 
 [build-system]
-requires = [
-    'OZI.build>=0.0.27',
-    'pip-tools>=7',
-    'pipx~=1.5',
-    'setuptools_scm[toml]~=8.0',
-]
+requires = ['OZI.build[core,uv]~=1.5.2']
 build-backend = "ozi_build.buildapi"
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.in"] }
-
 [tool.ozi-build.metadata]
-pkg-info-file = 'PKG-INFO'
+summary = 'Test Anything Protocol producer API for Python.'
+home-page = 'https://www.oziproject.dev'
+author = 'Eden Ross Duff MSc'
+author-email = 'help@oziproject.dev'
+license = 'Apache-2.0 WITH LLVM-exception'
+download-url = 'https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/{version}.tar.gz'
+project-urls = [
+    'Documentation, https://docs.oziproject.dev/en/stable/tap_producer.html',
+    'Source, https://github.com/OZI-Project/TAP-Producer',
+]
+requires-python = '>=3.10, <3.14'
+keywords = 'TAP'
+classifiers = [
+    'License :: OSI Approved :: Apache Software License',
+    'Development Status :: 5 - Production/Stable',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Topic :: Software Development :: Testing',
+    'Typing :: Typed',
+    'Environment :: Console',
+]
 
 [project.optional_dependencies] # also meson test suite names
 # OZI Packaging Dependencies
@@ -29,7 +51,7 @@ ci   = [
 # tox -e fix
 fix  = ["black>=24.3", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
-dev  = ["[dist,lint,test,]"]
+# dev  = ["[dist,lint,test,]"]
 dist = [
     "python-semantic-release",
     "sigstore",
@@ -71,38 +93,6 @@ test = [
 ]
 
 [tool.setuptools_scm]
-version_file_template = """Metadata-Version: 2.1
-Name: @PROJECT_NAME@
-Version: @SCM_VERSION@
-Summary: Test Anything Protocol producer API for Python.
-Home-page: https://www.oziproject.dev
-Author: Eden Ross Duff MSc
-Author-email: help@oziproject.dev
-License: @LICENSE@
-Download-URL: https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/@SCM_VERSION@.tar.gz
-Project-URL: Documentation, https://docs.oziproject.dev/en/stable/tap_producer.html
-Project-URL: Source, https://github.com/OZI-Project/TAP-Producer
-Requires-Python: >=3.10, <3.14
-Keywords: TAP
-Classifier: License :: OSI Approved :: Apache Software License
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
-Classifier: Programming Language :: Python :: 3.13
-Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Intended Audience :: Developers
-Classifier: Natural Language :: English
-Classifier: Operating System :: OS Independent
-Classifier: Topic :: Software Development :: Testing
-Classifier: Typing :: Typed
-Classifier: Environment :: Console
-Description-Content-Type: text/x-rst
-@REQUIREMENTS_IN@
-
-@README_TEXT@"""
-version_file = "PKG-INFO"
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "TAP-Producer-"
 tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
@@ -219,6 +209,7 @@ ignore = [
     "RUF009",
     "RUF012",
     "RUF015",
+    "RUF200",
     "SIM",
     "T201",
     "TCH002",
@@ -309,43 +300,51 @@ allowlist_externals =
    meson
 package = wheel
 deps =
-   OZI.build>=0.0.27
-   pip-tools>=7
-   pipx~=1.5
-   setuptools_scm[toml]~=8.0
-   -r requirements.in
+     uv
+commands_pre =
+     python -m uv pip install OZI.build[core,uv]~=1.5
+     pipx install --python=python meson
 commands =
-   meson compile -C {env_tmp_dir}
-   rm -rf {env_tmp_dir}/.gitignore
+     meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
+commands_post =
+     {env_python} -m invoke --search-root={env_tmp_dir}/subprojects/ozi/ozi checkpoint --suite={env_name} {posargs}
+
 [testenv:dist]
-commands_pre =
-   pipx install --python=python meson
-   meson setup {env_tmp_dir} -Dozi:dist=enabled -Dozi:tox-env-dir={env_dir} --reconfigure
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
+description = OZI distribution checkpoint
+
 [testenv:lint]
-commands_pre =
-   pipx install --python=python meson
-   meson setup {env_tmp_dir} -Dozi:lint=enabled -Dozi:tox-env-dir={env_dir} --reconfigure
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
+description = OZI format/lint checkpoint
+
 [testenv:test]
-commands_pre =
-   pipx install --python=python meson
-   meson setup {env_tmp_dir} -Dozi:test=enabled -Dozi:tox-env-dir={env_dir} --reconfigure
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
+description = OZI unit tests checkpoint
+commands =
+     meson setup {env_tmp_dir} -Dozi:ozi-blastpipe=disabled -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:fix]
-description = quickly fix minor source issues 
+description = OZI project fix issues utility (black, isort, autoflake, ruff)
 deps = pipx
 skip_install = true
+commands_pre =
 commands =
-     pipx run --python {env_python} -q black -S .
-     pipx run --python {env_python} -q isort .
-     pipx run --python {env_python} -q autoflake -i -r .
-     pipx run --python {env_python} -q ruff check tap_producer --fix
+     pipx run --python {env_python} black -S .
+     pipx run --python {env_python} isort .
+     pipx run --python {env_python} autoflake -i -r .
+     pipx run --python {env_python} ruff check . --fix
+commands_post =
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)
 deps = setuptools_scm[toml]>=8
 commands =
      {env_python} -m setuptools_scm {posargs}
+
+[testenv:invoke]
+description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
+no_package = true
+commands_post =
+     {env_python} -m invoke --search-root={env_tmp_dir}/subprojects/ozi/ozi {posargs} --ozi
 """
