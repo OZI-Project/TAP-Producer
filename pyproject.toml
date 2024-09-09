@@ -16,6 +16,7 @@ summary = 'Test Anything Protocol producer API for Python.'
 home-page = 'https://www.oziproject.dev'
 author = 'Eden Ross Duff MSc'
 author-email = 'help@oziproject.dev'
+description-file='README.rst'
 license = 'Apache-2.0 WITH LLVM-exception'
 download-url = 'https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/{version}.tar.gz'
 project-urls = [
