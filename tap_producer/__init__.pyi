@@ -4,16 +4,12 @@ from contextlib import ContextDecorator
 from contextlib import contextmanager
 from typing import Any
 from typing import Generator
+from typing import Literal
 from typing import NoReturn
 
-OK = ...
-NOT_OK = ...
-SKIP = ...
-PLAN = ...
-VERSION = ...
-SUBTEST = ...
-INDENT = ...
-DEFAULT_TAP_VERSION = ...
+DEFAULT_TAP_VERSION = 12
+
+__all__ = ('TAP', 'DEFAULT_TAP_VERSION')
 
 class TAP(ContextDecorator):
     """Test Anything Protocol warnings for TAP Producer APIs with a simple decorator.
@@ -34,18 +30,28 @@ class TAP(ContextDecorator):
     _version = ...
     __lock = ...
 
+    def __init__(self: TAP, plan: int | None = None, version: int | None = None) -> None:
+        ...
+
+    def __enter__(self) -> TAP:
+        ...
+    
+    def __exit__(self, exc) -> Literal[False]:
+        ...
+
     @classmethod
     def version(cls, version: int = ...) -> None:
         """Set the TAP version to use, defaults to 12, must be called first."""
 
     @classmethod
     def end(cls, skip_reason: str = ...) -> NoReturn:
-        """End a TAP diagnostic.
+        """End a TAP diagnostic and reset the counters.
+
+        .. versionchanged:: 1.1
+           No longer exits, just resets the counts.
 
         :param skip_reason: A skip reason, optional, defaults to ''.
         :type skip_reason: str, optional
-        :return: Exits the diagnostic.
-        :rtype: NoReturn
         """
 
     @classmethod
@@ -145,3 +151,19 @@ class TAP(ContextDecorator):
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """
+   
+    @classmethod
+    def _skip_count(
+        cls: type[TAP],
+    ) -> int:
+        """Pop the current skip count.
+
+        :return: skip count
+        :rtype: int
+        """
+        ...
+
+    @classmethod
+    def _test_point_count(cls: type[TAP]) -> int:
+        """Get the proper count of ok, not ok, and skipped."""
+        ...

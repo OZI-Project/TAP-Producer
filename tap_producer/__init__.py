@@ -35,9 +35,10 @@ SKIP = 'skip'
 PLAN = 'plan'
 VERSION = 'version'
 SUBTEST = 'subtest_level'
-
 INDENT = '    '
 DEFAULT_TAP_VERSION = 12
+
+__all__ = ('TAP', 'DEFAULT_TAP_VERSION')
 
 
 def _warn_format(
@@ -288,20 +289,21 @@ class TAP(ContextDecorator):
         sys.exit(1)
 
     @classmethod
-    def end(cls: type[Self], skip_reason: str = '') -> NoReturn:
-        """End a TAP diagnostic.
+    def end(cls: type[Self], skip_reason: str = '') -> None:
+        """End a TAP diagnostic and reset the counters.
+
+        .. versionchanged:: 1.1
+           No longer exits, just resets the counts.
 
         :param skip_reason: A skip reason, optional, defaults to ''.
         :type skip_reason: str, optional
-        :return: Exits the diagnostic.
-        :rtype: NoReturn
         """
         skip_count = cls._skip_count()
         if skip_reason != '' and skip_count == 0:
             cls.diagnostic('unnecessary argument "skip_reason" to TAP.end')
         if cls._count[PLAN] < 1:
             cls.plan(count=None, skip_reason=skip_reason, skip_count=skip_count)
-        exit(0)
+        cls._count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
 
     @staticmethod
     @contextmanager
