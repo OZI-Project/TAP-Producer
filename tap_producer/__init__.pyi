@@ -36,7 +36,7 @@ class TAP(ContextDecorator):
     def __enter__(self) -> TAP:
         ...
     
-    def __exit__(self, exc) -> Literal[False]:
+    def __exit__(self, exc: object) -> Literal[False]:
         ...
 
     @classmethod
