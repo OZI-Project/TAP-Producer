@@ -156,7 +156,7 @@ class TAP(ContextDecorator):
                 case [n, r, s] if r == '' and s == 0:
                     sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n}\n')
                 case _:  # pragma: no cover
-                    cls.bail_out('TAP.plan failed due to invalid arguments.')
+                    cls.diagnostic('TAP.plan called with invalid arguments.')
         else:
             cls.diagnostic('TAP.plan called more than once during session.')
 
