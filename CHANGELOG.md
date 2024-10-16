@@ -1,4 +1,43 @@
 # TAP-Producer CHANGELOG
+## 1.2.3 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: blank description formats properly — rjdbcm <rjdbcm@outlook.com>
+([`c5a5dc7`](https://github.com/OZI-Project/TAP-Producer/commit/c5a5dc78d820654d294364c160a0b30cfd0bbfce))
+
+* fix: missing '-' in test point — rjdbcm <rjdbcm@outlook.com>
+([`a928729`](https://github.com/OZI-Project/TAP-Producer/commit/a9287293f4db70c05829e443f7b64d31bac5878d))
+
+## 1.2.2 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: no longer print a blank diagnostic for each test point — rjdbcm <rjdbcm@outlook.com>
+([`ea0874b`](https://github.com/OZI-Project/TAP-Producer/commit/ea0874b8b6d1acb82ebec78190e3681982f3046c))
+
+## 1.2.1 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: remove internal references to TAP.diagnostic — rjdbcm <rjdbcm@outlook.com>
+([`bcbb6a3`](https://github.com/OZI-Project/TAP-Producer/commit/bcbb6a3546c80cba08d233b3866967ff3bef5331))
+
+## 1.2.0 (2024-10-16)
+
+
+### Features
+
+
+* feat: correct TAP format for test points and diagnostics — rjdbcm <rjdbcm@outlook.com>
+([`aec11fd`](https://github.com/OZI-Project/TAP-Producer/commit/aec11fd84311c8e19a3969c69323137a6a3db0bc))
+
 ## 1.1.0 (2024-10-14)
 
 ## 1.0.6 (2024-10-06)
