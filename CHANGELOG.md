@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.2.2 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: no longer print a blank diagnostic for each test point — rjdbcm <rjdbcm@outlook.com>
+([`ea0874b`](https://github.com/OZI-Project/TAP-Producer/commit/ea0874b8b6d1acb82ebec78190e3681982f3046c))
+
 ## 1.2.1 (2024-10-16)
 
 
