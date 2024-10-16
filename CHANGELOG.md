@@ -1,4 +1,16 @@
 # TAP-Producer CHANGELOG
+## 1.2.3 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: blank description formats properly — rjdbcm <rjdbcm@outlook.com>
+([`c5a5dc7`](https://github.com/OZI-Project/TAP-Producer/commit/c5a5dc78d820654d294364c160a0b30cfd0bbfce))
+
+* fix: missing '-' in test point — rjdbcm <rjdbcm@outlook.com>
+([`a928729`](https://github.com/OZI-Project/TAP-Producer/commit/a9287293f4db70c05829e443f7b64d31bac5878d))
+
 ## 1.2.2 (2024-10-16)
 
 
