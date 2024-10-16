@@ -110,13 +110,13 @@ class TAP(ContextDecorator):
             if cls._version > 14 or cls._version < 12:
                 with cls.__lock:
                     cls._version = DEFAULT_TAP_VERSION
-                cls.diagnostic(f'Invalid TAP version: {cls._version}, using 12')
+                cls.comment(f'Invalid TAP version: {cls._version}, using 12')
                 return
             elif cls._version == DEFAULT_TAP_VERSION:
                 return
             sys.stdout.write(f'TAP version {cls._version}\n')
         else:
-            cls.diagnostic(
+            cls.comment(
                 'TAP.version called during a session',
                 'must be called first',
                 f'TAP version {cls._version}',
@@ -142,23 +142,23 @@ class TAP(ContextDecorator):
         if skip_count is None:
             skip_count = cls._skip_count()
         if skip_reason != '' and skip_count == 0:
-            cls.diagnostic('unnecessary argument "skip_reason" to TAP.plan')
+            cls.comment('unnecessary argument "skip_reason" to TAP.plan')
         if cls._count[PLAN] < 1:
             with cls.__lock:
                 cls._count[PLAN] += 1
             match [count, skip_reason, skip_count]:
                 case [n, r, s] if r == '' and s > 0:  # type: ignore
-                    cls.diagnostic('items skipped', str(s))
+                    cls.comment('items skipped', str(s))
                     sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n}\n')
                 case [n, r, s] if r != '' and s > 0:  # type: ignore
-                    cls.diagnostic('items skipped', str(s))
+                    cls.comment('items skipped', str(s))
                     sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n} # SKIP {r}\n')
                 case [n, r, s] if r == '' and s == 0:
                     sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{n}\n')
                 case _:  # pragma: no cover
-                    cls.diagnostic('TAP.plan called with invalid arguments.')
+                    cls.comment('TAP.plan called with invalid arguments.')
         else:
-            cls.diagnostic('TAP.plan called more than once during session.')
+            cls.comment('TAP.plan called more than once during session.')
 
     @classmethod
     def ok(
@@ -280,7 +280,7 @@ class TAP(ContextDecorator):
     def subtest(cls: type[Self], name: str | None = None) -> Generator[None, Any, None]:
         """Start a TAP subtest document, name is optional."""
         comment = f'Subtest: {name}' if name else 'Subtest'
-        cls.diagnostic(comment)
+        cls.comment(comment)
         with cls.__lock:
             parent_count = cls._count.copy()
             cls._count = Counter(
@@ -326,7 +326,7 @@ class TAP(ContextDecorator):
         """
         skip_count = cls._skip_count()
         if skip_reason != '' and skip_count == 0:
-            cls.diagnostic('unnecessary argument "skip_reason" to TAP.end')
+            cls.comment('unnecessary argument "skip_reason" to TAP.end')
         if cls._count[PLAN] < 1:
             cls.plan(count=None, skip_reason=skip_reason, skip_count=skip_count)
         cls._count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
