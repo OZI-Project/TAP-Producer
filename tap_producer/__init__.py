@@ -183,7 +183,7 @@ class TAP(ContextDecorator):
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         indent = INDENT * cls._count[SUBTEST]
         sys.stdout.write(
-            f'{indent}ok {cls._test_point_count()} {formatted} {directive}\n',
+            f'{indent}ok {cls._test_point_count()} - {formatted} {directive}\n',
         )
         if diagnostic:
             cls._diagnostic(**diagnostic)
@@ -213,7 +213,7 @@ class TAP(ContextDecorator):
         directive = '-' if not skip else '# SKIP'
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         sys.stdout.write(
-            f'{indent}not ok {cls._test_point_count()} {formatted} {directive}\n',
+            f'{indent}not ok {cls._test_point_count()} - {formatted} {directive}\n',
         )
         if diagnostic:
             cls._diagnostic(**diagnostic)
