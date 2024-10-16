@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.2.0 (2024-10-16)
+
+
+### Features
+
+
+* feat: correct TAP format for test points and diagnostics — rjdbcm <rjdbcm@outlook.com>
+([`aec11fd`](https://github.com/OZI-Project/TAP-Producer/commit/aec11fd84311c8e19a3969c69323137a6a3db0bc))
+
 ## 1.1.0 (2024-10-14)
 
 ## 1.0.6 (2024-10-06)
