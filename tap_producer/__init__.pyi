@@ -58,16 +58,25 @@ class TAP(ContextDecorator):
     def comment(cls, *message: str) -> None:
         r"""Print a message to the TAP stream.
 
-        .. note::
-
-           If using TAP version < 14, prints a diagnostic.
-
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         """
 
-    @staticmethod
-    def diagnostic(*message: str, **kwargs: str | tuple[str, ...]) -> None:
+    @classmethod
+    def diagnostic(cls, *message: str, **kwargs: str | tuple[str, ...]) -> None:
+        r"""Print a diagnostic message.
+        
+        .. deprecated:: 1.2
+           Use the \*\*diagnostic kwargs to TAP.ok and TAP.not_ok instead.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
+        :type \*\*kwargs: str | tuple[str, ...]
+        """
+
+    @classmethod
+    def _diagnostic(cls, *message: str, **kwargs: str | tuple[str, ...]) -> None:
         r"""Print a diagnostic message.
 
         :param \*message: messages to print to TAP output
@@ -133,25 +142,31 @@ class TAP(ContextDecorator):
         """
 
     @classmethod
-    def ok(cls, *message: str, skip: bool = ...) -> None:
+    def ok(cls, *message: str, skip: bool = ..., **diagnostic: str | tuple[str, ...]) -> None:
         r"""Mark a test result as successful.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
+        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \*\*diagnostic: str | tuple[str, ...]
         """
 
     @classmethod
-    def not_ok(cls, *message: str, skip: bool = ...) -> None:
+    def not_ok(cls, *message: str, skip: bool = ..., **diagnostic: str | tuple[str, ...]) -> None:
         r"""Mark a test result as :strong:`not` successful.
+
+        Mark a test result as successful.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
+        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \*\*diagnostic: str | tuple[str, ...]
         """
-   
+
     @classmethod
     def _skip_count(
         cls: type[TAP],

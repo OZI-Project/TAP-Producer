@@ -161,32 +161,47 @@ class TAP(ContextDecorator):
             cls.diagnostic('TAP.plan called more than once during session.')
 
     @classmethod
-    def ok(cls: type[Self], *message: str, skip: bool = False) -> None:
+    def ok(
+        cls: type[Self],
+        *message: str,
+        skip: bool = False,
+        **diagnostic: str | tuple[str, ...],
+    ) -> None:
         r"""Mark a test result as successful.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
+        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \*\*diagnostic: str | tuple[str, ...]
         """
         with cls.__lock:
             cls._count[OK] += 1
             cls._count[SKIP] += 1 if skip else 0
-        directive = '-' if not skip else '# SKIP'
+        directive = '' if not skip else '# SKIP'
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         indent = INDENT * cls._count[SUBTEST]
         sys.stdout.write(
-            f'{indent}ok {cls._test_point_count()} {directive} {formatted}\n',
+            f'{indent}ok {cls._test_point_count()} {formatted} {directive}\n',
         )
+        cls._diagnostic('', **diagnostic)
 
     @classmethod
-    def not_ok(cls: type[Self], *message: str, skip: bool = False) -> None:
+    def not_ok(
+        cls: type[Self],
+        *message: str,
+        skip: bool = False,
+        **diagnostic: str | tuple[str, ...],
+    ) -> None:
         r"""Mark a test result as :strong:`not` successful.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
+        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \*\*diagnostic: str | tuple[str, ...]
         """
         indent = INDENT * cls._count[SUBTEST]
         with cls.__lock:
@@ -197,10 +212,11 @@ class TAP(ContextDecorator):
         directive = '-' if not skip else '# SKIP'
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         sys.stdout.write(
-            f'{indent}not ok {cls._test_point_count()} {directive} {formatted}\n',
+            f'{indent}not ok {cls._test_point_count()} {formatted} {directive}\n',
         )
+        cls._diagnostic('', **diagnostic)
         warnings.warn(
-            f'{indent}# {cls._test_point_count()} {directive} {formatted}',
+            f'{indent}# {cls._test_point_count()} {formatted} {directive}',
             RuntimeWarning,
             stacklevel=2,
         )
@@ -212,21 +228,31 @@ class TAP(ContextDecorator):
     def comment(cls: type[Self], *message: str) -> None:
         r"""Print a message to the TAP stream.
 
-        .. note::
-
-           If using TAP version < 14, prints a diagnostic.
-
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         """
-        if cls._version == 14:
-            formatted = ' - '.join(message).strip()
-            sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
-        else:
-            cls.diagnostic(*message)
+        formatted = ' - '.join(message).strip()
+        sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
 
     @classmethod
     def diagnostic(cls: type[Self], *message: str, **kwargs: str | tuple[str, ...]) -> None:
+        r"""Print a diagnostic message.
+
+        .. deprecated:: 1.2
+           Use the \*\*diagnostic kwargs to TAP.ok and TAP.not_ok instead.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
+        :type \*\*kwargs: str | tuple[str, ...]
+        """
+        cls.comment(
+            'Calling TAP.diagnostic is deprecated and will be removed in a later version.'
+        )
+        cls._diagnostic(*message, **kwargs)
+
+    @classmethod
+    def _diagnostic(cls: type[Self], *message: str, **kwargs: str | tuple[str, ...]) -> None:
         r"""Print a diagnostic message.
 
         :param \*message: messages to print to TAP output
