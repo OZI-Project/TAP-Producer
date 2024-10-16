@@ -185,7 +185,8 @@ class TAP(ContextDecorator):
         sys.stdout.write(
             f'{indent}ok {cls._test_point_count()} {formatted} {directive}\n',
         )
-        cls._diagnostic('', **diagnostic)
+        if diagnostic:
+            cls._diagnostic(**diagnostic)
 
     @classmethod
     def not_ok(
@@ -214,7 +215,8 @@ class TAP(ContextDecorator):
         sys.stdout.write(
             f'{indent}not ok {cls._test_point_count()} {formatted} {directive}\n',
         )
-        cls._diagnostic('', **diagnostic)
+        if diagnostic:
+            cls._diagnostic(**diagnostic)
         warnings.warn(
             f'{indent}# {cls._test_point_count()} {formatted} {directive}',
             RuntimeWarning,
