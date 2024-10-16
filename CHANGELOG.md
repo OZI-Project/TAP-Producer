@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.2.1 (2024-10-16)
+
+
+### Fixes
+
+
+* fix: remove internal references to TAP.diagnostic — rjdbcm <rjdbcm@outlook.com>
+([`bcbb6a3`](https://github.com/OZI-Project/TAP-Producer/commit/bcbb6a3546c80cba08d233b3866967ff3bef5331))
+
 ## 1.2.0 (2024-10-16)
 
 
