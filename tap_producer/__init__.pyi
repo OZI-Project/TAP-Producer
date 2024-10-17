@@ -1,15 +1,11 @@
-"""Test Anything Protocol tools."""
-
 from contextlib import ContextDecorator
-from contextlib import contextmanager
-from typing import Any
 from typing import Generator
 from typing import Literal
 from typing import NoReturn
 
-DEFAULT_TAP_VERSION = 12
+__all__ = ['TAP', 'DEFAULT_TAP_VERSION']
 
-__all__ = ('TAP', 'DEFAULT_TAP_VERSION')
+DEFAULT_TAP_VERSION: int
 
 class TAP(ContextDecorator):
     """Test Anything Protocol warnings for TAP Producer APIs with a simple decorator.
@@ -24,82 +20,33 @@ class TAP(ContextDecorator):
     .. versionchanged:: 0.1.5
         Added a __lock to counter calls. However, use in a threaded environment untested.
     """
-    _formatwarning = ...
-    _showwarning = ...
-    _count = ...
-    _version = ...
-    __lock = ...
+    def __init__(self, plan: int | None = None, version: int | None = None) -> None:
+        """Initialize a TAP decorator.
 
-    def __init__(self: TAP, plan: int | None = None, version: int | None = None) -> None:
-        ...
-
+        :param plan: number of test points planned, defaults to None
+        :type plan: int | None, optional
+        :param version: the version of TAP to set, defaults to None
+        :type version: int | None, optional
+        """
     def __enter__(self) -> TAP:
-        ...
-    
-    def __exit__(self, exc: object) -> Literal[False]:
-        ...
+        """TAP context decorator entry.
 
-    @classmethod
-    def version(cls, version: int = ...) -> None:
-        """Set the TAP version to use, defaults to 12, must be called first."""
-
-    @classmethod
-    def end(cls, skip_reason: str = ...) -> NoReturn:
-        """End a TAP diagnostic and reset the counters.
-
-        .. versionchanged:: 1.1
-           No longer exits, just resets the counts.
-
-        :param skip_reason: A skip reason, optional, defaults to ''.
-        :type skip_reason: str, optional
+        :return: a context decorator
+        :rtype: TAP
         """
-
+    def __exit__(self, *exc: Exception) -> Literal[False]:
+        """Exit the TAP context and propagate exceptions."""
     @classmethod
-    def comment(cls, *message: str) -> None:
-        r"""Print a message to the TAP stream.
+    def version(cls, version: int = ...) -> TAP:
+        """Set the TAP version to use, must be called first.
 
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
+        :param version: _description_, defaults to 12
+        :type version: int, optional
+        :return: a context decorator
+        :rtype: TAP
         """
-
     @classmethod
-    def diagnostic(cls, *message: str, **kwargs: str | tuple[str, ...]) -> None:
-        r"""Print a diagnostic message.
-        
-        .. deprecated:: 1.2
-           Use the \*\*diagnostic kwargs to TAP.ok and TAP.not_ok instead.
-
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
-        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
-        :type \*\*kwargs: str | tuple[str, ...]
-        """
-
-    @classmethod
-    def _diagnostic(cls, *message: str, **kwargs: str | tuple[str, ...]) -> None:
-        r"""Print a diagnostic message.
-
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
-        :param \*\*kwargs: diagnostics to be presented as YAML in TAP version > 13
-        :type \*\*kwargs: str | tuple[str, ...]
-        """
-
-    @staticmethod
-    def bail_out(*message: str) -> NoReturn:
-        r"""Print a bail out message and exit.
-
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
-        """
-
-    @classmethod
-    def plan(
-        cls,
-        count: int | None = None,
-        skip_reason: str = '',
-        skip_count: int | None = None,
-    ) -> None:
+    def plan(cls, count: int | None = None, skip_reason: str = '', skip_count: int | None = None) -> TAP:
         """Print a TAP test plan.
 
         :param count: planned test count, defaults to None
@@ -108,16 +55,83 @@ class TAP(ContextDecorator):
         :type skip_reason: str, optional
         :param skip_count: number of tests skipped, defaults to None
         :type skip_count: int | None, optional
+        :return: a context decorator
+        :rtype: TAP
         """
-
     @classmethod
-    @contextmanager
-    def subtest(cls, name: str | None = None) -> Generator[None, Any, None]:
-        """Start a TAP subtest document, name is optional."""
+    def ok(cls, *message: str, skip: bool = False, **diagnostic: str | tuple[str, ...]) -> TAP:
+        """Mark a test result as successful.
 
+        :param \\*message: messages to print to TAP output
+        :type \\*message: tuple[str]
+        :param skip: mark the test as skipped, defaults to False
+        :type skip: bool, optional
+        :param \\*\\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \\*\\*diagnostic: str | tuple[str, ...]
+        :return: a context decorator
+        :rtype: TAP
+        """
+    @classmethod
+    def not_ok(cls, *message: str, skip: bool = False, **diagnostic: str | tuple[str, ...]) -> TAP:
+        """Mark a test result as :strong:`not` successful.
+
+        :param \\*message: messages to print to TAP output
+        :type \\*message: tuple[str]
+        :param skip: mark the test as skipped, defaults to False
+        :type skip: bool, optional
+        :param \\*\\*diagnostic: to be presented as YAML in TAP version > 13
+        :type \\*\\*diagnostic: str | tuple[str, ...]
+        :return: a context decorator
+        :rtype: TAP
+        """
+    @classmethod
+    def comment(cls, *message: str) -> TAP:
+        """Print a message to the TAP stream.
+
+        :param \\*message: messages to print to TAP output
+        :type \\*message: tuple[str]
+        :return: a context decorator
+        :rtype: TAP
+        """
+    @classmethod
+    def diagnostic(cls, *message: str, **kwargs: str | tuple[str, ...]) -> None:
+        """Print a diagnostic message.
+
+        .. deprecated:: 1.2
+           Use the \\*\\*diagnostic kwargs to TAP.ok and TAP.not_ok instead.
+
+        :param \\*message: messages to print to TAP output
+        :type \\*message: tuple[str]
+        :param \\*\\*kwargs: diagnostics to be presented as YAML in TAP version > 13
+        :type \\*\\*kwargs: str | tuple[str, ...]
+        """
+    @classmethod
+    def subtest(cls, name: str | None = None) -> Generator[TAP, None, None]:
+        """Start a TAP subtest document, name is optional.
+        :return: a context generator
+        :rtype: Generator[TAP]
+        """
     @staticmethod
-    @contextmanager
-    def suppress() -> Generator[None, Any, None]:
+    def bail_out(*message: str) -> NoReturn:
+        """Print a bail out message and exit.
+
+        :param \\*message: messages to print to TAP output
+        :type \\*message: tuple[str]
+        """
+    @classmethod
+    def end(cls, skip_reason: str = '') -> TAP:
+        """End a TAP diagnostic and reset the counters.
+
+        .. versionchanged:: 1.1
+           No longer exits, just resets the counts.
+
+        :param skip_reason: A skip reason, optional, defaults to ''.
+        :type skip_reason: str, optional
+        :return: a context decorator
+        :rtype: TAP
+        """
+    @classmethod
+    def suppress(cls) -> Generator[TAP, None, None]:
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -130,55 +144,16 @@ class TAP(ContextDecorator):
 
         .. note::
             Does not suppress Python exceptions.
-        """
 
-    @staticmethod
-    @contextmanager
-    def strict() -> Generator[None, Any, None]:
+        :return: a context decorator
+        :rtype: TAP
+        """
+    @classmethod
+    def strict(cls) -> Generator[TAP, None, None]:
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
             Implies non-TAP output.
+        :return: a context decorator
+        :rtype: TAP
         """
-
-    @classmethod
-    def ok(cls, *message: str, skip: bool = ..., **diagnostic: str | tuple[str, ...]) -> None:
-        r"""Mark a test result as successful.
-
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
-        :param skip: mark the test as skipped, defaults to False
-        :type skip: bool, optional
-        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
-        :type \*\*diagnostic: str | tuple[str, ...]
-        """
-
-    @classmethod
-    def not_ok(cls, *message: str, skip: bool = ..., **diagnostic: str | tuple[str, ...]) -> None:
-        r"""Mark a test result as :strong:`not` successful.
-
-        Mark a test result as successful.
-
-        :param \*message: messages to print to TAP output
-        :type \*message: tuple[str]
-        :param skip: mark the test as skipped, defaults to False
-        :type skip: bool, optional
-        :param \*\*diagnostic: to be presented as YAML in TAP version > 13
-        :type \*\*diagnostic: str | tuple[str, ...]
-        """
-
-    @classmethod
-    def _skip_count(
-        cls: type[TAP],
-    ) -> int:
-        """Pop the current skip count.
-
-        :return: skip count
-        :rtype: int
-        """
-        ...
-
-    @classmethod
-    def _test_point_count(cls: type[TAP]) -> int:
-        """Get the proper count of ok, not ok, and skipped."""
-        ...

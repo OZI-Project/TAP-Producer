@@ -22,7 +22,6 @@ from typing import TextIO
 import yaml
 
 if TYPE_CHECKING:  # pragma: no cover
-    from typing import Any
 
     if sys.version_info >= (3, 11):
         from typing import Self
@@ -86,23 +85,43 @@ class TAP(ContextDecorator):
     _version = DEFAULT_TAP_VERSION
     __lock = Lock()
 
-    def __init__(self: TAP, plan: int | None = None, version: int | None = None) -> None:
+    def __init__(self: Self, plan: int | None = None, version: int | None = None) -> None:
+        """Initialize a TAP decorator.
+
+        :param plan: number of test points planned, defaults to None
+        :type plan: int | None, optional
+        :param version: the version of TAP to set, defaults to None
+        :type version: int | None, optional
+        """
         self.__plan = plan
         self.__version = version
 
-    def __enter__(self: Self) -> Self:
-        if self.__version:
-            type(self).version(self.__version)
-        if self.__plan:
-            type(self).plan(self.__plan)
-        return self
+    def __enter__(self: Self) -> type[Self]:
+        """TAP context decorator entry.
 
-    def __exit__(self: Self, *exc: object) -> Literal[False]:
+        :return: a context decorator
+        :rtype: TAP
+        """
+        if self.__version is not None:
+            type(self).version(self.__version)
+        if self.__plan is not None:
+            type(self).plan(self.__plan)
+        return type(self)
+
+    def __exit__(self: Self, *exc: Exception) -> Literal[False]:
+        """Exit the TAP context and propagate exceptions."""
         return False
 
     @classmethod
-    def version(cls: type[Self], version: int = DEFAULT_TAP_VERSION) -> None:
-        """Set the TAP version to use, defaults to 12, must be called first."""
+    def version(cls: type[Self], version: int = DEFAULT_TAP_VERSION) -> type[Self]:
+        """Set the TAP version to use, must be called first.
+
+        :param version: _description_, defaults to 12
+        :type version: int, optional
+        :return: a context decorator
+        :rtype: TAP
+        """ """"""
+        """"""
         if cls._count[VERSION] < 1 and cls._count.total() < 1:
             with cls.__lock:
                 cls._count[VERSION] += 1
@@ -110,10 +129,9 @@ class TAP(ContextDecorator):
             if cls._version > 14 or cls._version < 12:
                 with cls.__lock:
                     cls._version = DEFAULT_TAP_VERSION
-                cls.comment(f'Invalid TAP version: {cls._version}, using 12')
-                return
+                return cls.comment(f'Invalid TAP version: {cls._version}, using 12')
             elif cls._version == DEFAULT_TAP_VERSION:
-                return
+                return cls
             sys.stdout.write(f'TAP version {cls._version}\n')
         else:
             cls.comment(
@@ -121,6 +139,7 @@ class TAP(ContextDecorator):
                 'must be called first',
                 f'TAP version {cls._version}',
             )
+        return cls
 
     @classmethod
     def plan(  # noqa: C901
@@ -128,7 +147,7 @@ class TAP(ContextDecorator):
         count: int | None = None,
         skip_reason: str = '',
         skip_count: int | None = None,
-    ) -> None:
+    ) -> type[Self]:
         """Print a TAP test plan.
 
         :param count: planned test count, defaults to None
@@ -137,6 +156,8 @@ class TAP(ContextDecorator):
         :type skip_reason: str, optional
         :param skip_count: number of tests skipped, defaults to None
         :type skip_count: int | None, optional
+        :return: a context decorator
+        :rtype: TAP
         """
         count = cls._test_point_count() if count is None else count
         if skip_count is None:
@@ -159,6 +180,7 @@ class TAP(ContextDecorator):
                     cls.comment('TAP.plan called with invalid arguments.')
         else:
             cls.comment('TAP.plan called more than once during session.')
+        return cls
 
     @classmethod
     def ok(
@@ -166,7 +188,7 @@ class TAP(ContextDecorator):
         *message: str,
         skip: bool = False,
         **diagnostic: str | tuple[str, ...],
-    ) -> None:
+    ) -> type[Self]:
         r"""Mark a test result as successful.
 
         :param \*message: messages to print to TAP output
@@ -175,6 +197,8 @@ class TAP(ContextDecorator):
         :type skip: bool, optional
         :param \*\*diagnostic: to be presented as YAML in TAP version > 13
         :type \*\*diagnostic: str | tuple[str, ...]
+        :return: a context decorator
+        :rtype: TAP
         """
         with cls.__lock:
             cls._count[OK] += 1
@@ -188,6 +212,7 @@ class TAP(ContextDecorator):
         )
         if diagnostic:
             cls._diagnostic(**diagnostic)
+        return cls
 
     @classmethod
     def not_ok(
@@ -195,7 +220,7 @@ class TAP(ContextDecorator):
         *message: str,
         skip: bool = False,
         **diagnostic: str | tuple[str, ...],
-    ) -> None:
+    ) -> type[Self]:
         r"""Mark a test result as :strong:`not` successful.
 
         :param \*message: messages to print to TAP output
@@ -204,6 +229,8 @@ class TAP(ContextDecorator):
         :type skip: bool, optional
         :param \*\*diagnostic: to be presented as YAML in TAP version > 13
         :type \*\*diagnostic: str | tuple[str, ...]
+        :return: a context decorator
+        :rtype: TAP
         """
         indent = INDENT * cls._count[SUBTEST]
         with cls.__lock:
@@ -227,16 +254,20 @@ class TAP(ContextDecorator):
         with cls.__lock:  # pragma: no cover
             warnings.formatwarning = cls._formatwarning  # pragma: no cover
             warnings.showwarning = cls._showwarning  # pragma: no cover
+        return cls
 
     @classmethod
-    def comment(cls: type[Self], *message: str) -> None:
+    def comment(cls: type[Self], *message: str) -> type[Self]:
         r"""Print a message to the TAP stream.
 
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
+        :return: a context decorator
+        :rtype: TAP
         """
         formatted = ' - '.join(message).strip()
         sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
+        return cls
 
     @classmethod
     def diagnostic(cls: type[Self], *message: str, **kwargs: str | tuple[str, ...]) -> None:
@@ -281,8 +312,13 @@ class TAP(ContextDecorator):
 
     @classmethod
     @contextmanager
-    def subtest(cls: type[Self], name: str | None = None) -> Generator[None, Any, None]:
-        """Start a TAP subtest document, name is optional."""
+    def subtest(
+        cls: type[Self], name: str | None = None
+    ) -> Generator[type[Self], None, None]:
+        """Start a TAP subtest document, name is optional.
+        :return: a context generator
+        :rtype: Generator[TAP]
+        """
         comment = f'Subtest: {name}' if name else 'Subtest'
         cls.comment(comment)
         with cls.__lock:
@@ -295,18 +331,20 @@ class TAP(ContextDecorator):
                 version=1,
                 subtest_level=parent_count[SUBTEST] + 1,
             )
-        yield
-        if cls._count[PLAN] < 1:
-            cls.plan(cls._test_point_count())
+        try:
+            yield cls
+        finally:
+            if cls._count[PLAN] < 1:
+                cls.plan(cls._test_point_count())
 
-        if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
-            with cls.__lock:
-                cls._count = parent_count
-            cls.ok(name if name else 'Subtest')
-        elif cls._count[NOT_OK] > 0:  # pragma: no cover
-            with cls.__lock:
-                cls._count = parent_count
-            cls.not_ok(name if name else 'Subtest')
+            if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
+                with cls.__lock:
+                    cls._count = parent_count
+                cls.ok(name if name else 'Subtest')
+            elif cls._count[NOT_OK] > 0:  # pragma: no cover
+                with cls.__lock:
+                    cls._count = parent_count
+                cls.not_ok(name if name else 'Subtest')
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -319,7 +357,7 @@ class TAP(ContextDecorator):
         sys.exit(1)
 
     @classmethod
-    def end(cls: type[Self], skip_reason: str = '') -> None:
+    def end(cls: type[Self], skip_reason: str = '') -> type[Self]:
         """End a TAP diagnostic and reset the counters.
 
         .. versionchanged:: 1.1
@@ -327,6 +365,8 @@ class TAP(ContextDecorator):
 
         :param skip_reason: A skip reason, optional, defaults to ''.
         :type skip_reason: str, optional
+        :return: a context decorator
+        :rtype: TAP
         """
         skip_count = cls._skip_count()
         if skip_reason != '' and skip_count == 0:
@@ -334,10 +374,13 @@ class TAP(ContextDecorator):
         if cls._count[PLAN] < 1:
             cls.plan(count=None, skip_reason=skip_reason, skip_count=skip_count)
         cls._count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
+        return cls
 
-    @staticmethod
+    @classmethod
     @contextmanager
-    def suppress() -> Generator[None, Any, None]:  # pragma: defer to python
+    def suppress(
+        cls: type[Self],
+    ) -> Generator[type[Self], None, None]:  # pragma: defer to python
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -350,26 +393,35 @@ class TAP(ContextDecorator):
 
         .. note::
             Does not suppress Python exceptions.
+
+        :return: a context decorator
+        :rtype: TAP
         """
         warnings.simplefilter('ignore')
         null = Path(os.devnull).open('w')
-        with redirect_stdout(null):
-            with redirect_stderr(null):
-                yield
-        null.close()
-        warnings.resetwarnings()
+        try:
+            with redirect_stdout(null):
+                with redirect_stderr(null):
+                    yield cls
+        finally:
+            null.close()
+            warnings.resetwarnings()
 
-    @staticmethod
+    @classmethod
     @contextmanager
-    def strict() -> Generator[None, Any, None]:  # pragma: defer to OZI
+    def strict(cls: type[Self]) -> Generator[type[Self], None, None]:  # pragma: defer to OZI
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
             Implies non-TAP output.
+        :return: a context decorator
+        :rtype: TAP
         """
         warnings.simplefilter('error', category=RuntimeWarning, append=True)
-        yield
-        warnings.resetwarnings()
+        try:
+            yield cls
+        finally:
+            warnings.resetwarnings()
 
     @classmethod
     def _skip_count(
