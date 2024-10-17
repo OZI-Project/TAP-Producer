@@ -86,9 +86,8 @@ def test_plan_v14() -> None:  # noqa: DC102, RUF100
     TAP.version(14)
     TAP.comment('comment')
     TAP.plan(count=1, skip_count=0)
-    with TAP.subtest('subtest'):
-        TAP.plan(count=1, skip_count=0)
-        TAP.ok('ok')
+    with TAP.subtest('subtest') as st:
+        st.plan(count=1, skip_count=0).ok('ok')
     with TAP.subtest('subtest2'):
         TAP.ok('ok')
     with pytest.raises(RuntimeWarning):  # noqa: PT012, RUF100
