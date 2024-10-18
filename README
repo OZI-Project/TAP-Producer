@@ -23,7 +23,7 @@ TAP-Producer also includes an end convenience method as well as two decorators.
 A suppress context manager for suppressing diagnostic and bail out messages;
 a strict context manager for raising not ok test cases to Python errors.
 
-Licensed Apache-2.0 WITH LLVM-exception, see LICENSE.txt for more information.
+Licensed Apache-2.0 WITH LLVM-exception, no NOTICE or LICENSE.txt needed if want to vendor TAP-Producer into your project, see LICENSE.txt for more information.
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right
