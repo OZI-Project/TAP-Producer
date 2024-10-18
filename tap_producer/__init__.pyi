@@ -109,8 +109,8 @@ class TAP(ContextDecorator):
     @classmethod
     def subtest(cls, name: str | None = None) -> ContextManager[TAP]:
         """Start a TAP subtest document, name is optional.
-        :return: a context generator
-        :rtype: Generator[TAP]
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -146,8 +146,8 @@ class TAP(ContextDecorator):
         .. note::
             Does not suppress Python exceptions.
 
-        :return: a context decorator
-        :rtype: TAP
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """
     @classmethod
     def strict(cls) -> ContextManager[TAP]:
@@ -155,6 +155,6 @@ class TAP(ContextDecorator):
 
         .. note::
             Implies non-TAP output.
-        :return: a context decorator
-        :rtype: TAP
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """

@@ -124,8 +124,7 @@ class TAP(ContextDecorator):
         :type version: int, optional
         :return: a context decorator
         :rtype: TAP
-        """ """"""
-        """"""
+        """
         if cls._count[VERSION] < 1 and cls._count.total() < 1:
             with cls.__lock:
                 cls._count[VERSION] += 1
@@ -317,8 +316,8 @@ class TAP(ContextDecorator):
     @classmethod
     def subtest(cls: type[Self], name: str | None = None) -> ContextManager[type[Self]]:
         """Start a TAP subtest document, name is optional.
-        :return: a context generator
-        :rtype: Generator[TAP]
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """
 
         @contextmanager
@@ -400,8 +399,8 @@ class TAP(ContextDecorator):
         .. note::
             Does not suppress Python exceptions.
 
-        :return: a context decorator
-        :rtype: TAP
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """
 
         @contextmanager
@@ -425,8 +424,8 @@ class TAP(ContextDecorator):
 
         .. note::
             Implies non-TAP output.
-        :return: a context decorator
-        :rtype: TAP
+        :return: a context manager
+        :rtype: ContextManager[TAP]
         """
 
         @contextmanager
