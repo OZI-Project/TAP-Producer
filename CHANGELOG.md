@@ -1,5 +1,46 @@
 # TAP-Producer CHANGELOG
+## 1.3.0 (2024-10-18)
+
 ## 1.2.4 (2024-10-17)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.3.0 to 1.3.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.3.0 to 1.3.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.3.0...1.3.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`cdd9b7d`](https://github.com/OZI-Project/TAP-Producer/commit/cdd9b7db2a265ad1d03887e9072391d973459905))
+
+* build(deps): bump OZI-Project/publish from 1.3.0 to 1.3.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.3.0 to 1.3.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.3.0...1.3.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8286a6f`](https://github.com/OZI-Project/TAP-Producer/commit/8286a6f4a12d876d5bf3f6ff7467d49f615cf62c))
+
+
+### Features
+
+
+* feat: automatically calls TAP.end() on decorator __exit__() — rjdbcm <rjdbcm@outlook.com>
+([`ad14876`](https://github.com/OZI-Project/TAP-Producer/commit/ad1487613bd1523c5cb4e3f6d4b6d762a041ef1b))
 
 
 ### Performance improvements
