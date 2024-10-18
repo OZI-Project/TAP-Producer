@@ -1,4 +1,23 @@
 # TAP-Producer CHANGELOG
+## 1.3.1 (2024-10-18)
+
+
+### Fixes
+
+
+* fix: lint — rjdbcm <rjdbcm@outlook.com>
+([`bcd5c5f`](https://github.com/OZI-Project/TAP-Producer/commit/bcd5c5f9faf57b81a2d59da44cca5a7d8a6701fa))
+
+* fix(typing): correct contextmanager annotations for pyright — rjdbcm <rjdbcm@outlook.com>
+([`0d794ed`](https://github.com/OZI-Project/TAP-Producer/commit/0d794ed008d56b7ec9acfed3d52c7dd380eaff39))
+
+
+### Unknown
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`bcad434`](https://github.com/OZI-Project/TAP-Producer/commit/bcad4341a1f4206df67b592ecfb664f712d42f0c))
+
 ## 1.3.0 (2024-10-18)
 
 ## 1.2.4 (2024-10-17)
