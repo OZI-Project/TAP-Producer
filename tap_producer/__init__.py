@@ -13,7 +13,8 @@ from contextlib import redirect_stderr
 from contextlib import redirect_stdout
 from pathlib import Path
 from threading import Lock
-from typing import TYPE_CHECKING, ContextManager
+from typing import TYPE_CHECKING
+from typing import ContextManager
 from typing import Iterator
 from typing import Literal
 from typing import NoReturn
@@ -319,6 +320,7 @@ class TAP(ContextDecorator):
         :return: a context generator
         :rtype: Generator[TAP]
         """
+
         @contextmanager
         def wrapper(cls: type[Self], name: str | None = None) -> Iterator[type[Self]]:
             """workaround for pyright"""
@@ -348,6 +350,7 @@ class TAP(ContextDecorator):
                     with cls.__lock:
                         cls._count = parent_count
                     cls.not_ok(name if name else 'Subtest')
+
         return wrapper(cls, name=name)
 
     @staticmethod
@@ -400,6 +403,7 @@ class TAP(ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
+
         @contextmanager
         def wrapper(cls: type[Self]) -> Iterator[type[Self]]:
             """workaround for pyright"""
@@ -412,6 +416,7 @@ class TAP(ContextDecorator):
             finally:
                 null.close()
                 warnings.resetwarnings()
+
         return wrapper(cls)
 
     @classmethod
@@ -423,6 +428,7 @@ class TAP(ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
+
         @contextmanager
         def wrapper(cls: type[Self]) -> Iterator[type[Self]]:
             """workaround for pyright"""
@@ -431,6 +437,7 @@ class TAP(ContextDecorator):
                 yield cls
             finally:
                 warnings.resetwarnings()
+
         return wrapper(cls)
 
     @classmethod

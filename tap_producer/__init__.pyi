@@ -1,6 +1,6 @@
 from contextlib import ContextDecorator
-from typing import Generator
 from typing import ContextManager
+from typing import Generator
 from typing import Literal
 from typing import NoReturn
 
