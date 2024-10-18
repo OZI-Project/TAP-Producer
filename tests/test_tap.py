@@ -82,18 +82,15 @@ def test_plan_v13() -> None:  # noqa: DC102, RUF100
 
 
 def test_plan_v14() -> None:  # noqa: DC102, RUF100
-    TAP.version(14)
-    TAP.version(14)
-    TAP.comment('comment')
-    TAP.plan(count=1, skip_count=0)
-    with TAP.subtest('subtest') as st:
-        st.plan(count=1, skip_count=0).ok('ok')
-    with TAP.subtest('subtest2'):
-        TAP.ok('ok')
-    with pytest.raises(RuntimeWarning):  # noqa: PT012, RUF100
-        with TAP.subtest('subtest3'):
-            TAP.not_ok('not ok')
-    TAP.end()
+    with TAP(version=14) as tap:
+        tap.version(14).comment('comment').plan(count=1, skip_count=0)
+        with TAP.subtest('subtest') as st:
+            st.plan(count=1, skip_count=0).ok('ok')
+        with tap.subtest('subtest2'):
+            TAP.ok('ok')
+        with pytest.raises(RuntimeWarning):  # noqa: PT012, RUF100
+            with tap.subtest('subtest3'):
+                TAP.not_ok('not ok')
 
 
 def test_plan_no_skip_count() -> None:  # noqa: DC102, RUF100

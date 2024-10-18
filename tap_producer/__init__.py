@@ -14,7 +14,7 @@ from contextlib import redirect_stdout
 from pathlib import Path
 from threading import Lock
 from typing import TYPE_CHECKING
-from typing import Generator
+from typing import Iterator
 from typing import Literal
 from typing import NoReturn
 from typing import TextIO
@@ -110,6 +110,9 @@ class TAP(ContextDecorator):
 
     def __exit__(self: Self, *exc: Exception) -> Literal[False]:
         """Exit the TAP context and propagate exceptions."""
+        with type(self).__lock:
+            skip_count = type(self)._count[SKIP]
+        type(self).end(skip_reason=str(exc[0]) if len(exc) > 0 and skip_count > 0 else '')
         return False
 
     @classmethod
@@ -266,7 +269,7 @@ class TAP(ContextDecorator):
         :rtype: TAP
         """
         formatted = ' - '.join(message).strip()
-        sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
+        sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
         return cls
 
     @classmethod
@@ -298,7 +301,7 @@ class TAP(ContextDecorator):
         if cls._version == DEFAULT_TAP_VERSION:
             message += tuple(f'{k}: {v}' for k, v in kwargs.items())
             formatted = ' - '.join(message).strip()
-            sys.stderr.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
+            sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}# {formatted}\n')
         else:
             kwargs |= {'message': ' - '.join(message).strip()} if len(message) > 0 else {}
             for i in yaml.dump(
@@ -312,9 +315,7 @@ class TAP(ContextDecorator):
 
     @classmethod
     @contextmanager
-    def subtest(
-        cls: type[Self], name: str | None = None
-    ) -> Generator[type[Self], None, None]:
+    def subtest(cls: type[Self], name: str | None = None) -> Iterator[type[Self]]:
         """Start a TAP subtest document, name is optional.
         :return: a context generator
         :rtype: Generator[TAP]
@@ -353,7 +354,7 @@ class TAP(ContextDecorator):
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         """
-        print('Bail out!', *message, file=sys.stderr)
+        print('Bail out!', *message, file=sys.stdout)
         sys.exit(1)
 
     @classmethod
@@ -380,7 +381,7 @@ class TAP(ContextDecorator):
     @contextmanager
     def suppress(
         cls: type[Self],
-    ) -> Generator[type[Self], None, None]:  # pragma: defer to python
+    ) -> Iterator[type[Self]]:  # pragma: defer to python
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -409,7 +410,7 @@ class TAP(ContextDecorator):
 
     @classmethod
     @contextmanager
-    def strict(cls: type[Self]) -> Generator[type[Self], None, None]:  # pragma: defer to OZI
+    def strict(cls: type[Self]) -> Iterator[type[Self]]:  # pragma: defer to OZI
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
