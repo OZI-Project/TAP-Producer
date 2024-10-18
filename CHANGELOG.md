@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.2.4 (2024-10-17)
+
+
+### Performance improvements
+
+
+* perf(typing): update stubs — rjdbcm <rjdbcm@outlook.com>
+([`7f76632`](https://github.com/OZI-Project/TAP-Producer/commit/7f766329c4d3a554c9dc2ba22a4cc65c836ba2d9))
+
 ## 1.2.3 (2024-10-16)
 
 
