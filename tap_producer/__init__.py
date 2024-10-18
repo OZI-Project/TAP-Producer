@@ -13,7 +13,7 @@ from contextlib import redirect_stderr
 from contextlib import redirect_stdout
 from pathlib import Path
 from threading import Lock
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, ContextManager
 from typing import Iterator
 from typing import Literal
 from typing import NoReturn
@@ -314,38 +314,41 @@ class TAP(ContextDecorator):
                 sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}  {i}\n')
 
     @classmethod
-    @contextmanager
-    def subtest(cls: type[Self], name: str | None = None) -> Iterator[type[Self]]:
+    def subtest(cls: type[Self], name: str | None = None) -> ContextManager[type[Self]]:
         """Start a TAP subtest document, name is optional.
         :return: a context generator
         :rtype: Generator[TAP]
         """
-        comment = f'Subtest: {name}' if name else 'Subtest'
-        cls.comment(comment)
-        with cls.__lock:
-            parent_count = cls._count.copy()
-            cls._count = Counter(
-                ok=0,
-                not_ok=0,
-                skip=0,
-                plan=0,
-                version=1,
-                subtest_level=parent_count[SUBTEST] + 1,
-            )
-        try:
-            yield cls
-        finally:
-            if cls._count[PLAN] < 1:
-                cls.plan(cls._test_point_count())
+        @contextmanager
+        def wrapper(cls: type[Self], name: str | None = None) -> Iterator[type[Self]]:
+            """workaround for pyright"""
+            comment = f'Subtest: {name}' if name else 'Subtest'
+            cls.comment(comment)
+            with cls.__lock:
+                parent_count = cls._count.copy()
+                cls._count = Counter(
+                    ok=0,
+                    not_ok=0,
+                    skip=0,
+                    plan=0,
+                    version=1,
+                    subtest_level=parent_count[SUBTEST] + 1,
+                )
+            try:
+                yield cls
+            finally:
+                if cls._count[PLAN] < 1:
+                    cls.plan(cls._test_point_count())
 
-            if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
-                with cls.__lock:
-                    cls._count = parent_count
-                cls.ok(name if name else 'Subtest')
-            elif cls._count[NOT_OK] > 0:  # pragma: no cover
-                with cls.__lock:
-                    cls._count = parent_count
-                cls.not_ok(name if name else 'Subtest')
+                if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
+                    with cls.__lock:
+                        cls._count = parent_count
+                    cls.ok(name if name else 'Subtest')
+                elif cls._count[NOT_OK] > 0:  # pragma: no cover
+                    with cls.__lock:
+                        cls._count = parent_count
+                    cls.not_ok(name if name else 'Subtest')
+        return wrapper(cls, name=name)
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -378,10 +381,9 @@ class TAP(ContextDecorator):
         return cls
 
     @classmethod
-    @contextmanager
     def suppress(
         cls: type[Self],
-    ) -> Iterator[type[Self]]:  # pragma: defer to python
+    ) -> ContextManager[type[Self]]:  # pragma: defer to python
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -398,19 +400,22 @@ class TAP(ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
-        warnings.simplefilter('ignore')
-        null = Path(os.devnull).open('w')
-        try:
-            with redirect_stdout(null):
-                with redirect_stderr(null):
-                    yield cls
-        finally:
-            null.close()
-            warnings.resetwarnings()
+        @contextmanager
+        def wrapper(cls: type[Self]) -> Iterator[type[Self]]:
+            """workaround for pyright"""
+            warnings.simplefilter('ignore')
+            null = Path(os.devnull).open('w')
+            try:
+                with redirect_stdout(null):
+                    with redirect_stderr(null):
+                        yield cls
+            finally:
+                null.close()
+                warnings.resetwarnings()
+        return wrapper(cls)
 
     @classmethod
-    @contextmanager
-    def strict(cls: type[Self]) -> Iterator[type[Self]]:  # pragma: defer to OZI
+    def strict(cls: type[Self]) -> ContextManager[type[Self]]:  # pragma: defer to OZI
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
@@ -418,11 +423,15 @@ class TAP(ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
-        warnings.simplefilter('error', category=RuntimeWarning, append=True)
-        try:
-            yield cls
-        finally:
-            warnings.resetwarnings()
+        @contextmanager
+        def wrapper(cls: type[Self]) -> Iterator[type[Self]]:
+            """workaround for pyright"""
+            warnings.simplefilter('error', category=RuntimeWarning, append=True)
+            try:
+                yield cls
+            finally:
+                warnings.resetwarnings()
+        return wrapper(cls)
 
     @classmethod
     def _skip_count(

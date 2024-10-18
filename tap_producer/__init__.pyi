@@ -1,6 +1,6 @@
 from contextlib import ContextDecorator
 from typing import Generator
-from typing import Iterator
+from typing import ContextManager
 from typing import Literal
 from typing import NoReturn
 
@@ -107,7 +107,7 @@ class TAP(ContextDecorator):
         :type \\*\\*kwargs: str | tuple[str, ...]
         """
     @classmethod
-    def subtest(cls, name: str | None = None) -> Iterator[TAP]:
+    def subtest(cls, name: str | None = None) -> ContextManager[TAP]:
         """Start a TAP subtest document, name is optional.
         :return: a context generator
         :rtype: Generator[TAP]
@@ -132,7 +132,7 @@ class TAP(ContextDecorator):
         :rtype: TAP
         """
     @classmethod
-    def suppress(cls) -> Iterator[TAP]:
+    def suppress(cls) -> ContextManager[TAP]:
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -150,7 +150,7 @@ class TAP(ContextDecorator):
         :rtype: TAP
         """
     @classmethod
-    def strict(cls) -> Iterator[TAP]:
+    def strict(cls) -> ContextManager[TAP]:
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
