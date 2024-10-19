@@ -1,4 +1,26 @@
 # TAP-Producer CHANGELOG
+## 1.3.2 (2024-10-18)
+
+
+### Fixes
+
+
+* fix: incorrect docstrings — rjdbcm <rjdbcm@outlook.com>
+([`557ad9f`](https://github.com/OZI-Project/TAP-Producer/commit/557ad9f2d34c8324b0b8b8fccdb8376465e87dad))
+
+
+### Unknown
+
+
+* Update README — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`cf6e95b`](https://github.com/OZI-Project/TAP-Producer/commit/cf6e95ba0841b6a8f4c8f6b5701e8ed490949869))
+
+* Update README — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`431067f`](https://github.com/OZI-Project/TAP-Producer/commit/431067fb6fa7475d204a2674ce4bfac84fcca10f))
+
+* Create CODE_OF_CONDUCT.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`d548415`](https://github.com/OZI-Project/TAP-Producer/commit/d548415dbc7e2ffb838bab140f0cfc8e37181668))
+
 ## 1.3.1 (2024-10-18)
 
 
