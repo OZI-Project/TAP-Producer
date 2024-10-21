@@ -13,15 +13,43 @@ TAP-Producer
 
 Producer for Test Anything Protocol output in Python.
 Automatically counts test points at call time for TAP version 12, 13, and 14.
-TAP version 12 supports plan, ok, not ok, diagnostic, and bail out functionality.
+
+.. code-block::
+  from tap_producer import TAP
+  with TAP() as t:
+    t.ok('passed')
+    t.ok('also passed')
+
+TAP version 12 supports plan, ok, not ok, diagnostic comment, and bail out functionality.
+
+.. code-block::
+  from tap_producer import TAP
+  with TAP() as t:
+    t.ok('passed').comment('debug information')
+    if FAIL_CONDITION:
+      t.not_ok('did not pass')
+      t.bail_out()
+
 TAP version 13 supports the aforementioned as well as subtest context manager
 and YAML diagnostic output.
-TAP version 14 supports all prior version features but separates the API
-for comments output from YAML diagnostics.
 
-TAP-Producer also includes an end convenience method as well as two decorators.
-A suppress context manager for suppressing diagnostic and bail out messages;
+.. code-block::
+  with TAP.subtest('subtest') as st:
+    st.plan(count=1, skip_count=0).ok('ok', {'yaml-key': 'yaml-val'})
+
+TAP-Producer also includes two decorators, a suppress context manager for suppressing TAP output and
 a strict context manager for raising not ok test cases to Python errors.
+
+.. code-block::
+  from tap_producer import TAP
+  with TAP() as t:
+    with t.suppress():
+      t.ok('passed but suppressed')
+    with t.strict()
+      t.not_ok('this is now a Python exception')
+
+License
+-------
 
 Licensed Apache-2.0 WITH LLVM-exception, no NOTICE file needed if you want to vendor TAP-Producer into your project, see LICENSE.txt for more information.
 
