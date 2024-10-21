@@ -1,4 +1,20 @@
 # TAP-Producer CHANGELOG
+## 1.3.3 (2024-10-21)
+
+
+### Performance improvements
+
+
+* perf: update PyPI readme with examples — rjdbcm <rjdbcm@outlook.com>
+([`c5d4879`](https://github.com/OZI-Project/TAP-Producer/commit/c5d48790274e9e67faf51b2f6d4eb8c4488ec4fe))
+
+
+### Unknown
+
+
+* Update README — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`ce23046`](https://github.com/OZI-Project/TAP-Producer/commit/ce2304613df3fe93c66f2afee327859d65807809))
+
 ## 1.3.2 (2024-10-18)
 
 
