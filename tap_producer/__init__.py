@@ -49,7 +49,7 @@ def _warn_format(
     line: str | None = None,
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'{message} - {category.__name__}\n'  # pragma: no cover
+    return f'{message} {category.__name__}\n'  # pragma: no cover
 
 
 def _warn(
@@ -241,7 +241,7 @@ class TAP(ContextDecorator):
             cls._count[SKIP] += 1 if skip else 0
             warnings.formatwarning = _warn_format
             warnings.showwarning = _warn  # type: ignore
-        directive = '-' if not skip else '# SKIP'
+        directive = '' if not skip else '# SKIP'
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         description = f'- {formatted}' if len(formatted) > 0 else ''
         sys.stdout.write(
