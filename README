@@ -12,7 +12,6 @@ TAP-Producer
 ============
 
 Producer for Test Anything Protocol output in Python.
-Automatically counts test points at call time for TAP version 12, 13, and 14.
 
 .. code-block::
 
@@ -20,9 +19,27 @@ Automatically counts test points at call time for TAP version 12, 13, and 14.
    with TAP() as t:
      t.ok('passed')
      t.ok('also passed')
+     
+The TAP class automatically counts test points at call time for TAP version 12, 13, and 14.
 
-TAP version 12 supports plan, ok, not ok, diagnostic comment, and bail out
-functionality.
+.. code-block::
+
+   from tap_producer import TAP
+   @TAP(plan=1, version=14)
+   def f() -> None:
+      TAP.ok('reason')
+   f()
+
+TAP can also be used as a function decorator.
+
+.. code-block::
+
+   from tap_producer import TAP
+   TAP.version(14)
+   TAP.ok('passed')
+   TAP.end()
+
+The TAP class can also be used as a purely functional API. Normally TAP calls ``end()`` on its own. 
 
 .. code-block::
 
@@ -33,17 +50,16 @@ functionality.
          t.not_ok('did not pass')
          t.bail_out()
 
-TAP version 13 supports the aforementioned as well as subtest context manager
-and YAML diagnostic output.
+TAP using version 12 supports plan, ok, not ok, diagnostic comment, and bail out
+functionality.
 
 .. code-block::
 
-   with TAP.subtest('subtest') as st:
+   with TAP(version=13).subtest('subtest') as st:
       st.plan(count=1, skip_count=0).ok('ok', {'yaml-key': 'yaml-val'})
 
-TAP-Producer also includes two decorators, a suppress context manager for
-suppressing TAP output and a strict context manager for raising not ok test
-cases to Python errors.
+TAP version 13 supports the aforementioned as well as subtest context manager
+and YAML diagnostic output.
 
 .. code-block::
 
@@ -53,6 +69,10 @@ cases to Python errors.
          t.ok('passed but suppressed')
       with t.strict()
          t.not_ok('this is now a Python exception')
+
+TAP-Producer also includes two decorators, a suppress context manager for
+suppressing TAP output and a strict context manager for raising not ok test
+cases to Python errors.
 
 License
 -------
