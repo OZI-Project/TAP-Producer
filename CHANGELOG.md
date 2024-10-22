@@ -1,9 +1,63 @@
 # TAP-Producer CHANGELOG
+## 1.4.0 (2024-10-22)
+
 ## 1.3.3 (2024-10-21)
+
+
+### Bug fixes
+
+
+* fix: not_ok no longer prints a final ``-`` — rjdbcm <rjdbcm@outlook.com>
+([`ce620ac`](https://github.com/OZI-Project/TAP-Producer/commit/ce620ac51ad585c36d9b9c0959bc743a963eb3fb))
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.3.1 to 1.4.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.3.1 to 1.4.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.3.1...1.4.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`308c9ce`](https://github.com/OZI-Project/TAP-Producer/commit/308c9cef2974b3de6836b5fbf54f2b3e950ae37b))
+
+* build(deps): bump OZI-Project/publish from 1.3.1 to 1.4.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.3.1 to 1.4.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.3.1...1.4.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`ec7ddab`](https://github.com/OZI-Project/TAP-Producer/commit/ec7ddabf8e90ed9253040d3433465e75ecaa8ba8))
+
+
+### Features
+
+
+* feat: add _TestAnything for typechecking and raise warnings for bad arguments instead of TAP.comment — rjdbcm <rjdbcm@outlook.com>
+([`bc16575`](https://github.com/OZI-Project/TAP-Producer/commit/bc16575634c722ad710ccc305aefb30a2102de8a))
 
 
 ### Performance improvements
 
+
+* perf: remove Python < 3.11 dependency on typing_extensions — rjdbcm <rjdbcm@outlook.com>
+([`cd5f1c9`](https://github.com/OZI-Project/TAP-Producer/commit/cd5f1c9230b4f4c21db7cdd97f8953935915cfd9))
+
+* perf: update README docs — rjdbcm <rjdbcm@outlook.com>
+([`e5b041a`](https://github.com/OZI-Project/TAP-Producer/commit/e5b041afd352684260a800e0e6c29a04d13d8501))
 
 * perf: update PyPI readme with examples — rjdbcm <rjdbcm@outlook.com>
 ([`c5d4879`](https://github.com/OZI-Project/TAP-Producer/commit/c5d48790274e9e67faf51b2f6d4eb8c4488ec4fe))
@@ -18,7 +72,7 @@
 ## 1.3.2 (2024-10-18)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: incorrect docstrings — rjdbcm <rjdbcm@outlook.com>
@@ -40,7 +94,7 @@
 ## 1.3.1 (2024-10-18)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: lint — rjdbcm <rjdbcm@outlook.com>
@@ -109,7 +163,7 @@ updated-dependencies:
 ## 1.2.3 (2024-10-16)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: blank description formats properly — rjdbcm <rjdbcm@outlook.com>
@@ -121,7 +175,7 @@ updated-dependencies:
 ## 1.2.2 (2024-10-16)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: no longer print a blank diagnostic for each test point — rjdbcm <rjdbcm@outlook.com>
@@ -130,7 +184,7 @@ updated-dependencies:
 ## 1.2.1 (2024-10-16)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: remove internal references to TAP.diagnostic — rjdbcm <rjdbcm@outlook.com>
@@ -148,6 +202,13 @@ updated-dependencies:
 ## 1.1.0 (2024-10-14)
 
 ## 1.0.6 (2024-10-06)
+
+
+### Bug fixes
+
+
+* fix: change plan behavior to warn on bad arguments. — rjdbcm <rjdbcm@outlook.com>
+([`1c3329c`](https://github.com/OZI-Project/TAP-Producer/commit/1c3329c768ec594f5b6790afec0cef5678a2b788))
 
 
 ### Build system
@@ -290,13 +351,6 @@ updated-dependencies:
 ([`2ea68ba`](https://github.com/OZI-Project/TAP-Producer/commit/2ea68ba8e091db00ba6b2fe3ca7f6712b27f454d))
 
 
-### Fixes
-
-
-* fix: change plan behavior to warn on bad arguments. — rjdbcm <rjdbcm@outlook.com>
-([`1c3329c`](https://github.com/OZI-Project/TAP-Producer/commit/1c3329c768ec594f5b6790afec0cef5678a2b788))
-
-
 ### Unknown
 
 
@@ -307,6 +361,16 @@ updated-dependencies:
 ([`dc62cb8`](https://github.com/OZI-Project/TAP-Producer/commit/dc62cb8f851988e6921e979dc792ee87ec2ab009))
 
 ## 1.0.5 (2024-09-09)
+
+
+### Bug fixes
+
+
+* fix: remove --ozi arg — rjdbcm <rjdbcm@outlook.com>
+([`b70b2f3`](https://github.com/OZI-Project/TAP-Producer/commit/b70b2f3dc4af39671c22a3e0b37df52b18091316))
+
+* fix: cleanup for ruff — rjdbcm <rjdbcm@outlook.com>
+([`bcbaa18`](https://github.com/OZI-Project/TAP-Producer/commit/bcbaa187c1f34091f0e9e89b4bac005b713bd7fa))
 
 
 ### Build system
@@ -425,16 +489,6 @@ updated-dependencies:
 ([`ebce13c`](https://github.com/OZI-Project/TAP-Producer/commit/ebce13cd263450eec8a1073b74bde936693c1347))
 
 
-### Fixes
-
-
-* fix: remove --ozi arg — rjdbcm <rjdbcm@outlook.com>
-([`b70b2f3`](https://github.com/OZI-Project/TAP-Producer/commit/b70b2f3dc4af39671c22a3e0b37df52b18091316))
-
-* fix: cleanup for ruff — rjdbcm <rjdbcm@outlook.com>
-([`bcbaa18`](https://github.com/OZI-Project/TAP-Producer/commit/bcbaa187c1f34091f0e9e89b4bac005b713bd7fa))
-
-
 ### Performance improvements
 
 
@@ -445,6 +499,13 @@ updated-dependencies:
 ([`4382f92`](https://github.com/OZI-Project/TAP-Producer/commit/4382f92d1b918b366ad03f3208199b2a1012eed0))
 
 ## 1.0.4 (2024-08-12)
+
+
+### Bug fixes
+
+
+* fix: YAML diagnostic dumps with ``sort_keys=False`` — rjdbcm <rjdbcm@outlook.com>
+([`e4e4178`](https://github.com/OZI-Project/TAP-Producer/commit/e4e41781574ebde47fab9c2eb4605362d276a6eb))
 
 
 ### Build system
@@ -464,17 +525,10 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`5bd6dc6`](https://github.com/OZI-Project/TAP-Producer/commit/5bd6dc6ddeb76f99e78f4dbf13e21f9da6eb6904))
 
-
-### Fixes
-
-
-* fix: YAML diagnostic dumps with ``sort_keys=False`` — rjdbcm <rjdbcm@outlook.com>
-([`e4e4178`](https://github.com/OZI-Project/TAP-Producer/commit/e4e41781574ebde47fab9c2eb4605362d276a6eb))
-
 ## 1.0.3 (2024-08-12)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: update ozi.yml allowed_endpoints — Eden Ross Duff, MSc <rjdbcm@outlook.com>
@@ -504,6 +558,13 @@ updated-dependencies:
 ([`af0ee69`](https://github.com/OZI-Project/TAP-Producer/commit/af0ee69953aa70ea3be972a189ca98cd7ece6bfa))
 
 ## 1.0.1 (2024-08-06)
+
+
+### Bug fixes
+
+
+* fix: add ``build`` to ``tool.semantic_release.commit_parser_options:patch_tags`` — Eden Ross Duff, MSc <rjdbcm@outlook.com>
+([`b2b7854`](https://github.com/OZI-Project/TAP-Producer/commit/b2b7854018ec909dc9ac3be338714ce31f05cdda))
 
 
 ### Build system
@@ -565,13 +626,6 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`0b0674e`](https://github.com/OZI-Project/TAP-Producer/commit/0b0674e092587ee4972a9b215357ba45de4c1dfb))
 
-
-### Fixes
-
-
-* fix: add ``build`` to ``tool.semantic_release.commit_parser_options:patch_tags`` — Eden Ross Duff, MSc <rjdbcm@outlook.com>
-([`b2b7854`](https://github.com/OZI-Project/TAP-Producer/commit/b2b7854018ec909dc9ac3be338714ce31f05cdda))
-
 ## 1.0.0 (2024-08-06)
 
 
@@ -627,6 +681,21 @@ BREAKING CHANGE: stable release TAP-Producer-1.0.0 — rjdbcm <rjdbcm@outlook.co
 ([`425fd7d`](https://github.com/OZI-Project/TAP-Producer/commit/425fd7dc6a894ba5eff75b690c6fedf5cd55dc2f))
 
 
+### Bug fixes
+
+
+* fix: release revision typo fixed — rjdbcm <rjdbcm@outlook.com>
+([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
+
+* fix: print YAMLish diagnostics to stdout — rjdbcm <rjdbcm@outlook.com>
+([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
+
+* fix: Merge pull request #29 from OZI-Project/0.2
+
+Merge pull request #28 from OZI-Project/main
+([`7a8a484`](https://github.com/OZI-Project/TAP-Producer/commit/7a8a48405d983cfc34cc2c04f3da241a93011321))
+
+
 ### Build system
 
 
@@ -659,21 +728,6 @@ updated-dependencies:
 ([`0143750`](https://github.com/OZI-Project/TAP-Producer/commit/01437509551f6ef247c95ffcdd4a3b5760f16329))
 
 
-### Fixes
-
-
-* fix: release revision typo fixed — rjdbcm <rjdbcm@outlook.com>
-([`29f9b9a`](https://github.com/OZI-Project/TAP-Producer/commit/29f9b9a5d675e126f40e317bab17a62c04988ad9))
-
-* fix: print YAMLish diagnostics to stdout — rjdbcm <rjdbcm@outlook.com>
-([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
-
-* fix: Merge pull request #29 from OZI-Project/0.2
-
-Merge pull request #28 from OZI-Project/main
-([`7a8a484`](https://github.com/OZI-Project/TAP-Producer/commit/7a8a48405d983cfc34cc2c04f3da241a93011321))
-
-
 ### Performance improvements
 
 
@@ -689,6 +743,16 @@ Merge pull request #28 from OZI-Project/main
 ## 0.1.5 (2024-07-20)
 
 ## 0.1.4 (2024-07-18)
+
+
+### Bug fixes
+
+
+* fix: syncronize stub docstrings — rjdbcm <rjdbcm@outlook.com>
+([`3046190`](https://github.com/OZI-Project/TAP-Producer/commit/3046190019f542649f03258dda787f69ea382f13))
+
+* fix: remove private method from stub — rjdbcm <rjdbcm@outlook.com>
+([`0584182`](https://github.com/OZI-Project/TAP-Producer/commit/0584182e8d32275fd5c787b686f2e245c8fa927e))
 
 
 ### Build system
@@ -772,16 +836,6 @@ updated-dependencies:
 ([`d658ad8`](https://github.com/OZI-Project/TAP-Producer/commit/d658ad8cd91d667b5ee586ac84edf7bc67b28585))
 
 
-### Fixes
-
-
-* fix: syncronize stub docstrings — rjdbcm <rjdbcm@outlook.com>
-([`3046190`](https://github.com/OZI-Project/TAP-Producer/commit/3046190019f542649f03258dda787f69ea382f13))
-
-* fix: remove private method from stub — rjdbcm <rjdbcm@outlook.com>
-([`0584182`](https://github.com/OZI-Project/TAP-Producer/commit/0584182e8d32275fd5c787b686f2e245c8fa927e))
-
-
 ### Performance improvements
 
 
@@ -803,7 +857,7 @@ updated-dependencies:
 ## 0.1.3 (2024-07-18)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: wheel tags corrected with OZI.build>=0.0.27 — rjdbcm <rjdbcm@outlook.com>
@@ -821,7 +875,7 @@ updated-dependencies:
 ## 0.1.1 (2024-07-06)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: not_ok() was missing counter — rjdbcm <rjdbcm@outlook.com>
@@ -837,7 +891,7 @@ updated-dependencies:
 ## 0.1.0 (2024-07-06)
 
 
-### Fixes
+### Bug fixes
 
 
 * fix: add TAP 14 methods to stub — rjdbcm <rjdbcm@outlook.com>
@@ -848,6 +902,16 @@ updated-dependencies:
 ## 0.0.2 (2024-07-04)
 
 ## 0.0.1 (2024-07-04)
+
+
+### Bug fixes
+
+
+* fix: update package metadata and add stubs — rjdbcm <rjdbcm@outlook.com>
+([`aaf531e`](https://github.com/OZI-Project/TAP-Producer/commit/aaf531e26a5d4f84ec1f3edec251131e94668c2d))
+
+* fix: no cover and defers  — Eden Ross Duff, MSc <rjdbcm@outlook.com>
+([`d977397`](https://github.com/OZI-Project/TAP-Producer/commit/d977397789bcad3c3d339433baba92bb14900a43))
 
 
 ### Continuous integration
@@ -862,16 +926,6 @@ updated-dependencies:
 
 * feat: implemented TAP version 13 and 14 — rjdbcm <rjdbcm@outlook.com>
 ([`f3b69d2`](https://github.com/OZI-Project/TAP-Producer/commit/f3b69d26573311a9959216670868c7aa34ffb02d))
-
-
-### Fixes
-
-
-* fix: update package metadata and add stubs — rjdbcm <rjdbcm@outlook.com>
-([`aaf531e`](https://github.com/OZI-Project/TAP-Producer/commit/aaf531e26a5d4f84ec1f3edec251131e94668c2d))
-
-* fix: no cover and defers  — Eden Ross Duff, MSc <rjdbcm@outlook.com>
-([`d977397`](https://github.com/OZI-Project/TAP-Producer/commit/d977397789bcad3c3d339433baba92bb14900a43))
 
 
 ### Performance improvements
