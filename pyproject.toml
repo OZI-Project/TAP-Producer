@@ -4,7 +4,6 @@
 license = {file = "LICENSE.txt"}
 dependencies = [
     'PyYAML~=6.0',
-    'typing_extensions;python_version<"3.11"',
 ]
 
 [build-system]
