@@ -81,6 +81,6 @@ def _warn(
     filename: str,
     lineno: int,
     line: TextIO | None = None,
-    stacklevel: int | None = None,
+    file: str | None = None,
 ) -> None:
     """Emit a TAP formatted warning, does not introspect."""
