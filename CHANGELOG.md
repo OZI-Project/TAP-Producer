@@ -1,4 +1,16 @@
 # TAP-Producer CHANGELOG
+## 1.4.1 (2024-10-23)
+
+
+### Bug fixes
+
+
+* fix: _warn function argument spec — rjdbcm <rjdbcm@outlook.com>
+([`4a131ca`](https://github.com/OZI-Project/TAP-Producer/commit/4a131ca3f5d65ffa38752f21e2c197fdd8560464))
+
+* fix: add missing stacklevel argument to _warn function — rjdbcm <rjdbcm@outlook.com>
+([`486cbf4`](https://github.com/OZI-Project/TAP-Producer/commit/486cbf4e997129eb9f3d5dd961009bbab37a9053))
+
 ## 1.4.0 (2024-10-22)
 
 ## 1.3.3 (2024-10-21)
