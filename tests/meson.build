@@ -10,7 +10,9 @@ foreach file: test_files
         python.install_sources(file, subdir: 'tap_producer' / 'tests')
     endif
 endforeach
-test_children = []
+test_children = ['ozi.phony']
 foreach child: test_children
-    subdir(child)
+    if child != 'ozi.phony'
+        subdir(child)
+    endif
 endforeach

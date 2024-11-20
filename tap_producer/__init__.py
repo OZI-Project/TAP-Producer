@@ -228,6 +228,9 @@ class TAP(_TestAnything, ContextDecorator):
     ) -> type[_TestAnything]:
         r"""Mark a test result as :strong:`not` successful.
 
+        .. versionchanged:: 1.5
+           Calling with ``skip=True`` no longer emits a Python warning.
+
         :param \*message: messages to print to TAP output
         :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
@@ -241,8 +244,9 @@ class TAP(_TestAnything, ContextDecorator):
         with cls.__lock:
             cls._count[NOT_OK] += 1
             cls._count[SKIP] += 1 if skip else 0
-            warnings.formatwarning = _warn_format
-            warnings.showwarning = _warn  # type: ignore
+            if not skip:
+                warnings.formatwarning = _warn_format
+                warnings.showwarning = _warn  # type: ignore
         directive = '' if not skip else '# SKIP'
         formatted = ' - '.join(message).strip().replace('#', r'\#')
         description = f'- {formatted}' if len(formatted) > 0 else ''
@@ -251,14 +255,15 @@ class TAP(_TestAnything, ContextDecorator):
         )
         if diagnostic:
             cls._diagnostic(**diagnostic)
-        warnings.warn(
-            f'{indent}# {cls._test_point_count()} {formatted} {directive}',
-            RuntimeWarning,
-            stacklevel=2,
-        )
-        with cls.__lock:  # pragma: no cover
-            warnings.formatwarning = cls._formatwarning  # pragma: no cover
-            warnings.showwarning = cls._showwarning  # pragma: no cover
+        if not skip:
+            warnings.warn(
+                f'{indent}# {cls._test_point_count()} {formatted} {directive}',
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            with cls.__lock:  # pragma: no cover
+                warnings.formatwarning = cls._formatwarning  # pragma: no cover
+                warnings.showwarning = cls._showwarning  # pragma: no cover
         return cls
 
     @classmethod

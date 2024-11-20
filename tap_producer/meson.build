@@ -10,19 +10,23 @@ foreach file: source_files
         python.install_sources(file, subdir: 'tap_producer')
     endif
 endforeach
-ext_files = []
+ext_files = ['ozi.phony']
 foreach file: ext_files
-    if not meson.is_subproject() or get_option('install-subprojects').enabled()
-        python.extension_module(
-            fs.replace_suffix(file, ''),
-            file,
-            install: true,
-            subdir: 'tap_producer',
-            dependencies: python.dependency()
-        )
+    if file != 'ozi.phony'
+        if not meson.is_subproject() or get_option('install-subprojects').enabled()
+            python.extension_module(
+                fs.replace_suffix(file, ''),
+                file,
+                install: true,
+                subdir: 'tap_producer',
+                dependencies: python.dependency()
+            )
+        endif
     endif
 endforeach
-source_children = []
+source_children = ['ozi.phony']
 foreach child: source_children
-    subdir(child)
+    if child != 'ozi.phony'
+        subdir(child)
+    endif
 endforeach

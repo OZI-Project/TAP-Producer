@@ -152,11 +152,9 @@ def test_producer_not_ok() -> None:  # noqa: DC102, RUF100
 
 
 def test_producer_skip_not_ok() -> None:  # noqa: DC102, RUF100
-    with pytest.raises(RuntimeWarning):
-        TAP.not_ok('Producer fails', skip=True)
+    TAP.not_ok('Producer fails', skip=True)
 
 
 def test_producer_skip_not_ok_with_reason() -> None:  # noqa: DC102, RUF100
-    with pytest.raises(RuntimeWarning):
-        TAP.not_ok('Producer fails', skip=True)
+    TAP.not_ok('Producer fails', skip=True)
     TAP.end('Skip fail reason.')
