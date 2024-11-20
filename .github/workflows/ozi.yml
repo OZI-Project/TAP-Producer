@@ -223,6 +223,9 @@ jobs:
           api.github.com:443
           upload.pypi.org:443
           uploads.github.com:443
+          rekor.sigstore.dev:443
+          tuf-repo-cdn.sigstore.dev:443
+          fulcio.sigstore.dev:443
 
     - uses: OZI-Project/publish@1.5.0
       with:
