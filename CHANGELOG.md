@@ -1,4 +1,6 @@
 # TAP-Producer CHANGELOG
+## 1.5.0 (2024-11-20)
+
 ## 1.4.2 (2024-11-20)
 
 
@@ -86,6 +88,13 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`32f44ca`](https://github.com/OZI-Project/TAP-Producer/commit/32f44cada146a9e40803fffa00257232aea7fda0))
+
+
+### Features
+
+
+* feat: calling with ``skip=True`` no longer emits a Python warning — rjdbcm <rjdbcm@outlook.com>
+([`5774fc9`](https://github.com/OZI-Project/TAP-Producer/commit/5774fc9e2bae27c0bab04d7d28c31bdf3432e1c5))
 
 ## 1.4.1 (2024-10-23)
 
