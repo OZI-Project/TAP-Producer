@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [build-system]
-requires = ['OZI.build[core,uv]~=1.5.2']
+requires = ['OZI.build[core,uv]~=1.6.1']
 build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
