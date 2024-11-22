@@ -3,38 +3,34 @@
 """Test Anything Protocol tools."""
 from __future__ import annotations
 
-import os
 import sys
 import warnings
 from collections import Counter
 from contextlib import ContextDecorator
-from contextlib import contextmanager
-from contextlib import redirect_stderr
-from contextlib import redirect_stdout
-from pathlib import Path
 from threading import Lock
 from typing import TYPE_CHECKING
 from typing import ContextManager
-from typing import Iterator
 from typing import NoReturn
 
 import yaml
 
+from tap_producer.base import DEFAULT_TAP_VERSION
+from tap_producer.base import INDENT
+from tap_producer.base import NOT_OK
+from tap_producer.base import OK
+from tap_producer.base import PLAN
+from tap_producer.base import SKIP
+from tap_producer.base import SUBTEST
+from tap_producer.base import VERSION
 from tap_producer.base import _TestAnything
 from tap_producer.base import _warn
 from tap_producer.base import _warn_format
+from tap_producer.base import strict_wrapper
+from tap_producer.base import subtest_wrapper
+from tap_producer.base import suppress_wrapper
 
 if TYPE_CHECKING:  # pragma: no cover
     from types import TracebackType
-
-OK = 'ok'
-NOT_OK = 'not_ok'
-SKIP = 'skip'
-PLAN = 'plan'
-VERSION = 'version'
-SUBTEST = 'subtest_level'
-INDENT = '    '
-DEFAULT_TAP_VERSION = 12
 
 __all__ = ('TAP', 'DEFAULT_TAP_VERSION', '_TestAnything')
 
@@ -58,6 +54,7 @@ class TAP(_TestAnything, ContextDecorator):
     _count = Counter(ok=0, not_ok=0, skip=0, plan=0, version=0, subtest_level=0)
     _version = DEFAULT_TAP_VERSION
     __lock = Lock()
+    _lock = __lock
 
     def __init__(
         self: _TestAnything,
@@ -320,45 +317,7 @@ class TAP(_TestAnything, ContextDecorator):
         :return: a context manager
         :rtype: ContextManager[TAP]
         """
-
-        @contextmanager
-        def wrapper(
-            cls: type[_TestAnything], name: str | None = None
-        ) -> Iterator[type[_TestAnything]]:
-            """workaround for pyright"""
-            if cls._version == DEFAULT_TAP_VERSION:
-                warnings.warn(
-                    'called subtest but TAP version is set to 12',
-                    category=RuntimeWarning,
-                    stacklevel=2,
-                )
-            cls.comment(f'Subtest: {name}' if name else 'Subtest')
-            with cls.__lock:
-                parent_count = cls._count.copy()
-                cls._count = Counter(
-                    ok=0,
-                    not_ok=0,
-                    skip=0,
-                    plan=0,
-                    version=1,
-                    subtest_level=parent_count[SUBTEST] + 1,
-                )
-            try:
-                yield cls
-            finally:
-                if cls._count[PLAN] < 1:
-                    cls.plan(cls._test_point_count())
-
-                if cls._count[OK] > 0 and cls._count[SKIP] < 1 and cls._count[NOT_OK] < 1:
-                    with cls.__lock:
-                        cls._count = parent_count
-                    cls.ok(name if name else 'Subtest')
-                elif cls._count[NOT_OK] > 0:  # pragma: no cover
-                    with cls.__lock:
-                        cls._count = parent_count
-                    cls.not_ok(name if name else 'Subtest')
-
-        return wrapper(cls, name=name)
+        return subtest_wrapper(cls, name=name)
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -414,21 +373,7 @@ class TAP(_TestAnything, ContextDecorator):
         :return: a context manager
         :rtype: ContextManager[TAP]
         """
-
-        @contextmanager
-        def wrapper(cls: type[_TestAnything]) -> Iterator[type[_TestAnything]]:
-            """workaround for pyright"""
-            warnings.simplefilter('ignore')
-            null = Path(os.devnull).open('w')
-            try:
-                with redirect_stdout(null):
-                    with redirect_stderr(null):
-                        yield cls
-            finally:
-                null.close()
-                warnings.resetwarnings()
-
-        return wrapper(cls)
+        return suppress_wrapper(cls)
 
     @classmethod
     def strict(
@@ -442,16 +387,7 @@ class TAP(_TestAnything, ContextDecorator):
         :rtype: ContextManager[TAP]
         """
 
-        @contextmanager
-        def wrapper(cls: type[_TestAnything]) -> Iterator[type[_TestAnything]]:
-            """workaround for pyright"""
-            warnings.simplefilter('error', category=RuntimeWarning, append=True)
-            try:
-                yield cls
-            finally:
-                warnings.resetwarnings()
-
-        return wrapper(cls)
+        return strict_wrapper(cls)
 
     @classmethod
     def _skip_count(

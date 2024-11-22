@@ -5,14 +5,14 @@ from typing import ContextManager
 from typing import Counter
 from typing import NoReturn
 
+from tap_producer.base import DEFAULT_TAP_VERSION
 from tap_producer.base import FormatWarningType
 from tap_producer.base import ShowWarningType
 from tap_producer.base import _LockType
 from tap_producer.base import _TestAnything
 
 __all__ = ('TAP', 'DEFAULT_TAP_VERSION', '_TestAnything')
-
-DEFAULT_TAP_VERSION: int
+DEFAULT_TAP_VERSION = DEFAULT_TAP_VERSION
 
 class TAP(_TestAnything, ContextDecorator):
     """Test Anything Protocol warnings for TAP Producer APIs with a simple decorator.
@@ -32,6 +32,7 @@ class TAP(_TestAnything, ContextDecorator):
     _count: ClassVar[Counter[str]]
     _version: ClassVar[int]
     __lock: ClassVar[_LockType]
+    _lock: ClassVar[_LockType]
     __plan: int | None
     __version: int | None
 

@@ -1,4 +1,7 @@
+import warnings
+from collections.abc import Iterator
 from contextlib import AbstractContextManager
+from contextlib import contextmanager
 from types import TracebackType
 from typing import Callable
 from typing import ClassVar
@@ -11,6 +14,14 @@ from typing import runtime_checkable
 
 FormatWarningType = Callable[[Warning | str, type[Warning], str, int, str | None], str]
 ShowWarningType = Callable[[Warning | str, type[Warning], str, int, TextIO | None, str | None], None]
+DEFAULT_TAP_VERSION: int
+OK: str
+NOT_OK: str
+SKIP: str
+PLAN: str
+VERSION: str
+SUBTEST: str
+INDENT: str
 
 @runtime_checkable
 class _LockType(AbstractContextManager[bool], Protocol):
@@ -25,6 +36,7 @@ class _TestAnything(AbstractContextManager[_TestAnything], Protocol):
     _count: ClassVar[Counter[str]]
     _version: ClassVar[int]
     __lock: ClassVar[_LockType]
+    _lock: ClassVar[_LockType]
     __plan: int | None
     __version: int | None
     def __init__(self: _TestAnything, plan: int | None = None, version: int | None = None) -> None: ...
@@ -65,6 +77,20 @@ class _TestAnything(AbstractContextManager[_TestAnything], Protocol):
     def _diagnostic(
         cls: type[_TestAnything], *message: str, **kwargs: str | tuple[str, ...]
     ) -> None: ...
+
+@contextmanager
+def suppress_wrapper(cls: type[_TestAnything]) -> Iterator[type[_TestAnything]]:
+    """workaround for pyright"""
+
+@contextmanager
+def subtest_wrapper(
+    cls: type[_TestAnything], name: str | None = None
+) -> Iterator[type[_TestAnything]]:
+    """workaround for pyright"""
+
+@contextmanager
+def strict_wrapper(cls: type[_TestAnything]) -> Iterator[type[_TestAnything]]:
+    """workaround for pyright"""
 
 def _warn_format(
     message: Warning | str,
