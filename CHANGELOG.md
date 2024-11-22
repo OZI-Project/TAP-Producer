@@ -1,5 +1,34 @@
 # TAP-Producer CHANGELOG
+## 1.5.1 (2024-11-22)
+
+
+### Performance improvements
+
+
+* perf: calling ``TAP.version`` with an invalid version restores the last valid setting, complexity reduction. — rjdbcm <rjdbcm@outlook.com>
+([`c9056e2`](https://github.com/OZI-Project/TAP-Producer/commit/c9056e2fc4543e7891554b94c7ed32f1f5344a09))
+
+* perf: cleanup code for maintainability — rjdbcm <rjdbcm@outlook.com>
+([`387343e`](https://github.com/OZI-Project/TAP-Producer/commit/387343eaa506aa2bdadda4adbaae29a59427464e))
+
+
+### Unknown
+
+
+* Create .codeclimate.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`895be50`](https://github.com/OZI-Project/TAP-Producer/commit/895be5078b6c6d6af45df2009bbedf718a59edd0))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`fea367b`](https://github.com/OZI-Project/TAP-Producer/commit/fea367be1131bfa421b5cd31efb62c80802c3599))
+
 ## 1.5.0 (2024-11-20)
+
+
+### Performance improvements
+
+
+* perf: TAP.plan refactored — rjdbcm <rjdbcm@outlook.com>
+([`6ee5839`](https://github.com/OZI-Project/TAP-Producer/commit/6ee5839565d1e7e3a7380550ee6120f3014fed2e))
 
 ## 1.4.2 (2024-11-20)
 
