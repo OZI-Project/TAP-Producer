@@ -134,7 +134,7 @@ class TAP(_TestAnything, ContextDecorator):
         return cls
 
     @classmethod
-    def plan(  # noqa: C901
+    def plan(
         cls: type[_TestAnything],
         count: int | None = None,
         skip_reason: str = '',
@@ -152,39 +152,25 @@ class TAP(_TestAnything, ContextDecorator):
         :rtype: TAP
         """
         count = cls._test_point_count() if count is None else count
-        if skip_count is None:
-            skip_count = cls._skip_count()
+        skip_count = cls._skip_count() if skip_count is None else skip_count
         if skip_reason != '' and skip_count == 0:
             warnings.warn(  # pragma: no cover
                 'unnecessary argument "skip_reason" to TAP.plan',
                 RuntimeWarning,
                 stacklevel=2,
             )
-        if cls._count[PLAN] < 1:
-            with cls.__lock:
-                cls._count[PLAN] += 1
-            if skip_reason == '' and skip_count > 0:
-                cls.comment('items skipped', str(skip_count))
-                sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{count}\n')
-            elif skip_reason != '' and skip_count > 0:  # type: ignore
-                cls.comment('items skipped', str(skip_count))
-                sys.stdout.write(
-                    f'{INDENT * cls._count[SUBTEST]}1..{count} # SKIP {skip_reason}\n'
-                )
-            elif skip_reason == '' and skip_count == 0:
-                sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{count}\n')
-            else:
-                warnings.warn(  # pragma: no cover
-                    'TAP.plan called with invalid arguments.',
-                    RuntimeWarning,
-                    stacklevel=2,
-                )
-        else:
+        if cls._count[PLAN] > 0:
             warnings.warn(
                 'TAP.plan called more than once during session.',
                 RuntimeWarning,
                 stacklevel=2,
             )
+        with cls.__lock:
+            cls._count[PLAN] += 1
+        directive = f' # SKIP {skip_reason}' if skip_reason != '' else ''
+        if skip_count > 0:
+            cls.comment('items skipped', str(skip_count))
+        sys.stdout.write(f'{INDENT * cls._count[SUBTEST]}1..{count}{directive}\n')
         return cls
 
     @classmethod
