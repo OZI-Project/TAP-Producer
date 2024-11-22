@@ -6,10 +6,10 @@ from typing import Counter
 from typing import NoReturn
 
 from tap_producer.base import DEFAULT_TAP_VERSION
-from tap_producer.base import FormatWarningType
-from tap_producer.base import ShowWarningType
-from tap_producer.base import _LockType
-from tap_producer.base import _TestAnything
+from tap_producer.protocol import FormatWarningType
+from tap_producer.protocol import ShowWarningType
+from tap_producer.protocol import _LockType
+from tap_producer.protocol import _TestAnything
 
 __all__ = ('TAP', 'DEFAULT_TAP_VERSION', '_TestAnything')
 DEFAULT_TAP_VERSION = DEFAULT_TAP_VERSION

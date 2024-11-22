@@ -22,12 +22,14 @@ from tap_producer.base import PLAN
 from tap_producer.base import SKIP
 from tap_producer.base import SUBTEST
 from tap_producer.base import VERSION
-from tap_producer.base import _TestAnything
 from tap_producer.base import _warn
 from tap_producer.base import _warn_format
 from tap_producer.base import strict_wrapper
 from tap_producer.base import subtest_wrapper
 from tap_producer.base import suppress_wrapper
+from tap_producer.base import validate_plan_args
+from tap_producer.base import validate_version_args
+from tap_producer.protocol import _TestAnything
 
 if TYPE_CHECKING:  # pragma: no cover
     from types import TracebackType
@@ -106,28 +108,13 @@ class TAP(_TestAnything, ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
-        if cls._count[VERSION] < 1 and cls._count.total() < 1:
-            with cls.__lock:
-                cls._count[VERSION] += 1
-                cls._version = version
-            if cls._version > 14 or cls._version < 12:
-                with cls.__lock:
-                    cls._version = DEFAULT_TAP_VERSION
-                warnings.warn(
-                    f'Invalid TAP version: {cls._version}, using 12',
-                    category=RuntimeWarning,
-                    stacklevel=2,
-                )
-                return cls  # pragma: no cover
-            elif cls._version == DEFAULT_TAP_VERSION:
-                return cls
-            sys.stdout.write(f'TAP version {cls._version}\n')
-        else:
-            warnings.warn(
-                'TAP.version called during a session must be called first',
-                RuntimeWarning,
-                stacklevel=2,
-            )
+        v = validate_version_args(cls, version)
+        with cls.__lock:
+            cls._count[VERSION] += 1
+            cls._version = v if v is not None else DEFAULT_TAP_VERSION
+        if cls._version == DEFAULT_TAP_VERSION:
+            return cls
+        sys.stdout.write(f'TAP version {cls._version}\n')
         return cls
 
     @classmethod
@@ -148,20 +135,7 @@ class TAP(_TestAnything, ContextDecorator):
         :return: a context decorator
         :rtype: TAP
         """
-        count = cls._test_point_count() if count is None else count
-        skip_count = cls._skip_count() if skip_count is None else skip_count
-        if skip_reason != '' and skip_count == 0:
-            warnings.warn(  # pragma: no cover
-                'unnecessary argument "skip_reason" to TAP.plan',
-                RuntimeWarning,
-                stacklevel=2,
-            )
-        if cls._count[PLAN] > 0:
-            warnings.warn(
-                'TAP.plan called more than once during session.',
-                RuntimeWarning,
-                stacklevel=2,
-            )
+        count, skip_count = validate_plan_args(cls, count, skip_count, skip_reason)
         with cls.__lock:
             cls._count[PLAN] += 1
         directive = f' # SKIP {skip_reason}' if skip_reason != '' else ''
