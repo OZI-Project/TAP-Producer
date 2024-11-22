@@ -122,6 +122,7 @@ exclude_lines = [
     "@(abc\\.)?abstractmethod",
     "class .*\\bProtocol\\):",
     "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
     ]
 fail_under    = 100.0
 show_missing  = true

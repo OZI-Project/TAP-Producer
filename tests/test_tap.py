@@ -61,9 +61,10 @@ def test_contextdecorator() -> None:  # noqa: DC102, RUF100
 
 
 def test_plan_v_invalid() -> None:  # noqa: DC102, RUF100
+    current_version = TAP._version
     with pytest.raises(RuntimeWarning):  # noqa: PT012, RUF100
         TAP.version(11)
-    assert TAP._version == 12
+    assert TAP._version == current_version
     TAP.plan(count=1, skip_count=0)
     TAP.ok('reason')
 
