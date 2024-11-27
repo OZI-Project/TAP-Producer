@@ -11,7 +11,6 @@ Welcome to TAP-Producer's documentation!
 
    TAP-Producer
 
-
 Indices and tables
 ==================
 * :ref:`genindex`
