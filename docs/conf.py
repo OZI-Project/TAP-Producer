@@ -52,18 +52,6 @@ if os.environ.get("READTHEDOCS", "") == "True":
     html_context["READTHEDOCS"] = True
 
 latex_elements = {
-    'preamble': r'''\directlua {
-  luaotfload.add_fallback("emoji",
-  {
-     "[TwemojiMozilla.ttf]:mode=harf;",
-     "[DejaVuSans.ttf]:mode=harf;",
-  } 
-  )
-}
-\setmainfont{LatinModernRoman}[RawFeature={fallback=emoji},SmallCapsFont={* Caps}]
-\setsansfont{LatinModernSans}[RawFeature={fallback=emoji}]
-\setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
-''',
     'fncychap': r'\usepackage[Sonny]{fncychap}'
 }
 latex_show_pagerefs = True

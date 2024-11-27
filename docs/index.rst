@@ -11,8 +11,9 @@ Welcome to TAP-Producer's documentation!
 
    TAP-Producer
 
-Indices and tables
-==================
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. only:: html
+   Indices and tables
+   ==================
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`
