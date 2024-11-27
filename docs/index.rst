@@ -13,4 +13,4 @@ Welcome to TAP-Producer's documentation!
 
 .. only:: html
 
-   .. literalinclude:: indices-and-tables.rst
+   .. include:: indices-and-tables.rst
