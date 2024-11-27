@@ -1,10 +1,3 @@
-====================
-TAP-Producer package
-====================
-
-README
-------
-
 .. include:: ../README.rst
 
 Module Documentation
