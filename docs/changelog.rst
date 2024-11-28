@@ -1,2 +1,5 @@
+=========
+CHANGELOG
+=========
 
 .. include:: ../CHANGELOG.md
