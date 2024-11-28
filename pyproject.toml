@@ -19,7 +19,7 @@ description-file='README.rst'
 license = 'Apache-2.0 WITH LLVM-exception'
 download-url = 'https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/{version}.tar.gz'
 project-urls = [
-    'Documentation, https://docs.oziproject.dev/en/stable/tap_producer.html',
+    'Documentation, https://tap-producer.readthedocs.io/en/latest/',
     'Source, https://github.com/OZI-Project/TAP-Producer',
 ]
 requires-python = '>=3.10, <3.14'
