@@ -31,6 +31,7 @@ extensions = [
     'sphinx_last_updated_by_git',
     'sphinx_sitemap',
     'sphinxawesome_theme.highlighting',
+    'myst_parser',
 ]
 
 templates_path = ['_templates']
@@ -58,3 +59,4 @@ latex_show_pagerefs = True
 latex_show_urls = 'inline'
 autodoc_preserve_defaults = True
 autodoc_typehints_format = 'short'
+myst_enable_extensions = ['colon_fence']
