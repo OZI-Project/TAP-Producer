@@ -1,0 +1,6 @@
+TAP-Producer
+sphinx-last-updated-by-git==0.3.8
+sphinx-design==0.6.1
+sphinx-sitemap==2.6.0
+sphinxawesome-codelinter==2.0.0
+sphinxawesome-theme==5.3.2
