@@ -1,4 +1,119 @@
 # TAP-Producer CHANGELOG
+## 1.5.2 (2024-11-28)
+
+
+### Build system
+
+
+* build(deps): bump sphinxawesome-theme from 5.1.5 to 5.3.2
+
+Bumps [sphinxawesome-theme](https://github.com/kai687/sphinxawesome-theme) from 5.1.5 to 5.3.2.
+- [Release notes](https://github.com/kai687/sphinxawesome-theme/releases)
+- [Commits](https://github.com/kai687/sphinxawesome-theme/compare/5.1.5...5.3.2)
+
+
+updated-dependencies:
+- dependency-name: sphinxawesome-theme
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`be400bc`](https://github.com/OZI-Project/TAP-Producer/commit/be400bc4d1efec0c97ce8dcc86cb24c7e2bb9baf))
+
+* build(deps): bump sphinx-last-updated-by-git from 0.3.6 to 0.3.8
+
+Bumps [sphinx-last-updated-by-git](https://github.com/mgeier/sphinx-last-updated-by-git) from 0.3.6 to 0.3.8.
+- [Release notes](https://github.com/mgeier/sphinx-last-updated-by-git/releases)
+- [Changelog](https://github.com/mgeier/sphinx-last-updated-by-git/blob/master/NEWS.rst)
+- [Commits](https://github.com/mgeier/sphinx-last-updated-by-git/compare/0.3.6...0.3.8)
+
+
+updated-dependencies:
+- dependency-name: sphinx-last-updated-by-git
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`bc2cc34`](https://github.com/OZI-Project/TAP-Producer/commit/bc2cc3483ada73538a86d000fdd93bc4e5c0c6c7))
+
+* build(deps): bump sphinx-sitemap from 2.5.1 to 2.6.0
+
+Bumps [sphinx-sitemap](https://github.com/jdillard/sphinx-sitemap) from 2.5.1 to 2.6.0.
+- [Release notes](https://github.com/jdillard/sphinx-sitemap/releases)
+- [Changelog](https://github.com/jdillard/sphinx-sitemap/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/jdillard/sphinx-sitemap/compare/v2.5.1...v2.6.0)
+
+
+updated-dependencies:
+- dependency-name: sphinx-sitemap
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`9a9e237`](https://github.com/OZI-Project/TAP-Producer/commit/9a9e237104280f10c0ade5137e6f6284c0e14517))
+
+* build(deps): bump sphinx-design from 0.5.0 to 0.6.1
+
+Bumps [sphinx-design](https://github.com/executablebooks/sphinx-design) from 0.5.0 to 0.6.1.
+- [Release notes](https://github.com/executablebooks/sphinx-design/releases)
+- [Changelog](https://github.com/executablebooks/sphinx-design/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/executablebooks/sphinx-design/compare/v0.5.0...v0.6.1)
+
+
+updated-dependencies:
+- dependency-name: sphinx-design
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`b925a0f`](https://github.com/OZI-Project/TAP-Producer/commit/b925a0f3634f58ac910027a73f714cf48177b1c4))
+
+
+### Documentation
+
+
+* docs: just use the readme heading — rjdbcm <rjdbcm@outlook.com>
+([`11306b5`](https://github.com/OZI-Project/TAP-Producer/commit/11306b5f2e9d9d8b3a2e056fe1cd12a84510bbd4))
+
+* docs: include readme in subheading — rjdbcm <rjdbcm@outlook.com>
+([`b2ac4dc`](https://github.com/OZI-Project/TAP-Producer/commit/b2ac4dc675de774521bfa74ad54eab5be192cdf8))
+
+* docs: include readme — rjdbcm <rjdbcm@outlook.com>
+([`8c040ae`](https://github.com/OZI-Project/TAP-Producer/commit/8c040ae32b78be90e0651d03aeb8bfa47e1a54ac))
+
+* docs: change literalinclude to regular include — rjdbcm <rjdbcm@outlook.com>
+([`a619c92`](https://github.com/OZI-Project/TAP-Producer/commit/a619c923fed815f3d2f2dd897f56cf1f613c89eb))
+
+* docs: remove tables from PDF build — rjdbcm <rjdbcm@outlook.com>
+([`3bfe6d3`](https://github.com/OZI-Project/TAP-Producer/commit/3bfe6d33e774efa2303612f9ed1c63d98d2e3d3d))
+
+* docs: remove tables from PDF build — rjdbcm <rjdbcm@outlook.com>
+([`c25dbd6`](https://github.com/OZI-Project/TAP-Producer/commit/c25dbd628e61d4569e8a02f16003b724c280da2b))
+
+* docs: add pdf build — rjdbcm <rjdbcm@outlook.com>
+([`cb2837e`](https://github.com/OZI-Project/TAP-Producer/commit/cb2837e740ee9f206c429a474c1a2d9253a0bb96))
+
+* docs: add latex config — rjdbcm <rjdbcm@outlook.com>
+([`b774cfc`](https://github.com/OZI-Project/TAP-Producer/commit/b774cfc9346eca480799e3da1d43b62c5a0ae502))
+
+* docs: update toctree — rjdbcm <rjdbcm@outlook.com>
+([`70a7a25`](https://github.com/OZI-Project/TAP-Producer/commit/70a7a2507396801e73d796eef94f77cb5c77e3b1))
+
+* docs: add doc build requirements — rjdbcm <rjdbcm@outlook.com>
+([`0bf2a27`](https://github.com/OZI-Project/TAP-Producer/commit/0bf2a2708507ae182aba725b5a1a03fcdf196d1a))
+
+* docs: create .readthedocs.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`55c1a67`](https://github.com/OZI-Project/TAP-Producer/commit/55c1a6715325faab9c449084ed3d530111db4af9))
+
+* docs: add in-repo  — rjdbcm <rjdbcm@outlook.com>
+([`6b4ded5`](https://github.com/OZI-Project/TAP-Producer/commit/6b4ded54f2e918d0b6ea498e4326ebf5bc1fadc5))
+
+
+### Unknown
+
+
+* Create requirements.txt — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`1bb0c35`](https://github.com/OZI-Project/TAP-Producer/commit/1bb0c35e87b8470fa67ec72ef90ac8fcd6f48936))
+
+* Update .readthedocs.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`e22e37a`](https://github.com/OZI-Project/TAP-Producer/commit/e22e37a5d430551ef798682230672b6f66904ae3))
+
 ## 1.5.1 (2024-11-22)
 
 
