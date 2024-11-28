@@ -130,6 +130,8 @@ class TAP(_TestAnything, ContextDecorator):
     def subtest(cls, name: str | None = None) -> ContextManager[type[_TestAnything]]:
         """Start a TAP subtest document, name is optional.
 
+        :param name: optional subtest name
+        :type name: str | None
         :return: a context manager
         :rtype: ContextManager[TestAnything]
         """
