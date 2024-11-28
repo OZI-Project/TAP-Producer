@@ -10,7 +10,7 @@ Welcome to TAP-Producer's documentation!
    :maxdepth: 2
 
    TAP-Producer
-   CHANGELOG <../CHANGELOG.md>
+   changelog
 
 .. only:: html
 
