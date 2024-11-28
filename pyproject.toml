@@ -12,7 +12,7 @@ build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
 summary = 'Test Anything Protocol producer API for Python.'
-home-page = 'https://www.oziproject.dev'
+home-page = 'https://rjdbcm.github.io/rjdbcm/'
 author = 'Eden Ross Duff MSc'
 author-email = 'help@oziproject.dev'
 description-file='README.rst'
