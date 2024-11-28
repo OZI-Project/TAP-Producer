@@ -1,36 +1,24 @@
 # TAP-Producer CHANGELOG
+## 1.5.5 (2024-11-28)
+
 ## 1.5.4 (2024-11-28)
+
+## 1.5.3 (2024-11-28)
+
+## 1.5.2 (2024-11-28)
 
 
 ### Bug fixes
 
+
+* fix: subtest docstring param missing — rjdbcm <rjdbcm@outlook.com>
+([`a7d04ae`](https://github.com/OZI-Project/TAP-Producer/commit/a7d04aef7109a6e4010be393448724c5164b04b9))
 
 * fix: docstring typo — rjdbcm <rjdbcm@outlook.com>
 ([`acf588d`](https://github.com/OZI-Project/TAP-Producer/commit/acf588d8dd023399bf3c5156ec714501e3e0f0e1))
 
 * fix: docstring typo — rjdbcm <rjdbcm@outlook.com>
 ([`32f60d8`](https://github.com/OZI-Project/TAP-Producer/commit/32f60d8f894f039fc682d003317903c4e03d5a3d))
-
-
-### Documentation
-
-
-* docs: changelog include with myst_parser — rjdbcm <rjdbcm@outlook.com>
-([`196136c`](https://github.com/OZI-Project/TAP-Producer/commit/196136c896cb6a9293dca24f566e88a97d9d8609))
-
-* docs: changelog heading — rjdbcm <rjdbcm@outlook.com>
-([`45bee29`](https://github.com/OZI-Project/TAP-Producer/commit/45bee29f198dd5a948451e29fe4f069137f946ba))
-
-* docs: include changelog — rjdbcm <rjdbcm@outlook.com>
-([`8b7022c`](https://github.com/OZI-Project/TAP-Producer/commit/8b7022c42a2f459b38083ed78e2ab6e48871fd11))
-
-* docs(deps): add myst-parser — rjdbcm <rjdbcm@outlook.com>
-([`6012c28`](https://github.com/OZI-Project/TAP-Producer/commit/6012c2878dd012843621fd8a12157f338140d047))
-
-* docs: add changelog — rjdbcm <rjdbcm@outlook.com>
-([`34a2ba9`](https://github.com/OZI-Project/TAP-Producer/commit/34a2ba9e9a0a7f09d9a45740df59d4328f805b1a))
-
-## 1.5.3 (2024-11-28)
 
 
 ### Build system
@@ -41,12 +29,6 @@
 
 * build: correct documentation link — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`07dda08`](https://github.com/OZI-Project/TAP-Producer/commit/07dda08791f59977e5739381042faf648cf3cdc8))
-
-## 1.5.2 (2024-11-28)
-
-
-### Build system
-
 
 * build(deps): bump sphinxawesome-theme from 5.1.5 to 5.3.2
 
@@ -110,6 +92,21 @@ updated-dependencies:
 
 ### Documentation
 
+
+* docs: changelog include with myst_parser — rjdbcm <rjdbcm@outlook.com>
+([`196136c`](https://github.com/OZI-Project/TAP-Producer/commit/196136c896cb6a9293dca24f566e88a97d9d8609))
+
+* docs: changelog heading — rjdbcm <rjdbcm@outlook.com>
+([`45bee29`](https://github.com/OZI-Project/TAP-Producer/commit/45bee29f198dd5a948451e29fe4f069137f946ba))
+
+* docs: include changelog — rjdbcm <rjdbcm@outlook.com>
+([`8b7022c`](https://github.com/OZI-Project/TAP-Producer/commit/8b7022c42a2f459b38083ed78e2ab6e48871fd11))
+
+* docs(deps): add myst-parser — rjdbcm <rjdbcm@outlook.com>
+([`6012c28`](https://github.com/OZI-Project/TAP-Producer/commit/6012c2878dd012843621fd8a12157f338140d047))
+
+* docs: add changelog — rjdbcm <rjdbcm@outlook.com>
+([`34a2ba9`](https://github.com/OZI-Project/TAP-Producer/commit/34a2ba9e9a0a7f09d9a45740df59d4328f805b1a))
 
 * docs: just use the readme heading — rjdbcm <rjdbcm@outlook.com>
 ([`11306b5`](https://github.com/OZI-Project/TAP-Producer/commit/11306b5f2e9d9d8b3a2e056fe1cd12a84510bbd4))
