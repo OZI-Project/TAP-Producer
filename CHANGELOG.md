@@ -1,4 +1,16 @@
 # TAP-Producer CHANGELOG
+## 1.5.3 (2024-11-28)
+
+
+### Build system
+
+
+* build: change homepage — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`4faf040`](https://github.com/OZI-Project/TAP-Producer/commit/4faf040423978cbce8f7166f1858d05ead491955))
+
+* build: correct documentation link — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`07dda08`](https://github.com/OZI-Project/TAP-Producer/commit/07dda08791f59977e5739381042faf648cf3cdc8))
+
 ## 1.5.2 (2024-11-28)
 
 
