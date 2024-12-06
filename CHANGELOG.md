@@ -1,4 +1,36 @@
 # TAP-Producer CHANGELOG
+## 1.5.6 (2024-12-06)
+
+
+### Build system
+
+
+* build(deps): bump sphinxawesome-codelinter from 2.0.0 to 3.0.0
+
+Bumps [sphinxawesome-codelinter](https://github.com/kai687/sphinxawesome-codelinter) from 2.0.0 to 3.0.0.
+- [Commits](https://github.com/kai687/sphinxawesome-codelinter/compare/2.0.0...3.0.0)
+
+
+updated-dependencies:
+- dependency-name: sphinxawesome-codelinter
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`1438d2f`](https://github.com/OZI-Project/TAP-Producer/commit/1438d2f9e72d453e1343e4648095f2cab31badcc))
+
+* build(deps): update ozi-build[core,uv] requirement
+
+Updates the requirements on [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Commits](https://github.com/OZI-Project/OZI.build/commits)
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`d7f9d89`](https://github.com/OZI-Project/TAP-Producer/commit/d7f9d8943c9c59019c2812934de64d7b20d311cc))
+
 ## 1.5.5 (2024-11-28)
 
 ## 1.5.4 (2024-11-28)
