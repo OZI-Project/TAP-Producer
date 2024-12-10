@@ -1,4 +1,51 @@
 # TAP-Producer CHANGELOG
+## 1.5.7 (2024-12-10)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.5.0 to 1.6.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.5.0 to 1.6.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.5.0...1.6.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`6fdb7f0`](https://github.com/OZI-Project/TAP-Producer/commit/6fdb7f0a53ef1596803f699d8be38d2a8360089c))
+
+* build(deps): bump OZI-Project/publish from 1.5.0 to 1.6.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.5.0 to 1.6.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.5.0...1.6.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`42e7a55`](https://github.com/OZI-Project/TAP-Producer/commit/42e7a55a8042266700d9dc61af3b41a631d4932d))
+
+* build(deps): update ozi-build[core,uv] requirement
+
+Updates the requirements on [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/1.7.2...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`623fe6c`](https://github.com/OZI-Project/TAP-Producer/commit/623fe6cea1d03fe6668bcaa927268246c8a49b0f))
+
 ## 1.5.6 (2024-12-06)
 
 
