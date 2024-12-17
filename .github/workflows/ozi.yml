@@ -34,6 +34,7 @@ jobs:
             github.com:443
             api.github.com:443
             oziproject.dev:443
+            www.oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
@@ -41,7 +42,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.2.1
+      - uses: OZI-Project/checkpoint@1.4.0
         with:
           python-version: "3.10"
 
@@ -63,6 +64,7 @@ jobs:
             github.com:443
             api.github.com:443
             oziproject.dev:443
+            www.oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
@@ -70,7 +72,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.2.1
+      - uses: OZI-Project/checkpoint@1.4.0
         with:
           python-version: "3.11"
 
@@ -92,6 +94,7 @@ jobs:
             github.com:443
             api.github.com:443
             oziproject.dev:443
+            www.oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
@@ -99,7 +102,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.2.1
+      - uses: OZI-Project/checkpoint@1.4.0
         with:
           python-version: "3.12"
 
@@ -137,7 +140,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@1.6.0
+      - uses: OZI-Project/draft@1.6.3
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -182,7 +185,7 @@ jobs:
             cdn03.quay.io:443
             downloads.python.org:443
 
-      - uses: OZI-Project/release@1.0.5
+      - uses: OZI-Project/release@1.1.2
         id: release
         with:
           python-dist: ${{ matrix.py }}
@@ -220,13 +223,19 @@ jobs:
         disable-sudo: true
         egress-policy: block
         allowed-endpoints: >
+          github.com:443
           api.github.com:443
           upload.pypi.org:443
           uploads.github.com:443
           rekor.sigstore.dev:443
           tuf-repo-cdn.sigstore.dev:443
           fulcio.sigstore.dev:443
+          ghcr.io:443
+          pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@1.6.0
+    - uses: OZI-Project/publish@1.7.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@67339c736fd9354cd4f8cb0b744f2b82a74b5c70
