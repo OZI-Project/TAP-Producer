@@ -1,4 +1,48 @@
 # TAP-Producer CHANGELOG
+## 1.5.9 (2024-12-23)
+
+
+### Build system
+
+
+* build(ozi.wrap): OZI v1.29 — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`b86efad`](https://github.com/OZI-Project/TAP-Producer/commit/b86efad9a293eb3024398f2b9ab0b6c300f0017d))
+
+* build(deps): bump OZI-Project/publish from 1.7.1 to 1.7.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.1 to 1.7.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.7.1...1.7.2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e506740`](https://github.com/OZI-Project/TAP-Producer/commit/e506740d6cb61d2dbfa198e958b244eb5fbb75fc))
+
+* build(deps): bump OZI-Project/draft from 1.6.3 to 1.7.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.6.3 to 1.7.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.6.3...1.7.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`394cdbf`](https://github.com/OZI-Project/TAP-Producer/commit/394cdbfcc0ea9a22e0f0242673db81d9be983eac))
+
+
+### Unknown
+
+
+* :bug: update metadata for OZI.build~=1.8.2 — rjdbcm <rjdbcm@outlook.com>
+([`28d0026`](https://github.com/OZI-Project/TAP-Producer/commit/28d002635952383d23cf2d9a4f97e39fde918dde))
+
 ## 1.5.8 (2024-12-17)
 
 
