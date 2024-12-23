@@ -140,7 +140,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@1.6.3
+      - uses: OZI-Project/draft@1.7.0
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -233,7 +233,7 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@1.7.1
+    - uses: OZI-Project/publish@1.7.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
