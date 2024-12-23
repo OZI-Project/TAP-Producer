@@ -1,7 +1,6 @@
 # Part of TAP-Producer.
 # See LICENSE.txt in the project root for details.
 [project]
-license = {file = "LICENSE.txt"}
 dependencies = [
     'PyYAML~=6.0',
 ]
@@ -16,7 +15,6 @@ home-page = 'https://rjdbcm.github.io/rjdbcm/'
 author = 'Eden Ross Duff MSc'
 author-email = 'help@oziproject.dev'
 description-file='README.rst'
-license = 'Apache-2.0 WITH LLVM-exception'
 download-url = 'https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/{version}.tar.gz'
 project-urls = [
     'Documentation, https://tap-producer.readthedocs.io/en/latest/',
