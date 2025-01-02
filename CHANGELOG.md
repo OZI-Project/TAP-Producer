@@ -1,4 +1,26 @@
 # TAP-Producer CHANGELOG
+## 1.5.10 (2025-01-02)
+
+
+### Bug fixes
+
+
+* fix: sync tox workflow OZI.build version — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`bafa784`](https://github.com/OZI-Project/TAP-Producer/commit/bafa784d05d5788e1cc1a75c46e900f99feb9216))
+
+
+### Build system
+
+
+* build(deps): update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`e132257`](https://github.com/OZI-Project/TAP-Producer/commit/e132257118ad3c56bfbabf510e42564356a9355d))
+
 ## 1.5.9 (2024-12-23)
 
 
