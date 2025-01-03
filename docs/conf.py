@@ -44,6 +44,7 @@ python_display_short_literal_types = True
 html_extra_path = ['robots.txt']
 html_static_path = ['_static']
 html_theme = 'sphinxawesome_theme'
+html_logo = 'assets/TAP-Producer-logo.png'
 html_context = {'mode': 'production'}
 # Set canonical URL from the Read the Docs Domain
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
@@ -57,6 +58,7 @@ latex_elements = {
 }
 latex_show_pagerefs = True
 latex_show_urls = 'inline'
+latex_logo = html_logo
 autodoc_preserve_defaults = True
 autodoc_typehints_format = 'short'
 myst_enable_extensions = ['colon_fence']
