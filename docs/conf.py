@@ -44,6 +44,7 @@ python_display_short_literal_types = True
 html_extra_path = ['robots.txt']
 html_static_path = ['_static']
 html_theme = 'sphinxawesome_theme'
+html_css_files = ['css/custom.css']
 html_logo = 'assets/TAP-Producer-logo.png'
 html_context = {'mode': 'production'}
 # Set canonical URL from the Read the Docs Domain
