@@ -1,6 +1,9 @@
 # OZI packaging
 sig/
 subprojects/ozi/
+subprojects/ozi
+subprojects/OZI-*/
+subprojects/packagecache
 build*/
 /dist/
 temp/
@@ -10,6 +13,7 @@ temp/
 .pytest_cache/
 .tox/
 .ruff_cache/
+.mypy_cache/
 
 # coverage files
 .coverage
