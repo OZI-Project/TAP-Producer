@@ -1,4 +1,103 @@
 # TAP-Producer CHANGELOG
+## 1.5.11 (2025-01-18)
+
+
+### Bug fixes
+
+
+* fix: correct wrapfile — rjdbcm <rjdbcm@outlook.com>
+([`5b94f64`](https://github.com/OZI-Project/TAP-Producer/commit/5b94f64792960f4298bea8f91409454c7fa358f0))
+
+
+### Build system
+
+
+* build(ozi.wrap): update to wrap-file over wrap-git — rjdbcm <rjdbcm@outlook.com>
+([`caad820`](https://github.com/OZI-Project/TAP-Producer/commit/caad820e6114e36372543afe93d7a1d26aaa0f1b))
+
+* build(deps): bump step-security/harden-runner from 2.10.2 to 2.10.3
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.2 to 2.10.3.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0080882f6c36860b6ba35c610c98ce87d4e2f26f...c95a14d0e5bab51a9f56296a4eb0e416910cd350)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e51b433`](https://github.com/OZI-Project/TAP-Producer/commit/e51b4335c90146ae5336009340a666b864794cb2))
+
+* build(deps): bump OZI-Project/release from 1.1.2 to 1.3.1
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.1.2 to 1.3.1.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.1.2...1.3.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1e836e6`](https://github.com/OZI-Project/TAP-Producer/commit/1e836e6ef6700b7abdf05dd3a1e2562007b48d50))
+
+* build(deps): bump OZI-Project/checkpoint from 1.4.0 to 1.5.4
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.4.0 to 1.5.4.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1.4.0...1.5.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`96320ea`](https://github.com/OZI-Project/TAP-Producer/commit/96320ea03704d5609e35d50dbb0654216b1567d3))
+
+* build(deps): bump OZI-Project/draft from 1.7.0 to 1.9.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.7.0 to 1.9.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.7.0...1.9.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1b8683e`](https://github.com/OZI-Project/TAP-Producer/commit/1b8683e13669a8cc44ff411a61b0cf02e1bd839d))
+
+* build(deps): bump OZI-Project/publish from 1.7.2 to 1.8.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.2 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.7.2...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`04315e5`](https://github.com/OZI-Project/TAP-Producer/commit/04315e55a8348a475a5e9a49302287ae1ccc983d))
+
+
+### Documentation
+
+
+* docs: add custom CSS — rjdbcm <rjdbcm@outlook.com>
+([`6f7fdd1`](https://github.com/OZI-Project/TAP-Producer/commit/6f7fdd1ff91982da88761628c51e3cf51e571e36))
+
+* docs: override logo CSS — rjdbcm <rjdbcm@outlook.com>
+([`ab49782`](https://github.com/OZI-Project/TAP-Producer/commit/ab49782b95ab4a4847d8c6cba1201503f03a7821))
+
+* docs: update logo — rjdbcm <rjdbcm@outlook.com>
+([`533e0ef`](https://github.com/OZI-Project/TAP-Producer/commit/533e0ef5663b0c05eaaf4831e93b6ed12c0197b3))
+
 ## 1.5.10 (2025-01-02)
 
 
