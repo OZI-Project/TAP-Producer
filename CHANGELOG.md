@@ -5,6 +5,20 @@
 ### Build system
 
 
+* build(deps): bump OZI-Project/publish from 1.9.1 to 1.9.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.1 to 1.9.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.9.1...1.9.2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`bd830d4`](https://github.com/OZI-Project/TAP-Producer/commit/bd830d4a1c7e7ea2a76f3ff3cb861c3cb1f0d82c))
+
 * build(deps): bump OZI-Project/release from 1.3.2 to 1.3.3
 
 Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.3.2 to 1.3.3.
