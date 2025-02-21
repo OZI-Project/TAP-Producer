@@ -242,7 +242,7 @@ inline-quotes = "single"
 strict = true
 
 [tool.semantic_release]
-commit_parser                  = "angular"
+commit_parser                  = "conventional"
 major_on_zero                  = true
 tag_format                     = "{version}"
 
@@ -262,10 +262,25 @@ prerelease_token = "rc"
 prerelease = false
 
 [tool.semantic_release.commit_parser_options]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test",
+]
+minor_tags = ["feat"]
 patch_tags = ["fix", "perf", "build"]
 
-[tool.semantic_release.changelog]
+[tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
+
+[tool.semantic_release.changelog]
 exclude_commit_patterns = ["Merge.*"]
 
 [tool.semantic_release.remote]
