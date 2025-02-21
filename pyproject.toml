@@ -6,7 +6,7 @@ dependencies = [
 ]
 
 [build-system]
-requires = ['OZI.build[core,uv]~=1.10.0']
+requires = ['OZI.build[core,uv]~=1.12.0']
 build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
@@ -242,7 +242,7 @@ inline-quotes = "single"
 strict = true
 
 [tool.semantic_release]
-commit_parser                  = "angular"
+commit_parser                  = "conventional"
 major_on_zero                  = true
 tag_format                     = "{version}"
 
@@ -262,10 +262,25 @@ prerelease_token = "rc"
 prerelease = false
 
 [tool.semantic_release.commit_parser_options]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test",
+]
+minor_tags = ["feat"]
 patch_tags = ["fix", "perf", "build"]
 
-[tool.semantic_release.changelog]
+[tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
+
+[tool.semantic_release.changelog]
 exclude_commit_patterns = ["Merge.*"]
 
 [tool.semantic_release.remote]
@@ -301,7 +316,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[core,uv]~=1.10.0
+     python -m uv pip install OZI.build[core,uv]~=1.12.0
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
