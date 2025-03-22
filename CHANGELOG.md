@@ -1,4 +1,335 @@
 # TAP-Producer CHANGELOG
+## 1.5.13 (2025-02-22)
+
+
+### Build system
+
+
+* build(deps): update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ac74314`](https://github.com/OZI-Project/TAP-Producer/commit/ac743146e1f1c7e88c6b01bff92381edfb95d1f3))
+
+* build(deps): bump OZI-Project/publish from 1.9.2 to 1.12.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.2 to 1.12.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.9.2...1.12.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`da3f934`](https://github.com/OZI-Project/TAP-Producer/commit/da3f93446d62f894fac8c0810b124caa45a4055d))
+
+* build(deps): bump OZI-Project/draft from 1.10.1 to 1.12.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.10.1 to 1.12.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.10.1...1.12.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`16bfe80`](https://github.com/OZI-Project/TAP-Producer/commit/16bfe80030db878b5406a8fd452f74e5e98de29d))
+
+* build(deps): bump step-security/harden-runner from 2.10.4 to 2.11.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.4 to 2.11.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/cb605e52c26070c328afc4562f0b4ada7618a84e...4d991eb9b905ef189e4c376166672c3f2f230481)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`6dc4e57`](https://github.com/OZI-Project/TAP-Producer/commit/6dc4e57db20c9670e8b25a7148d6b1f240e7be73))
+
+
+### Chores
+
+
+* chore: update for OZI v1.36 and semantic-release v9.20 — rjdbcm <rjdbcm@outlook.com>
+([`2a77696`](https://github.com/OZI-Project/TAP-Producer/commit/2a7769658f0d6a41071e08aba007b85315919452))
+
+## 1.5.12 (2025-01-29)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/publish from 1.9.1 to 1.9.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.1 to 1.9.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.9.1...1.9.2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`bd830d4`](https://github.com/OZI-Project/TAP-Producer/commit/bd830d4a1c7e7ea2a76f3ff3cb861c3cb1f0d82c))
+
+* build(deps): bump OZI-Project/release from 1.3.2 to 1.3.3
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.3.2 to 1.3.3.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.3.2...1.3.3)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`625d791`](https://github.com/OZI-Project/TAP-Producer/commit/625d791660aad2fee2beeca2f4c9f58678bcf497))
+
+* build(deps): bump OZI-Project/draft from 1.10.0 to 1.10.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.10.0 to 1.10.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.10.0...1.10.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`97f66f7`](https://github.com/OZI-Project/TAP-Producer/commit/97f66f7aaa55fbd36729c6f234e72ce2d2a42715))
+
+* build(deps): bump OZI-Project/release from 1.3.1 to 1.3.2
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.3.1 to 1.3.2.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.3.1...1.3.2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`822ac38`](https://github.com/OZI-Project/TAP-Producer/commit/822ac3875bd58c2cfaa96dc51fba45c9911fb002))
+
+* build(deps): bump OZI-Project/publish from 1.9.0 to 1.9.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.0 to 1.9.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.9.0...1.9.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`aa427f2`](https://github.com/OZI-Project/TAP-Producer/commit/aa427f2404e63657bb8864da33454f2cc00ff2b6))
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.4 to 1.5.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.4 to 1.5.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1.5.4...1.5.5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ea2faac`](https://github.com/OZI-Project/TAP-Producer/commit/ea2faac2a19caa76d418824733717716694174a9))
+
+* build(deps): bump pypa/gh-action-pypi-publish from 1.12.3 to 1.12.4
+
+Bumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.12.3 to 1.12.4.
+- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)
+- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/67339c736fd9354cd4f8cb0b744f2b82a74b5c70...76f52bc884231f62b9a034ebfe128415bbaabdfc)
+
+
+updated-dependencies:
+- dependency-name: pypa/gh-action-pypi-publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`f7b818f`](https://github.com/OZI-Project/TAP-Producer/commit/f7b818fd5b7cdf4ef11a79020403a89f450f5a38))
+
+* build(deps): bump OZI-Project/draft from 1.9.0 to 1.10.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.9.0 to 1.10.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.9.0...1.10.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`d5b1f17`](https://github.com/OZI-Project/TAP-Producer/commit/d5b1f17156a1916078a95a60e605fa474d1be785))
+
+* build(deps): bump OZI-Project/publish from 1.8.0 to 1.9.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.8.0 to 1.9.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.8.0...1.9.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`8ca0319`](https://github.com/OZI-Project/TAP-Producer/commit/8ca031997555845bba97c4935ab9d3528fa7c646))
+
+* build(deps): bump step-security/harden-runner from 2.10.3 to 2.10.4
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.3 to 2.10.4.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/c95a14d0e5bab51a9f56296a4eb0e416910cd350...cb605e52c26070c328afc4562f0b4ada7618a84e)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0e41198`](https://github.com/OZI-Project/TAP-Producer/commit/0e4119847ee8799d789084035f7b0c55e0658a13))
+
+## 1.5.11 (2025-01-18)
+
+
+### Bug fixes
+
+
+* fix: correct wrapfile — rjdbcm <rjdbcm@outlook.com>
+([`5b94f64`](https://github.com/OZI-Project/TAP-Producer/commit/5b94f64792960f4298bea8f91409454c7fa358f0))
+
+
+### Build system
+
+
+* build(ozi.wrap): update to wrap-file over wrap-git — rjdbcm <rjdbcm@outlook.com>
+([`caad820`](https://github.com/OZI-Project/TAP-Producer/commit/caad820e6114e36372543afe93d7a1d26aaa0f1b))
+
+* build(deps): bump step-security/harden-runner from 2.10.2 to 2.10.3
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.2 to 2.10.3.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0080882f6c36860b6ba35c610c98ce87d4e2f26f...c95a14d0e5bab51a9f56296a4eb0e416910cd350)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e51b433`](https://github.com/OZI-Project/TAP-Producer/commit/e51b4335c90146ae5336009340a666b864794cb2))
+
+* build(deps): bump OZI-Project/release from 1.1.2 to 1.3.1
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.1.2 to 1.3.1.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.1.2...1.3.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1e836e6`](https://github.com/OZI-Project/TAP-Producer/commit/1e836e6ef6700b7abdf05dd3a1e2562007b48d50))
+
+* build(deps): bump OZI-Project/checkpoint from 1.4.0 to 1.5.4
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.4.0 to 1.5.4.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1.4.0...1.5.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`96320ea`](https://github.com/OZI-Project/TAP-Producer/commit/96320ea03704d5609e35d50dbb0654216b1567d3))
+
+* build(deps): bump OZI-Project/draft from 1.7.0 to 1.9.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.7.0 to 1.9.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.7.0...1.9.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1b8683e`](https://github.com/OZI-Project/TAP-Producer/commit/1b8683e13669a8cc44ff411a61b0cf02e1bd839d))
+
+* build(deps): bump OZI-Project/publish from 1.7.2 to 1.8.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.2 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.7.2...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`04315e5`](https://github.com/OZI-Project/TAP-Producer/commit/04315e55a8348a475a5e9a49302287ae1ccc983d))
+
+
+### Documentation
+
+
+* docs: add custom CSS — rjdbcm <rjdbcm@outlook.com>
+([`6f7fdd1`](https://github.com/OZI-Project/TAP-Producer/commit/6f7fdd1ff91982da88761628c51e3cf51e571e36))
+
+* docs: override logo CSS — rjdbcm <rjdbcm@outlook.com>
+([`ab49782`](https://github.com/OZI-Project/TAP-Producer/commit/ab49782b95ab4a4847d8c6cba1201503f03a7821))
+
+* docs: update logo — rjdbcm <rjdbcm@outlook.com>
+([`533e0ef`](https://github.com/OZI-Project/TAP-Producer/commit/533e0ef5663b0c05eaaf4831e93b6ed12c0197b3))
+
+## 1.5.10 (2025-01-02)
+
+
+### Bug fixes
+
+
+* fix: sync tox workflow OZI.build version — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`bafa784`](https://github.com/OZI-Project/TAP-Producer/commit/bafa784d05d5788e1cc1a75c46e900f99feb9216))
+
+
+### Build system
+
+
+* build(deps): update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`e132257`](https://github.com/OZI-Project/TAP-Producer/commit/e132257118ad3c56bfbabf510e42564356a9355d))
+
 ## 1.5.9 (2024-12-23)
 
 
