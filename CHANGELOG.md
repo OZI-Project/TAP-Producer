@@ -1,4 +1,66 @@
 # TAP-Producer CHANGELOG
+## 1.5.14 (2025-03-22)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.5 to 1.6.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.5 to 1.6.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1.5.5...1.6.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`65bd392`](https://github.com/OZI-Project/TAP-Producer/commit/65bd392ddb9795c8624b13b9d36af2f25e0b2d17))
+
+* build(deps): bump OZI-Project/publish from 1.12.0 to 1.13.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.12.0 to 1.13.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.12.0...1.13.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f777f09`](https://github.com/OZI-Project/TAP-Producer/commit/f777f096d419e4e69d638bf610b3b9feb5e2d880))
+
+* build(deps): bump OZI-Project/release from 1.3.3 to 1.4.0
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.3.3 to 1.4.0.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.3.3...1.4.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`5a56a5e`](https://github.com/OZI-Project/TAP-Producer/commit/5a56a5ecb664b6cf95271bb67fa0fcc4dc39dab0))
+
+* build(deps): bump OZI-Project/draft from 1.12.0 to 1.13.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.12.0 to 1.13.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1.12.0...1.13.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bd9e6a4`](https://github.com/OZI-Project/TAP-Producer/commit/bd9e6a4bae5bf54e15f18ac5352e2f2b2c3fef1e))
+
 ## 1.5.13 (2025-02-22)
 
 
