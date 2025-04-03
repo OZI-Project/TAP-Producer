@@ -13,7 +13,7 @@ project(
         'python3',
         [
             '-c',
-            'from setuptools_scm import get_version;print(get_version(normalize=False))',
+            'from setuptools_scm import get_version;print(get_version(normalize=False, fallback_version="%OZIBUILDVERSION%"))',
         ],
         check: true,
     ).stdout().strip(),

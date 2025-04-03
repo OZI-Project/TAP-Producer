@@ -3,6 +3,7 @@ from types import TracebackType
 from typing import ClassVar
 from typing import ContextManager
 from typing import Counter
+from typing import Literal
 from typing import NoReturn
 
 from tap_producer.base import DEFAULT_TAP_VERSION
@@ -55,7 +56,7 @@ class TAP(_TestAnything, ContextDecorator):
         exc_type: type[BaseException] | None,
         exc_value: BaseException | None,
         traceback: TracebackType | None
-    ) -> bool | None:
+    ) -> Literal[False] | None:
         """Exit the TAP context and propagate exceptions."""
     @classmethod
     def version(cls, version: int = ...) -> type[_TestAnything]:
