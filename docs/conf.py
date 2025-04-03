@@ -3,10 +3,11 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 from importlib.metadata import version as _version
-import os
 
 project = 'TAP-Producer'
 copyright = '2024, Eden Ross Duff MSc'
@@ -54,9 +55,7 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
 if os.environ.get("READTHEDOCS", "") == "True":
     html_context["READTHEDOCS"] = True
 
-latex_elements = {
-    'fncychap': r'\usepackage[Sonny]{fncychap}'
-}
+latex_elements = {'fncychap': r'\usepackage[Sonny]{fncychap}'}
 latex_show_pagerefs = True
 latex_show_urls = 'inline'
 latex_logo = html_logo

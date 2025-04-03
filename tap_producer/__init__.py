@@ -10,6 +10,7 @@ from contextlib import ContextDecorator
 from threading import Lock
 from typing import TYPE_CHECKING
 from typing import ContextManager
+from typing import Literal
 from typing import NoReturn
 
 import yaml
@@ -90,7 +91,7 @@ class TAP(_TestAnything, ContextDecorator):
         exc_type: type[BaseException] | None,
         exc_value: BaseException | None,
         traceback: TracebackType | None,
-    ) -> bool | None:
+    ) -> Literal[False] | None:
         """Exit the TAP context and propagate exceptions."""
         with type(self).__lock:
             skip_count = type(self)._count[SKIP]
