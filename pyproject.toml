@@ -6,7 +6,7 @@ dependencies = [
 ]
 
 [build-system]
-requires = ['OZI.build[core,uv]~=1.13.0']
+requires = ['OZI.build[core,uv]~=2.0.5']
 build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
@@ -316,7 +316,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[core,uv]~=1.13.0
+     python -m uv pip install OZI.build[core,uv]~=2.0.5
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
