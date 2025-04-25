@@ -5,6 +5,7 @@ requires = ['OZI.build[core,pip,uv]~=2.0.5']
 build-backend = "ozi_build.buildapi"
 
 [project]
+name="TAP-Producer"
 description = 'Test Anything Protocol producer API for Python.'
 authors = [{name='Eden Ross Duff MSc', email='help@oziproject.dev'}]
 readme='README.rst'
@@ -31,7 +32,7 @@ dependencies = [
     'PyYAML~=6.0',
 ]
 
-[project.optional_dependencies] # also meson test suite names
+[project.optional-dependencies] # also meson test suite names
 # OZI Packaging Dependencies
 # continuous integration
 ci   = [
