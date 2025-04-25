@@ -12,6 +12,21 @@
 ### Build system
 
 
+* build(deps): bump OZI-Project/release from 1.6.3 to 1.6.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.6.3 to 1.6.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/1.6.3...1.6.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.6.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d828f9c`](https://github.com/OZI-Project/TAP-Producer/commit/d828f9c1499e1d16b81b6163197f21fae3d1735b))
+
 * build(deps): bump OZI-Project/checkpoint from 1.7.0 to 1.7.1
 
 Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.0 to 1.7.1.
