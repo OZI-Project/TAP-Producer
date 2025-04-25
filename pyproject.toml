@@ -1,31 +1,20 @@
 # Part of TAP-Producer.
 # See LICENSE.txt in the project root for details.
-[project]
-dependencies = [
-    'PyYAML~=6.0',
-]
-
 [build-system]
-requires = ['OZI.build[core,uv]~=1.13.0']
+requires = ['OZI.build[core,pip,uv]~=2.0.5']
 build-backend = "ozi_build.buildapi"
 
-[tool.ozi-build.metadata]
-summary = 'Test Anything Protocol producer API for Python.'
-home-page = 'https://rjdbcm.github.io/rjdbcm/'
-author = 'Eden Ross Duff MSc'
-author-email = 'help@oziproject.dev'
-description-file='README.rst'
-download-url = 'https://github.com/OZI-Project/TAP-Producer/archive/refs/tags/{version}.tar.gz'
-project-urls = [
-    'Documentation, https://tap-producer.readthedocs.io/en/latest/',
-    'Source, https://github.com/OZI-Project/TAP-Producer',
-]
-requires-python = '>=3.10, <3.14'
+[project]
+description = 'Test Anything Protocol producer API for Python.'
+authors = [{name='Eden Ross Duff MSc', email='help@oziproject.dev'}]
+readme='README.rst'
+requires-python = '>=3.9, <3.14'
 keywords = 'TAP'
 classifiers = [
     'License :: OSI Approved :: Apache Software License',
     'Development Status :: 5 - Production/Stable',
     'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
@@ -37,6 +26,9 @@ classifiers = [
     'Topic :: Software Development :: Testing',
     'Typing :: Typed',
     'Environment :: Console',
+]
+dependencies = [
+    'PyYAML~=6.0',
 ]
 
 [project.optional_dependencies] # also meson test suite names
@@ -89,6 +81,11 @@ test = [
     "pytest-tcpclient",
     "pytest-xdist",
 ]
+
+[project.urls]
+Homepage = "https://rjdbcm.github.io/rjdbcm/"
+Documentation = "https://tap-producer.readthedocs.io/en/latest/"
+Source = "https://github.com/OZI-Project/TAP-Producer"
 
 [tool.setuptools_scm]
 fallback_version = "@VCS_TAG@"
@@ -316,7 +313,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[core,uv]~=1.13.0
+     python -m uv pip install OZI.build[core,pip,uv]~=2.0.5
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
@@ -347,7 +344,6 @@ commands =
      pipx run --python {env_python} black -S .
      pipx run --python {env_python} isort .
      pipx run --python {env_python} autoflake -i -r .
-     pipx run --python {env_python} ruff check . --fix
 commands_post =
 
 [testenv:scm]
