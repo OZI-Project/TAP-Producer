@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.5.17 (2025-04-27)
+
+
+### Bug fixes
+
+
+* fix: remove requirements target — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`dceaaa3`](https://github.com/OZI-Project/TAP-Producer/commit/dceaaa3369dd02f9d3e48a94e43b8eb2305075a8))
+
 ## 1.5.16 (2025-04-25)
 
 
