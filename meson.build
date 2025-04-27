@@ -1,4 +1,4 @@
-# OZI 0.4 meson.build:root_files,root_children
+# OZI meson.build:root_files,root_children
 # Part of TAP-Producer.
 # See LICENSE.txt in the project root for details.
 # DO NOT EDIT BY HAND - This file was generated for use with OZI tools.
@@ -23,7 +23,6 @@ pymod = import('python')
 python_dependencies = get_option('python-dependencies')
 python = pymod.find_installation()
 project_name = meson.project_name()
-pip_compile = find_program('pip-compile', required: true)
 root_files = [
     'README',
     'CHANGELOG.md',
@@ -31,23 +30,6 @@ root_files = [
     'pyproject.toml',
     '.gitignore',
 ]
-custom_target(
-    'requirements-TAP-Producer',
-    input: root_files[3],
-    output: 'requirements.txt',
-    build_always_stale: true,
-    build_by_default: true,
-    command: [
-        'pip-compile',
-        '--allow-unsafe',
-        '--strip-extras',
-        '-q',
-        '--generate-hashes',
-        '-o',
-        '@OUTPUT@',
-        '@INPUT@'
-    ]
-)
 pyproject_config = configuration_data()
 pyproject_config.set(
     'PYTHON_VERSION_DIST',
