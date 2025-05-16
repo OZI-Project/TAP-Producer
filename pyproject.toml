@@ -317,7 +317,7 @@ commands_pre =
      python -m uv pip install OZI.build[core,pip,uv]>=2.0.5,<2.3.0
      pipx install --python=python meson
 commands =
-     meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
@@ -331,10 +331,6 @@ description = OZI format/lint checkpoint
 
 [testenv:test]
 description = OZI unit tests checkpoint
-commands =
-     meson setup {env_tmp_dir} -Dozi:ozi-blastpipe=disabled -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
-     meson compile -C {env_tmp_dir}
-     rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)

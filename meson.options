@@ -29,7 +29,6 @@ option(
     type: 'array',
     value: [
         'scm-version-snip', 
-        'core-metadata',
         'python',
         'metadata-version',
         'namespace',
