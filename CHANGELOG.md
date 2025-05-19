@@ -1,4 +1,43 @@
 # TAP-Producer CHANGELOG
+## 1.5.19 (2025-05-19)
+
+
+### Bug fixes
+
+
+* fix: delete .python-version — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`44d3f01`](https://github.com/OZI-Project/TAP-Producer/commit/44d3f014d54a26bb96d3acc65889fc012c343114))
+
+* fix: [StepSecurity] Apply security best practices — StepSecurity Bot <bot@stepsecurity.io>
+([`54736e5`](https://github.com/OZI-Project/TAP-Producer/commit/54736e5195818e8bd9dbf1ac0d7f93308fd3217d))
+
+
+### Build system
+
+
+* build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.1
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.1.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/62b2cac7ed8198b15735ed49ab1e5cf35480ba46...f49aabe0b5af0936a0987cfb85d86b75731b0186)
+
+
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-version: 2.4.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`dc2d91a`](https://github.com/OZI-Project/TAP-Producer/commit/dc2d91ad3170ffe7f127786589ef477d6679f33e))
+
+
+### Chores
+
+
+* chore: delete .github/workflows/purge-artifacts.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`e6c24da`](https://github.com/OZI-Project/TAP-Producer/commit/e6c24da008f1882769e47fdede888ba496887ec9))
+
 ## 1.5.18 (2025-05-16)
 
 
