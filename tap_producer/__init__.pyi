@@ -62,7 +62,7 @@ class TAP(_TestAnything, ContextDecorator):
     def version(cls, version: int = ...) -> type[_TestAnything]:
         """Set the TAP version to use, must be called first.
 
-        :param version: _description_, defaults to 12
+        :param version: TAP version setting, defaults to 12
         :type version: int, optional
         :return: a context decorator
         :rtype: TAP
