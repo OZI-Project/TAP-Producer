@@ -1,4 +1,13 @@
 # TAP-Producer CHANGELOG
+## 1.5.20 (2025-05-21)
+
+
+### Bug fixes
+
+
+* fix: correct docstring typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ca73e78`](https://github.com/OZI-Project/TAP-Producer/commit/ca73e78ab061eae81a20b749947aecf209d219ea))
+
 ## 1.5.19 (2025-05-19)
 
 
