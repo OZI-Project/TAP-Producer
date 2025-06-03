@@ -1,4 +1,86 @@
 # TAP-Producer CHANGELOG
+## 1.5.21 (2025-06-03)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/checkpoint from 1.7.3 to 1.7.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.3 to 1.7.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1b0b165711dca7c852f4c30fbebea96de3747617...301753e6853d6a65055c8df69dafe7df74bd7963)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`271a916`](https://github.com/OZI-Project/TAP-Producer/commit/271a9169c0daefa5e62ee24d706d0ce0d4b12ae6))
+
+* build(deps): bump ossf/scorecard-action from 2.4.1 to 2.4.2
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.2.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/f49aabe0b5af0936a0987cfb85d86b75731b0186...05b42c624433fc40578a4040d5cf5e36ddca8cde)
+
+
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-version: 2.4.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a3bffe4`](https://github.com/OZI-Project/TAP-Producer/commit/a3bffe49bdd9eb946a57db524a08b7c308b094f1))
+
+* build(deps): bump OZI-Project/release from 1.7.8 to 1.8.6
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.7.8 to 1.8.6.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0bd5001b3e0b5585643aa8f831a4d504126ad411...5e1eb0298421aa14d1b220e803e5275be82c658e)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.6
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bf197d1`](https://github.com/OZI-Project/TAP-Producer/commit/bf197d121854776143d1669a047f4dcca825bcc8))
+
+* build(deps): bump OZI-Project/draft from 1.13.4 to 1.14.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.4 to 1.14.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/84f054f0398fe815ac68f4243f6aafb9f5b85e4a...7e1768f29d803eb0bef9b632d02eba7c713a610a)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.14.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`dfee417`](https://github.com/OZI-Project/TAP-Producer/commit/dfee4174fc10b170194620121335ae20f162b787))
+
+* build(deps): bump OZI-Project/publish from 1.13.7 to 1.14.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.7 to 1.14.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/621f1f7d2691300b8a66b0aaa62a4853359daa89...bd68a453fe7f755f25c3585330dd3f85200c231a)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.14.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f17233b`](https://github.com/OZI-Project/TAP-Producer/commit/f17233bcaae5878301a6abdda8f1f879acb8d774))
+
 ## 1.5.20 (2025-05-21)
 
 
@@ -2037,11 +2119,6 @@ BREAKING CHANGE: version 1.0 — Eden Ross Duff, MSc <rjdbcm@outlook.com>
 * fix: print YAMLish diagnostics to stdout — rjdbcm <rjdbcm@outlook.com>
 ([`9ffa443`](https://github.com/OZI-Project/TAP-Producer/commit/9ffa44365af08fcbf909c127902f43fde2216d2e))
 
-* fix: Merge pull request #29 from OZI-Project/0.2
-
-Merge pull request #28 from OZI-Project/main
-([`7a8a484`](https://github.com/OZI-Project/TAP-Producer/commit/7a8a48405d983cfc34cc2c04f3da241a93011321))
-
 
 ### Build system
 
@@ -2197,11 +2274,6 @@ updated-dependencies:
 
 * perf: add ``threading.Lock()`` to static class — rjdbcm <rjdbcm@outlook.com>
 ([`055bce0`](https://github.com/OZI-Project/TAP-Producer/commit/055bce08b33e156ec4915acb7f580855b52e7dc4))
-
-* perf: Merge pull request #18 from OZI-Project/0.1
-
-0.1
-([`576bd92`](https://github.com/OZI-Project/TAP-Producer/commit/576bd928b40e62db95c928ff13ef711d4acc5635))
 
 
 ### Unknown
