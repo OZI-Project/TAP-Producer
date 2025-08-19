@@ -140,7 +140,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@4f9117750cd22709a929ed3f36578f172a94bd41 # 1.15.0
+      - uses: OZI-Project/draft@4f3dcb71f8251f1e8238eb011aa12dd6a9020d23 # 1.17.2
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
